@@ -81,7 +81,7 @@ const ScanTags: React.FC = () => {
   return (
     <>
       {tags.map((t, i) => {
-        const pt = project(f, 360 + i * 250, y, SCAN_Z);
+        const pt = project(f, 60 + i * 235, y, SCAN_Z);
         return (
           <div
             key={t}
