@@ -8,7 +8,7 @@ Times are film seconds; final placement follows the recorded read (`tools/mix_au
 |---|---|---|---|
 | S1 | 1.0 | This market doesn't trend. | `btc-perp · 4h · hyperliquid` · the price line |
 | | 3.2 | It whipsaws. | **Whipsaw.** |
-| | 5.0 | Ninety-one direction changes in a month. | **91** direction changes · 180 four-hour candles |
+| | 5.0 | Eighty-nine direction changes in a month. | **89** direction changes · 180 four-hour candles |
 | S2 | 8.4 | Five hundred and forty-two million dollars of longs, liquidated. | **$542M** longs liquidated |
 | | 12.4 | Six hundred and sixteen million of shorts. | **$616M** shorts liquidated · `binance btc perps · 30d · hyblock` |
 | S3 | 16.0 | Pick one side, and this market makes you pay. | LONG ✕ · SHORT ✕ |
@@ -32,7 +32,7 @@ Times are film seconds; final placement follows the recorded read (`tools/mix_au
 
 | Line | Source |
 |---|---|
-| 91 direction changes in a month | `03-quant-brief.md`: 91 flips in 180 Hyperliquid 4h candles, 30 d |
+| 89 direction changes in a month | `03-quant-brief.md`: 89 direction changes in the last 180 closed Hyperliquid 4h candles (30 d), flat candles ignored |
 | $542M longs / $616M shorts | `03-quant-brief.md`: Hyblock, Binance BTC perps, 2026-08-26 → 09-24 (venue labelled on screen) |
 | An intelligent agent, trading both sides for you | deploy.finance/superstar hero |
 | Every four hours … a fresh read … one decision | docs how-it-works: "Every four hours it takes a fresh read of current market data and makes one decision" |

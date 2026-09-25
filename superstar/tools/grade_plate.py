@@ -25,8 +25,9 @@ MAPS = {
     'light': {
         'blue': [(0.00, '#141842'), (0.12, '#1D2166'), (0.26, '#272C8C'), (0.42, '#3338B0'), (0.58, '#474DEF'),
                  (0.78, '#7E86F5'), (1.00, '#B8BEFF')],
-        'neutral': [(0.00, '#484855'), (0.25, '#8F8F9C'), (0.45, '#B2B2BF'), (0.60, '#D2D2DD'), (0.72, '#E9E9F2'),
-                    (0.80, '#F6F6FF'), (1.00, '#F6F6FF')],
+        # studio ground lands exactly on Gray 300 (#F6F6FF); contact shadows stay in the cool gray ramp
+        'neutral': [(0.00, '#484855'), (0.20, '#8F8F9C'), (0.34, '#B2B2BF'), (0.44, '#D2D2DD'), (0.52, '#E9E9F2'),
+                    (0.585, '#F6F6FF'), (1.00, '#F6F6FF')],
         'bg': '#F6F6FF',
     },
 }

@@ -14,11 +14,11 @@ export const SCENES: Record<SceneId, {from: number; to: number; ground: 'dark' |
   S02: {from: 480, to: 930, ground: 'dark', name: 'Whipsaw · 3D BTC candles + liquidations'},
   S03: {from: 930, to: 1320, ground: 'dark', name: 'Both sides wrecked · freeze · collapse'},
   S04: {from: 1320, to: 1560, ground: 'gray', name: 'Reveal · Superstar core'},
-  S05: {from: 1560, to: 2040, ground: 'blue', name: 'Every four hours · the loop'},
+  S05: {from: 1560, to: 2040, ground: 'gray', name: 'Every four hours · the loop'}, // Blue Glow panel painted in-scene (floods in, contracts out)
   S06: {from: 2040, to: 2520, ground: 'gray', name: '01 Read the last four hours'},
   S07: {from: 2520, to: 3000, ground: 'gray', name: '02 Build a picture · signal bus'},
   S08: {from: 3000, to: 3480, ground: 'gray', name: '03 Argue both sides → 04 Choose'},
-  S09: {from: 3480, to: 3930, ground: 'blue', name: '04 Choose · nothing is a valid move'},
+  S09: {from: 3480, to: 3930, ground: 'gray', name: '04 Choose · nothing is a valid move'}, // Blue Glow panel painted in-scene
   S10: {from: 3930, to: 4560, ground: 'gray', name: 'Risk first · three rules · trailing stop'},
   S11: {from: 4560, to: 5040, ground: 'gray', name: 'Proof · simulated backtest'},
   S12: {from: 5040, to: 5400, ground: 'blue', name: 'Where it runs · Hyperliquid · USDC'},

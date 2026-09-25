@@ -1,7 +1,7 @@
 import {ThreeCanvas} from '@remotion/three';
 import React, {useMemo} from 'react';
 import * as THREE from 'three';
-import {BLUE} from '../theme';
+import {BLUE, WHITE} from '../theme';
 
 // ------------------------------------------------------------------
 // The Superstar core: a stellated icosahedron (a pyramid spike on every face),
@@ -73,10 +73,16 @@ void main(){
 // Raw sRGB triplets (bypass three's linear colour management so ramp hexes land exactly).
 const col = (h: string) => new THREE.Vector3(parseInt(h.slice(1, 3), 16) / 255, parseInt(h.slice(3, 5), 16) / 255, parseInt(h.slice(5, 7), 16) / 255);
 
-export const StarMesh: React.FC<{rot: [number, number, number]; scale?: number; lift?: number; spike?: number; seams?: boolean}> = ({rot, scale = 1, lift = -0.14, spike = 0.75, seams = true}) => {
+// palettes: 'blue' (on light grounds) and 'light' (on Blue Glow ground: white/lavender facets)
+const PALETTES = {
+  blue: [BLUE[900], BLUE[800], BLUE[700], BLUE[600], BLUE[500], BLUE[400], BLUE[300]],
+  light: [BLUE[600], BLUE[400], BLUE[300], BLUE[200], BLUE[100], WHITE[100], WHITE[100]],
+};
+export const StarMesh: React.FC<{rot: [number, number, number]; scale?: number; lift?: number; spike?: number; seams?: boolean; mix?: number}> = ({rot, scale = 1, lift = -0.14, spike = 0.75, seams = true, mix = 0}) => {
   const geo = useMemo(() => starGeometry(1, spike), [spike]);
   const edges = useMemo(() => new THREE.EdgesGeometry(geo, 1), [geo]);
   const edgeMat = useMemo(() => new THREE.LineBasicMaterial({color: new THREE.Color().setRGB(0x14 / 255, 0x18 / 255, 0x42 / 255, THREE.SRGBColorSpace)}), []);
+  edgeMat.color.setRGB((0x14 + (0x3e - 0x14) * mix) / 255, (0x18 + (0x44 - 0x18) * mix) / 255, (0x42 + (0xd1 - 0x42) * mix) / 255, THREE.SRGBColorSpace);
   const mat = useMemo(
     () =>
       new THREE.ShaderMaterial({
@@ -92,6 +98,11 @@ export const StarMesh: React.FC<{rot: [number, number, number]; scale?: number; 
     [],
   );
   mat.uniforms.uLift.value = lift;
+  // palette blend (0 = blue, 1 = light) between ramp steps
+  (['r0', 'r1', 'r2', 'r3', 'r4', 'r5', 'r6'] as const).forEach((k, i) => {
+    const a = col(PALETTES.blue[i]), b = col(PALETTES.light[i]);
+    mat.uniforms[k].value.set(a.x + (b.x - a.x) * mix, a.y + (b.y - a.y) * mix, a.z + (b.z - a.z) * mix);
+  });
   return (
     <group rotation={rot} scale={scale}>
       <mesh geometry={geo} material={mat} />
@@ -110,7 +121,8 @@ export const Star3D: React.FC<{
   rot: [number, number, number];
   lift?: number;
   spike?: number;
-}> = ({width, height, x = 0, y = 0, size, rot, lift, spike}) => {
+  mix?: number;
+}> = ({width, height, x = 0, y = 0, size, rot, lift, spike, mix}) => {
   // Orthographic camera in pixel units, so placement is exact in 2D layout terms.
   return (
     <ThreeCanvas
@@ -122,7 +134,7 @@ export const Star3D: React.FC<{
       style={{position: 'absolute', inset: 0}}
     >
       <group position={[x, -y, 0]}>
-        <StarMesh rot={rot} scale={size / (2 * (1 + (spike ?? 0.75)))} lift={lift} spike={spike} />
+        <StarMesh rot={rot} scale={size / (2 * (1 + (spike ?? 0.75)))} lift={lift} spike={spike} mix={mix} />
       </group>
     </ThreeCanvas>
   );

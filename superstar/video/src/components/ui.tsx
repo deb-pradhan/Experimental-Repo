@@ -309,3 +309,73 @@ export const StepHeader: React.FC<{n: string; title: string; start: number; exit
     </div>
   );
 };
+
+// ------------------------------------------------------------------
+// ChoiceRow — the decision selector shared by S08 (end) and S09 (start).
+// Fixed geometry so the S08→S09 cut is a match cut: centred row, top = CHOICE_Y.
+//  on Gray:  inactive Gray 400 / Gray 900 text · active Blue Glow / white
+//  on Blue:  inactive Blue 600 / Blue 300 text · active White / Soft Black
+//  lock (0..1) on NO TRADE: Turquoise / black text (the scene's single accent)
+// ------------------------------------------------------------------
+export const CHOICE_Y = 900;
+export const CHOICES = ['LONG', 'SHORT', 'NO TRADE'] as const;
+
+export const ChoiceRow: React.FC<{
+  active: [number, number, number];
+  onBlue?: boolean;
+  lock?: number;
+  y?: number;
+  scale?: number;
+  style?: React.CSSProperties;
+}> = ({active, onBlue, lock = 0, y = CHOICE_Y, scale = 1, style}) => {
+  const size = 40;
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: y,
+        display: 'flex',
+        justifyContent: 'center',
+        gap: 24,
+        transform: `scale(${scale})`,
+        transformOrigin: '50% 50%',
+        ...style,
+      }}
+    >
+      {CHOICES.map((label, i) => {
+        const a = active[i];
+        const idleBg = onBlue ? BLUE[600] : GRAY[400];
+        const idleFg = onBlue ? BLUE[300] : GRAY[900];
+        const onBg = onBlue ? WHITE[100] : BLUE[500];
+        const onFg = onBlue ? '#131313' : WHITE[100];
+        let bg = mixHex(idleBg, onBg, a);
+        let fg = mixHex(idleFg, onFg, a);
+        if (i === 2 && lock > 0) {
+          bg = mixHex(onBlue ? WHITE[100] : BLUE[500], TURQ[500], lock);
+          fg = mixHex(onBlue ? '#131313' : WHITE[100], '#000000', lock);
+        }
+        return (
+          <div
+            key={label}
+            style={{
+              padding: `${size * 0.46}px ${size * 0.95}px`,
+              borderRadius: 999,
+              background: bg,
+              color: fg,
+              fontFamily: FONT.mono,
+              fontSize: size,
+              fontWeight: 500,
+              letterSpacing: '.14em',
+              whiteSpace: 'nowrap',
+              transform: `scale(${1 + 0.06 * Math.sin(Math.PI * Math.min(1, a))})`,
+            }}
+          >
+            {label}
+          </div>
+        );
+      })}
+    </div>
+  );
+};

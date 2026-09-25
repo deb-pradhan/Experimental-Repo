@@ -9,11 +9,16 @@ Outputs:
 import json
 
 SRC = 'audio/src/vo/vo_signal_a.mp3'
+# Pickup (same voice, read in context) for the opening three lines: the accurate count is 89.
+PICKUP = 'audio/src/vo/vo_pickup89_2.mp3'
+SOURCES = {SRC: 'audio/src/vo/vo_signal_a.words.json', PICKUP: 'audio/src/vo/vo_pickup89_2.words.json'}
+LINE_SRC = {'L01': PICKUP, 'L02': PICKUP, 'L03': PICKUP}
+LINE_GAIN_DB = {'L03': 2.5}  # level-match the pickup to the main take
 # (id, text, [(src_in, src_out), ...], film_start_s, tightened_gap_s or None)
 LINES = [
-    ('L01', "This market doesn't trend.", [(0.10, 1.49)], 1.00, None),
-    ('L02', 'It whipsaws.', [(2.48, 3.27)], 3.00, None),
-    ('L03', 'Ninety-one direction changes in a month.', [(4.19, 6.14)], 4.60, None),
+    ('L01', "This market doesn't trend.", [(0.12, 1.34)], 1.00, None),
+    ('L02', 'It whipsaws.', [(1.85, 2.69)], 3.00, None),
+    ('L03', 'Eighty-nine direction changes in a month.', [(3.17, 5.06)], 4.60, None),
     ('L04', 'Five hundred and forty-two million dollars of longs, liquidated.', [(7.10, 10.54)], 8.30, None),
     ('L05', 'Six hundred and sixteen million of shorts.', [(11.44, 13.50)], 12.20, None),
     ('L06', 'Pick one side, and this market makes you pay.', [(14.86, 15.71), (16.18, 17.47)], 15.80, None),
@@ -69,11 +74,13 @@ def override(pl, spec):
 
 
 if __name__ == '__main__':
-    words = json.load(open('audio/src/vo/vo_signal_a.words.json'))
+    WORDS = {k: json.load(open(v)) for k, v in SOURCES.items()}
     plan, vo = [], {'source': SRC, 'lines': []}
     for lid, text, segs, fs, gap in LINES:
+        src = LINE_SRC.get(lid, SRC)
+        words = WORDS[src]
         pl = place(segs, fs, gap)
-        plan.append({'id': lid, 'text': text, 'pieces': pl})
+        plan.append({'id': lid, 'text': text, 'src': src, 'gain_db': LINE_GAIN_DB.get(lid, 0.0), 'pieces': pl})
         # Assign each Whisper word to its nearest piece, then snap each piece's words so the first word
         # starts at the piece's measured energy onset (Whisper stamps run up to ~0.6 s early).
         groups = {k: [] for k in range(len(pl))}

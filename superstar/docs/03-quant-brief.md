@@ -15,7 +15,7 @@ Liquidations, OI, funding and positioning: Hyblock Capital MCP. Chart data: `dat
 | 30-day range | $74,903 – $87,471 (16.8% wide) | Hyperliquid 1d candles |
 | Realised vol, annualised | 7d 49.0% · 30d 42.5% · 90d 38.9% | daily log returns |
 | Days with a move > 5% (30 d) | 3 (Aug 19 +7.2%, Sep 18 +5.9%, Sep 21 +6.7%)* | computed |
-| 4h direction flips (30 d) | **91 of 180 candles** | Hyperliquid 4h candles |
+| 4h direction changes (30 d) | **89 in the last 180 closed candles** (flat candles ignored) | Hyperliquid 4h candles |
 | 4h closes crossing the 20-period mean (30 d) | 17 | computed |
 | **Long liquidations, 30 d** | **$541.6M** | Hyblock · Binance BTC perps, 2026-08-26 → 09-24 |
 | **Short liquidations, 30 d** | **$615.7M** | same |
@@ -33,7 +33,7 @@ Liquidations, OI, funding and positioning: Hyblock Capital MCP. Chart data: `dat
 
 A **violent, two-way range after a deep drawdown**. Bitcoin is a third below its high and nearly half above its low,
 boxed in a 17% range that it crosses in days, not weeks. Short-dated vol (49%) is running hotter than the 30-day (42.5%): it's expanding, not settling.
-The 4h tape is close to a coin flip (91 direction changes in 180 candles). Leverage is being flushed from **both** ends: $616M of shorts
+The 4h tape is close to a coin flip (89 direction changes in 180 closed candles). Leverage is being flushed from **both** ends: $616M of shorts
 and $542M of longs liquidated in 30 days on one venue alone, with shorts squeezed in the rallies (Aug 19, Sep 21) and longs flushed on the drops (Sep 15).
 Funding stayed positive almost the whole time: longs kept paying to stay crowded in a market that kept punishing them.
 
@@ -58,7 +58,7 @@ Both sides are right some of the time, and both lose the same billion dollars.
 1. **"$542 million of longs. $616 million of shorts. Liquidated in 30 days."** (Hyblock · Binance BTC perps, Aug 26 – Sep 24) ★
 2. **"Bitcoin: 34% below its high. 45% above its low."** (Hyperliquid) ★
 3. **"A 17% range in 30 days."** ($74.9k – $87.5k)
-4. **"91 direction changes in 180 four-hour candles."** ★ (the whipsaw, quantified)
+4. **"89 direction changes in 180 four-hour candles."** ★ (the whipsaw, quantified; closed candles, flat candles ignored)
 5. "$310 million of shorts wiped out in a single day." (Aug 19)
 6. "Funding positive 9 hours in 10: longs paying to stay wrong." (Hyperliquid, 20 d)
 7. "Short-term volatility at 49%, running above the monthly 42.5%."
@@ -68,7 +68,7 @@ Both sides are right some of the time, and both lose the same billion dollars.
 
 - **A (recommended):** "In the last thirty days, this market liquidated $542 million of longs. And $616 million of shorts."
 - B: "Bitcoin is a third below its high and half again above its low. Pick a side, and it punishes you."
-- C: "Ninety-one direction changes in a month. This market doesn't trend. It whipsaws."
+- C: "Eighty-nine direction changes in a month. This market doesn't trend. It whipsaws."
 
 ## Caveats
 

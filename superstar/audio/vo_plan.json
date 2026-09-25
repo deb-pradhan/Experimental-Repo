@@ -4,10 +4,12 @@
   {
    "id": "L01",
    "text": "This market doesn't trend.",
+   "src": "audio/src/vo/vo_pickup89_2.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
-     0.1,
-     1.49,
+     0.12,
+     1.34,
      1.0
     ]
    ]
@@ -15,21 +17,25 @@
   {
    "id": "L02",
    "text": "It whipsaws.",
+   "src": "audio/src/vo/vo_pickup89_2.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
-     2.48,
-     3.27,
+     1.85,
+     2.69,
      3.0
     ]
    ]
   },
   {
    "id": "L03",
-   "text": "Ninety-one direction changes in a month.",
+   "text": "Eighty-nine direction changes in a month.",
+   "src": "audio/src/vo/vo_pickup89_2.mp3",
+   "gain_db": 2.5,
    "pieces": [
     [
-     4.19,
-     6.14,
+     3.17,
+     5.06,
      4.6
     ]
    ]
@@ -37,6 +43,8 @@
   {
    "id": "L04",
    "text": "Five hundred and forty-two million dollars of longs, liquidated.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      7.1,
@@ -48,6 +56,8 @@
   {
    "id": "L05",
    "text": "Six hundred and sixteen million of shorts.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      11.44,
@@ -59,6 +69,8 @@
   {
    "id": "L06",
    "text": "Pick one side, and this market makes you pay.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      14.86,
@@ -75,6 +87,8 @@
   {
    "id": "L07",
    "text": "Unless you can trade both.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      18.19,
@@ -86,6 +100,8 @@
   {
    "id": "L08",
    "text": "Meet Superstar.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      20.76,
@@ -97,6 +113,8 @@
   {
    "id": "L09",
    "text": "An intelligent agent, trading both sides for you.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      22.58,
@@ -108,6 +126,8 @@
   {
    "id": "L10",
    "text": "Every four hours, it takes a fresh read of the market, and makes one decision.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      25.9,
@@ -129,6 +149,8 @@
   {
    "id": "L11",
    "text": "It reads the last four hours, hour by hour.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      31.7,
@@ -145,6 +167,8 @@
   {
    "id": "L12",
    "text": "Weighs eighteen market signals: leverage, liquidations, order flow, whales against retail.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      35.63,
@@ -156,6 +180,8 @@
   {
    "id": "L13",
    "text": "Argues the bull case, and the bear case, each with the exact level that proves it wrong.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      42.25,
@@ -172,6 +198,8 @@
   {
    "id": "L14",
    "text": "Then it chooses. Long. Short. Or nothing at all.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      48.15,
@@ -198,6 +226,8 @@
   {
    "id": "L15",
    "text": "In the backtest, it sat out 1,350 of 2,298 reviews.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      53.78,
@@ -214,6 +244,8 @@
   {
    "id": "L16",
    "text": "Risk comes first. The loss limit is set before entry, and never widened.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      62.05,
@@ -235,6 +267,8 @@
   {
    "id": "L17",
    "text": "Size follows the limit. The stop only moves to protect.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      67.96,
@@ -251,6 +285,8 @@
   {
    "id": "L18",
    "text": "Backtested as Bitcoin rose to one hundred and twenty-four thousand, and fell to sixty-three,",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      72.69,
@@ -262,6 +298,8 @@
   {
    "id": "L19",
    "text": "it finished positive through both halves.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      78.08,
@@ -273,6 +311,8 @@
   {
    "id": "L20",
    "text": "Spot, perps, and HIP-3, on Hyperliquid.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      80.91,
@@ -299,6 +339,8 @@
   {
    "id": "L21",
    "text": "USDC in. USDC out.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      85.22,
@@ -315,6 +357,8 @@
   {
    "id": "L22",
    "text": "Superstar. Now live on Deploy.",
+   "src": "audio/src/vo/vo_signal_a.mp3",
+   "gain_db": 0.0,
    "pieces": [
     [
      88.27,
