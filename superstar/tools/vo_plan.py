@@ -36,8 +36,8 @@ LINES = [
     ('L18', 'Backtested as Bitcoin rose to one hundred and twenty-four thousand, and fell to sixty-three,', [(72.69, 77.21)], 76.80, None),
     ('L19', 'it finished positive through both halves.', [(78.08, 79.82)], 81.60, None),
     ('L20', 'Spot, perps, and HIP-3, on Hyperliquid.', [(80.91, 81.26), (81.74, 82.09), (82.60, 83.33), (83.76, 84.54)], 84.20, None),
-    ('L21', 'USDC in. USDC out.', [(85.22, 86.13), (86.75, 87.77)], 88.00, None),
-    ('L22', 'Superstar. Now live on Deploy.', [(88.27, 88.89), (89.89, 90.25), (91.11, 91.98)], 91.00, 0.28),
+    # L21 'USDC in. USDC out.' cut in review (client note): its bar is cut from the score too
+    ('L22', 'Superstar. Now live on Deploy.', [(88.27, 88.89), (89.89, 90.25), (91.11, 91.98)], 89.00, 0.28),
 ]
 
 

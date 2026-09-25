@@ -1,6 +1,6 @@
 # 04 — Script (locked v1)
 
-Voice: calm, exact, disciplined. A systematic desk explaining its rules, not a hype read. ~175 words over 99 s,
+Voice: calm, exact, disciplined. A systematic desk explaining its rules, not a hype read. ~170 words over 97 s,
 leaving room for the score's breaths (the freeze at 20–22 s, the breakdown at 58–65 s).
 Times are film seconds; final placement follows the recorded read (`tools/mix_audio.py`).
 
@@ -25,8 +25,8 @@ Times are film seconds; final placement follows the recorded read (`tools/mix_au
 | | 70.8 | Size follows the limit. The stop only moves to protect. | 02 Size follows the limit · 03 Stops only move to protect |
 | S11 | 74.6 | Backtested as Bitcoin rose to one hundred and twenty-four thousand, and fell to sixty-three, | $104k → $124k → $63k (BTC, grey) |
 | | 80.0 | it finished positive through both halves. | **$271,465** · **+171.46%** · max drawdown 13.6% · Simulated backtest |
-| S12 | 84.4 | Spot, perps and HIP-3, on Hyperliquid. USDC in, USDC out. | Spot · Perps · HIP-3 · Hyperliquid · USDC · $10,000 USDC minimum |
-| S13 | 90.8 | Superstar. Now live on Deploy. | Deploy lockup · deploy.finance/superstar · disclaimer |
+| S12 | 84.4 | Spot, perps and HIP-3, on Hyperliquid. | Spot · Perps · HIP-3 · Hyperliquid |
+| S13 | 89.0 | Superstar. Now live on Deploy. | Deploy lockup · deploy.finance/superstar · disclaimer |
 
 ## Claim map (every line → source)
 
@@ -43,8 +43,8 @@ Times are film seconds; final placement follows the recorded read (`tools/mix_au
 | Sat out 1,350 of 2,298 reviews (in the backtest) | docs + landing; "Nothing is a valid move." landing |
 | Loss limit before entry, never widened; size follows the limit; stop only moves to protect | landing "Three rules that don't bend" |
 | BTC rose to ~$124k and fell to ~$63k; positive through both halves; $271,465; +171.46%; 13.6% max DD | docs overview backtest (simulated, labelled on screen) |
-| Spot, perps and HIP-3 on Hyperliquid; USDC in, USDC out | docs overview |
-| $10,000 USDC minimum | docs overview |
+| Spot, perps and HIP-3 on Hyperliquid | docs overview |
+| ~~$10,000 USDC minimum~~ (cut with the USDC beat in review) | docs overview |
 
 End card legal (from the landing page, verbatim): "Simulated backtest, not live customer trading. Fees, intra-window moves, partial fills
 and execution delay are not fully modeled, so live results can differ. Crypto derivatives can lose money quickly; nothing here is a promise of

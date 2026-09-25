@@ -21,15 +21,16 @@ export const SCENES: Record<SceneId, {from: number; to: number; ground: 'dark' |
   S09: {from: 3480, to: 3930, ground: 'gray', name: '04 Choose · nothing is a valid move'}, // Blue Glow panel painted in-scene
   S10: {from: 3930, to: 4560, ground: 'gray', name: 'Risk first · three rules · trailing stop'},
   S11: {from: 4560, to: 5040, ground: 'gray', name: 'Proof · simulated backtest'},
-  S12: {from: 5040, to: 5400, ground: 'blue', name: 'Where it runs · Hyperliquid · USDC'},
-  S13: {from: 5400, to: 5940, ground: 'white', name: 'End card · Deploy lockup'},
+  S12: {from: 5040, to: 5280, ground: 'blue', name: 'Where it runs · Hyperliquid'},
+  S13: {from: 5280, to: 5820, ground: 'white', name: 'End card · Deploy lockup'},
 };
 
-export const DURATION = 5940; // 99.0 s
+export const DURATION = 5820; // 97.0 s
 export const dur = (id: SceneId) => SCENES[id].to - SCENES[id].from;
 
-// Score: take A with a 4-bar repeat (src 41.98–49.98 s) inserted at src 49.98 s, delayed by 0.02 s.
-export const MUSIC = {delay: 0.02, repeatSrc: [41.98, 49.98], insertAt: 49.98} as const;
+// Score: take A with a 4-bar repeat (src 41.98–49.98 s) inserted at src 49.98 s, delayed by 0.02 s, and one bar
+// (src 79.98–81.98 s) cut so the final hit lands on the S12 → S13 cut at 88.0 s. The mix lives in tools/mix_audio.py.
+export const MUSIC = {delay: 0.02, repeatSrc: [41.98, 49.98], insertAt: 49.98, cutSrc: [79.98, 81.98]} as const;
 
 // Voiceover: lines + every word at its FILM time (seconds). Built by tools/vo_plan.py.
 import VO_JSON from './data/vo.json';

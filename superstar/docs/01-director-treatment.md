@@ -1,6 +1,6 @@
 # 01 — Director's treatment: Superstar launch film
 
-**Format** 1080 × 1920 (9:16), 60 fps, ~99 s · **Stack** Remotion (2D) + three.js / R3F (3D) + two Kling 3 Pro hero plates (graded to palette) · **Sound** ElevenLabs score, VO and SFX palette + tuned synth micro-SFX, ffmpeg mix.
+**Format** 1080 × 1920 (9:16), 60 fps, 97 s · **Stack** Remotion (2D) + three.js / R3F (3D) + two Kling 3 Pro hero plates (graded to palette) · **Sound** ElevenLabs score, VO and SFX palette + tuned synth micro-SFX, ffmpeg mix.
 
 ## The idea: both sides
 
@@ -44,8 +44,8 @@ into Deploy's own world: Gray and white surfaces, viewport cards, mono status he
 | S9 | 58–65 s | **breakdown** | 04 Choose: LONG / SHORT / NO TRADE cycles; lands on no trade; 2,298 dots, 1,350 go quiet. "Nothing is a valid move." | light | 3D dot field |
 | S10 | 65–74 s | rebuild | Risk first: three rules that don't bend; trailing stop ratchets up, never down | light | 2D |
 | S11 | 74–84 s | **peak** | Proof (simulated backtest): BTC path vs equity $100k → $271,465, +171.46%, max DD 13.6%, both sides profitable | light | 2D chart |
-| S12 | 84–90 s | peak | Where it runs: spot · perps · HIP-3 on Hyperliquid; USDC in, USDC out; $10,000 USDC minimum | light | 2D |
-| S13 | 90–99 s | final hit + tail | End card: Deploy mark extrudes in 3D then settles flat; wordmark builds glyph by glyph from the official SVG; disclaimer | light | 3D → 2D logo |
+| S12 | 84–88 s | peak | Where it runs: spot · perps · HIP-3 on Hyperliquid (the USDC beat was cut in review) | light | 2D |
+| S13 | 88–97 s | final hit + tail | End card: Deploy mark extrudes in 3D then settles flat; wordmark builds glyph by glyph from the official SVG; disclaimer | light | 3D → 2D logo |
 
 Music edit: take A is used as generated except one 8 s (4-bar) repeat of its groove (source 41.98–49.98 s) inserted at 49.98 s,
 which pushes the breakdown to film 58 s. The last big hit is designed in SFX (sub + logo sting) at 90 s.

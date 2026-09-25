@@ -2845,156 +2845,86 @@
  },
  {
   "scene": "S12",
-  "film": 5254,
-  "t": 87.567,
+  "film": 5245,
+  "t": 87.417,
   "kind": "ping",
   "note": "pulse 1 reaches the mark"
  },
  {
   "scene": "S12",
-  "film": 5260,
-  "t": 87.667,
+  "film": 5249,
+  "t": 87.483,
   "kind": "ping",
   "note": "pulse 2 reaches the mark"
  },
  {
   "scene": "S12",
-  "film": 5264,
-  "t": 87.733,
-  "kind": "whoosh",
-  "note": "page 1 lifts away"
- },
- {
-  "scene": "S12",
-  "film": 5266,
-  "t": 87.767,
+  "film": 5253,
+  "t": 87.55,
   "kind": "ping",
   "note": "pulse 3 reaches the mark"
  },
  {
   "scene": "S12",
-  "film": 5284,
-  "t": 88.067,
-  "kind": "swipe",
-  "note": "\"USDC in.\" rises"
- },
- {
-  "scene": "S12",
-  "film": 5286,
-  "t": 88.1,
-  "kind": "pop",
-  "note": "USDC coin appears"
- },
- {
-  "scene": "S12",
-  "film": 5302,
-  "t": 88.367,
-  "kind": "card_in",
-  "note": "wallet card rises"
- },
- {
-  "scene": "S12",
-  "film": 5302,
-  "t": 88.367,
+  "film": 5266,
+  "t": 87.767,
   "kind": "whoosh",
-  "note": "coin arcs down (short)"
- },
- {
-  "scene": "S12",
-  "film": 5312,
-  "t": 88.533,
-  "kind": "lock",
-  "note": "coin lands in the wallet slot · \"in\""
- },
- {
-  "scene": "S12",
-  "film": 5314,
-  "t": 88.567,
-  "kind": "shimmer",
-  "note": "coin flip settles"
- },
- {
-  "scene": "S12",
-  "film": 5372,
-  "t": 89.533,
-  "kind": "swipe",
-  "note": "\"USDC out.\" rises"
- },
- {
-  "scene": "S12",
-  "film": 5384,
-  "t": 89.733,
-  "kind": "whoosh",
-  "note": "coin lifts out and away"
- },
- {
-  "scene": "S12",
-  "film": 5392,
-  "t": 89.867,
-  "kind": "card_out",
-  "note": "wallet card whooshes off left"
- },
- {
-  "scene": "S12",
-  "film": 5398,
-  "t": 89.967,
-  "kind": "swipe",
-  "note": "last type clears → blue for the cut"
+  "note": "page lifts away → clean Blue Glow for the cut"
  },
  {
   "scene": "S13",
-  "film": 5400,
-  "t": 90,
+  "film": 5280,
+  "t": 88,
   "kind": "whoosh_reverse",
   "note": "mark flies in from depth, spinning"
  },
  {
   "scene": "S13",
-  "film": 5460,
-  "t": 91,
+  "film": 5340,
+  "t": 89,
   "kind": "impact_big",
   "note": "FINAL HIT — the mark lands face-on"
  },
  {
   "scene": "S13",
-  "film": 5460,
-  "t": 91,
+  "film": 5340,
+  "t": 89,
   "kind": "shimmer",
   "note": "\"Superstar\""
  },
  {
   "scene": "S13",
-  "film": 5462,
-  "t": 91.033,
+  "film": 5342,
+  "t": 89.033,
   "kind": "logo_sting",
   "note": "tonal shimmer + soft hit"
  },
  {
   "scene": "S13",
-  "film": 5480,
-  "t": 91.333,
+  "film": 5360,
+  "t": 89.333,
   "kind": "swipe",
   "note": "mark docks into the lockup"
  },
  {
   "scene": "S13",
-  "film": 5494,
-  "t": 91.567,
+  "film": 5374,
+  "t": 89.567,
   "kind": "type",
   "dur": 40,
   "note": "dur=40 wordmark glyphs rise (6 soft ticks)"
  },
  {
   "scene": "S13",
-  "film": 5528,
-  "t": 92.133,
+  "film": 5408,
+  "t": 90.133,
   "kind": "pop",
   "note": "NOW LIVE pill"
  },
  {
   "scene": "S13",
-  "film": 5577,
-  "t": 92.95,
+  "film": 5457,
+  "t": 90.95,
   "kind": "tick",
   "note": "url"
  }

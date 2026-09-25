@@ -21,7 +21,7 @@
 - 20 ms delay. A 4-bar repeat (src 41.98–49.98 s) is inserted at 49.98 s, so the drop falls at 58.0 s, between "Short." and "Or nothing at all."
 - **S03 freeze (20.23 s):** the score tape-stops (varispeed down over 0.62 s, top end dulling). Then comes silence with a heartbeat, a reverse swell that peaks as the chart collapses into a point, and the score's own swell back into the **22.0 s reveal impact**.
 - Section rides: +9 dB for Act I's sparse bed (0–20 s) and +6 dB for the 58 s breakdown, so both read under the voice.
-- The final hit falls on the S12 → S13 cut (90.0 s). The logo lands on the beat at 91.0 s, together with the narrator's "Superstar", and the score rings out to black at 99.0 s.
+- One bar (src 79.98–81.98 s) is cut with the removed "USDC in. USDC out." beat, so the final hit falls on the S12 → S13 cut (88.0 s). The logo lands on the beat at 89.0 s, together with the narrator's "Superstar", and the score rings out to black at 97.0 s.
 
 ## Mix and master
 

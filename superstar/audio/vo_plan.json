@@ -337,24 +337,6 @@
    ]
   },
   {
-   "id": "L21",
-   "text": "USDC in. USDC out.",
-   "src": "audio/src/vo/vo_signal_a.mp3",
-   "gain_db": 0.0,
-   "pieces": [
-    [
-     85.22,
-     86.13,
-     88.0
-    ],
-    [
-     86.75,
-     87.77,
-     89.53
-    ]
-   ]
-  },
-  {
    "id": "L22",
    "text": "Superstar. Now live on Deploy.",
    "src": "audio/src/vo/vo_signal_a.mp3",
@@ -363,17 +345,17 @@
     [
      88.27,
      88.89,
-     91.0
+     89.0
     ],
     [
      89.89,
      90.25,
-     91.9
+     89.9
     ],
     [
      91.11,
      91.98,
-     92.54
+     90.54
     ]
    ]
   }

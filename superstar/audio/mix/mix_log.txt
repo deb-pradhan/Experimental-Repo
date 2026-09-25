@@ -397,25 +397,15 @@
  87.050  S12  draw           dur=22 · rails converge down to the mark
  87.183  S12  pop            Hyperliquid mark lands
  87.217  S12  swipe          "on Hyperliquid" rises
- 87.567  S12  ping           pulse 1 reaches the mark
- 87.667  S12  ping           pulse 2 reaches the mark
- 87.733  S12  whoosh         page 1 lifts away
- 87.767  S12  ping           pulse 3 reaches the mark
- 88.067  S12  swipe          "USDC in." rises
- 88.100  S12  pop            USDC coin appears
- 88.367  S12  card_in        wallet card rises
- 88.367  S12  whoosh         coin arcs down (short)
- 88.533  S12  lock           coin lands in the wallet slot · "in"
- 88.567  S12  shimmer        coin flip settles
- 89.533  S12  swipe          "USDC out." rises
- 89.733  S12  whoosh         coin lifts out and away
- 89.867  S12  card_out       wallet card whooshes off left
- 89.967  S12  swipe          last type clears → blue for the cut
- 90.000  S13  whoosh_reverse mark flies in from depth, spinning
- 91.000  S13  impact_big     FINAL HIT — the mark lands face-on
- 91.000  S13  shimmer        "Superstar"
- 91.033  S13  logo_sting     tonal shimmer + soft hit
- 91.333  S13  swipe          mark docks into the lockup
- 91.567  S13  type           dur=40 wordmark glyphs rise (6 soft ticks)
- 92.133  S13  pop            NOW LIVE pill
- 92.950  S13  tick           url
+ 87.417  S12  ping           pulse 1 reaches the mark
+ 87.483  S12  ping           pulse 2 reaches the mark
+ 87.550  S12  ping           pulse 3 reaches the mark
+ 87.767  S12  whoosh         page lifts away → clean Blue Glow for the cut
+ 88.000  S13  whoosh_reverse mark flies in from depth, spinning
+ 89.000  S13  impact_big     FINAL HIT — the mark lands face-on
+ 89.000  S13  shimmer        "Superstar"
+ 89.033  S13  logo_sting     tonal shimmer + soft hit
+ 89.333  S13  swipe          mark docks into the lockup
+ 89.567  S13  type           dur=40 wordmark glyphs rise (6 soft ticks)
+ 90.133  S13  pop            NOW LIVE pill
+ 90.950  S13  tick           url

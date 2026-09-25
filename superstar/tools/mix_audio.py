@@ -1,9 +1,10 @@
 """Superstar launch film — final mix.
 
-Builds three stems on the film timeline (99.0 s @ 48 kHz stereo) and masters them:
+Builds three stems on the film timeline (97.0 s @ 48 kHz stereo) and masters them:
 
-  music  ElevenLabs score take A, edited to picture: 4-bar repeat inserted at 49.98 s, 20 ms delay,
-         tape-stop on the S03 freeze, silence, then the score's own swell back into the 22.0 s reveal.
+  music  ElevenLabs score take A, edited to picture: 4-bar repeat inserted at 49.98 s, one bar cut
+         before the final hit (so it lands on the S12 → S13 cut at 88.0 s), 20 ms delay, tape-stop on
+         the S03 freeze, silence, then the score's own swell back into the 22.0 s reveal.
   vo     narration pieces from audio/vo_plan.json, loudness-matched line by line.
   sfx    one designed sound per motion cue (audio/cues.json, exported from every scene's CUES), from
          a palette of tuned synth micro-sounds (tools/sfx_synth.py, C# centre) and hand-picked
@@ -33,7 +34,7 @@ from audio_analyze import FF  # noqa: E402
 
 SR = 48000
 FPS = 60
-DUR = 99.0
+DUR = 97.0
 N = int(DUR * SR)
 P = lambda *a: os.path.join(ROOT, *a)  # noqa: E731
 
@@ -141,7 +142,8 @@ def upsample_curve(curve, hop, n):
 
 # ─────────────────────────────────────────────────────────── the score
 
-MUSIC = dict(src='audio/src/music/music_take_a.mp3', delay=0.02, repeat=(41.98, 49.98), insert_at=49.98)
+# source segments, in film order: the 4-bar repeat, then one bar (79.98–81.98) cut before the final hit
+MUSIC = dict(src='audio/src/music/music_take_a.mp3', delay=0.02, segments=[(0.0, 49.98), (41.98, 49.98), (49.98, 79.98), (81.98, None)])
 MUSIC_RIDES = [(0.0, 20.2, 9.0), (58.0, 65.6, 6.0)]  # (from, to, dB)
 VO_OVER = 9.0   # dB the voice sits above the score
 SFX_BUS_DB = 4.0
@@ -149,8 +151,6 @@ SFX_BUS_DB = 4.0
 
 def build_music(cues):
     m = decode_st(P(MUSIC['src']))
-    a0, a1 = (int(v * SR) for v in MUSIC['repeat'])
-    ins = int(MUSIC['insert_at'] * SR)
     xf = int(0.008 * SR)
 
     def join(parts):
@@ -160,8 +160,9 @@ def build_music(cues):
             out = np.concatenate([out[:-xf], out[-xf:] * (1 - ramp) + p[:xf] * ramp, p[xf:]])
         return out
 
-    # the splice points sit on downbeats; the extra samples feed the 8 ms crossfades
-    y = join([m[: ins + xf], m[a0: a1 + xf], m[ins:]])
+    # every splice sits on a downbeat; each part runs 8 ms past its end to feed the crossfade
+    segs = MUSIC['segments']
+    y = join([m[int(a * SR): (int(b * SR) + xf if b is not None else None)] for a, b in segs])
     y = np.concatenate([np.zeros((int(MUSIC['delay'] * SR), 2)), y])
     y = np.pad(y, ((0, max(0, N - len(y))), (0, 0)))[:N]
 
@@ -601,9 +602,9 @@ def main():
     duck_m = db2a(upsample_curve(g_db, hop, N))[:, None]
     duck_s = db2a(upsample_curve(-2.0 * act, hop, N))[:, None]
     sfx *= db2a(SFX_BUS_DB)
-    # end: the score rings out under the lockup; everything fades to black by 99.0 s
+    # end: the score rings out under the lockup; everything fades to black by the last frame
     tail = np.ones(N)
-    f0, f1 = int(96.5 * SR), N
+    f0, f1 = int((DUR - 2.5) * SR), N
     tail[f0:f1] = np.linspace(1, 0, f1 - f0) ** 2
     mix = (music * duck_m + vo + sfx * duck_s) * tail[:, None]
 
