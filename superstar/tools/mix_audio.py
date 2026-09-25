@@ -507,7 +507,8 @@ def B_whoosh_reverse(c, k, ctx):
 def B_logo_sting(c, k, ctx):
     x, on, pk = el('logo_sting_b')
     sh, _, _ = el('shimmer_a')
-    return [(x, on + 2 / FPS, -11, 0.0), (sh, 2 / FPS, -26, 0.0)]
+    # the film's sonic signature returns: the same C#·G#·C# confirm chord as the star lock and NO TRADE
+    return [(x, on + 2 / FPS, -11, 0.0), (sh, 2 / FPS, -26, 0.0), (syn(S.lock_chord()), 2 / FPS, -17, 0.0)]
 
 
 BUILDERS = {k[2:]: v for k, v in globals().items() if k.startswith('B_')}

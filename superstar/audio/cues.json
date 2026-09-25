@@ -1929,7 +1929,7 @@
   "film": 2916,
   "t": 48.6,
   "kind": "swipe",
-  "note": "placeholder \"awaiting 18 inputs\" masks out"
+  "note": "waiting dots collapse"
  },
  {
   "scene": "S07",
@@ -1976,18 +1976,10 @@
  },
  {
   "scene": "S07",
-  "film": 2946,
-  "t": 49.1,
-  "kind": "type",
-  "dur": 21,
-  "note": "dur=21 · composite state readout"
- },
- {
-  "scene": "S07",
-  "film": 2958,
-  "t": 49.3,
+  "film": 2956,
+  "t": 49.267,
   "kind": "shimmer",
-  "note": "\"Long unwind\" resolves"
+  "note": "\"Long unwind\" rises in"
  },
  {
   "scene": "S07",
@@ -2026,10 +2018,10 @@
  },
  {
   "scene": "S08",
-  "film": 3039,
-  "t": 50.65,
+  "film": 3031,
+  "t": 50.517,
   "kind": "card_in",
-  "note": "BULL card drops in (\"bull\")"
+  "note": "BULL card drops in, word lands on \"bull\""
  },
  {
   "scene": "S08",
@@ -2040,10 +2032,10 @@
  },
  {
   "scene": "S08",
-  "film": 3095,
-  "t": 51.583,
+  "film": 3087,
+  "t": 51.45,
   "kind": "card_in",
-  "note": "BEAR card rises in (\"bear\")"
+  "note": "BEAR card rises in, word lands on \"bear\""
  },
  {
   "scene": "S08",
@@ -2315,6 +2307,13 @@
  },
  {
   "scene": "S10",
+  "film": 4156,
+  "t": 69.267,
+  "kind": "whoosh",
+  "note": "soft · chart pulls back (time + price zoom out) as the limit arrives"
+ },
+ {
+  "scene": "S10",
   "film": 4158,
   "t": 69.3,
   "kind": "lock",
@@ -2536,17 +2535,17 @@
  },
  {
   "scene": "S11",
-  "film": 4566,
-  "t": 76.1,
+  "film": 4570,
+  "t": 76.167,
   "kind": "ratchet",
-  "note": "last stop step (S10 chart, carried over)"
+  "note": "last stop step (S10 chart, carried over) · \"protect\""
  },
  {
   "scene": "S11",
-  "film": 4572,
-  "t": 76.2,
+  "film": 4576,
+  "t": 76.267,
   "kind": "lock",
-  "note": "\"protect\" · LOCKED IN latch"
+  "note": "LOCKED IN latch closes"
  },
  {
   "scene": "S11",
@@ -2575,8 +2574,8 @@
   "film": 4620,
   "t": 77,
   "kind": "draw",
-  "dur": 230,
-  "note": "dur=230 · BTC + equity lines draw month by month"
+  "dur": 224,
+  "note": "dur=224 · BTC + equity lines draw month by month"
  },
  {
   "scene": "S11",
@@ -2643,8 +2642,8 @@
  },
  {
   "scene": "S11",
-  "film": 4728,
-  "t": 78.8,
+  "film": 4727,
+  "t": 78.783,
   "kind": "blip",
   "note": "monthly bar 7 -18k"
  },
@@ -2657,57 +2656,57 @@
  },
  {
   "scene": "S11",
-  "film": 4745,
-  "t": 79.083,
+  "film": 4744,
+  "t": 79.067,
   "kind": "blip",
   "note": "monthly bar 8 -7.8k"
  },
  {
   "scene": "S11",
-  "film": 4763,
-  "t": 79.383,
+  "film": 4760,
+  "t": 79.333,
   "kind": "blip",
   "note": "monthly bar 9 +27.8k"
  },
  {
   "scene": "S11",
-  "film": 4780,
-  "t": 79.667,
+  "film": 4777,
+  "t": 79.617,
   "kind": "blip",
   "note": "monthly bar 10 +18k"
  },
  {
   "scene": "S11",
-  "film": 4797,
-  "t": 79.95,
+  "film": 4793,
+  "t": 79.883,
   "kind": "blip",
   "note": "monthly bar 11 +25k"
  },
  {
   "scene": "S11",
-  "film": 4815,
-  "t": 80.25,
+  "film": 4810,
+  "t": 80.167,
   "kind": "blip",
   "note": "monthly bar 12 -5k"
  },
  {
   "scene": "S11",
-  "film": 4833,
-  "t": 80.55,
+  "film": 4827,
+  "t": 80.45,
   "kind": "blip",
   "note": "monthly bar 13 +28k"
  },
  {
   "scene": "S11",
-  "film": 4854,
-  "t": 80.9,
+  "film": 4848,
+  "t": 80.8,
   "kind": "blip",
   "note": "monthly bar 14 +13.465k"
  },
  {
   "scene": "S11",
-  "film": 4854,
-  "t": 80.9,
+  "film": 4848,
+  "t": 80.8,
   "kind": "pop",
   "note": "$63k callout"
  },
@@ -2930,10 +2929,10 @@
  },
  {
   "scene": "S12",
-  "film": 5388,
-  "t": 89.8,
+  "film": 5392,
+  "t": 89.867,
   "kind": "card_out",
-  "note": "wallet card drops"
+  "note": "wallet card whooshes off left"
  },
  {
   "scene": "S12",
