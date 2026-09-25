@@ -1,22 +1,27 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
 import {ramp} from '../anim';
-import {A, C, CARD, EASE, FONT} from '../theme';
+import {BLUE, C, CARD, EASE, FONT, GRAY, TURQ, WHITE, mixHex} from '../theme';
 
 // ------------------------------------------------------------------
 // Deploy viewport card: white surface, 2px #E8E8F1 border, big radius,
 // soft shadow (never a glow), mono status header + mono footer.
 // ------------------------------------------------------------------
 
-export const PulseDot: React.FC<{size?: number; color?: string; period?: number; dark?: boolean}> = ({
+export const PulseDot: React.FC<{size?: number; period?: number; dark?: boolean; color?: string}> = ({
   size = 16,
-  color = C.accent,
   period = 144,
+  dark,
+  color = TURQ[500],
 }) => {
+  // Live dot: turquoise (the brand's kicker-pill dot). The ring steps through the
+  // turquoise ramp toward the ground colour instead of using an opacity tint.
   const f = useCurrentFrame();
-  const t = (f % period) / period; // 2.4s pulse at 60fps
-  const ring = t < 0.7 ? (t / 0.7) * size : size;
-  const a = t < 0.7 ? 0.5 * (1 - t / 0.7) : 0;
+  const t = (f % period) / period;
+  const k = Math.min(1, t / 0.7);
+  const ring = k * size * 0.9;
+  const ground = dark ? '#131313' : GRAY[300];
+  const ringCol = mixHex(TURQ[300], ground, k);
   return (
     <span
       style={{
@@ -25,7 +30,7 @@ export const PulseDot: React.FC<{size?: number; color?: string; period?: number;
         height: size,
         borderRadius: '50%',
         background: color,
-        boxShadow: `0 0 0 ${ring}px ${A(a)}`,
+        boxShadow: t < 0.7 ? `0 0 0 ${ring}px ${ringCol}` : 'none',
         flex: 'none',
       }}
     />
@@ -44,17 +49,17 @@ export const MonoHead: React.FC<{left: React.ReactNode; right?: React.ReactNode;
       alignItems: 'center',
       gap: 20,
       padding: '30px 40px',
-      borderBottom: `2px solid ${dark ? C.lineDark : C.border2}`,
+      borderBottom: `2px solid ${dark ? C.frost : C.hair}`,
       fontFamily: FONT.mono,
       fontSize: size,
-      color: dark ? C.t3 : C.t3,
+      color: dark ? C.onDarkMute : C.mute2,
       letterSpacing: '.02em',
       whiteSpace: 'nowrap',
     }}
   >
-    <PulseDot />
+    <PulseDot dark={dark} />
     <span>{left}</span>
-    {right ? <span style={{marginLeft: 'auto', color: dark ? C.t2 : C.faint}}>{right}</span> : null}
+    {right ? <span style={{marginLeft: 'auto', color: dark ? C.onDarkMute : C.mute3}}>{right}</span> : null}
   </div>
 );
 
@@ -66,10 +71,10 @@ export const MonoFoot: React.FC<{children: React.ReactNode; dark?: boolean}> = (
       gap: '14px 36px',
       justifyContent: 'center',
       padding: '28px 36px 34px',
-      borderTop: `2px solid ${dark ? C.lineDark : C.border2}`,
+      borderTop: `2px solid ${dark ? C.frost : C.hair}`,
       fontFamily: FONT.mono,
       fontSize: 22,
-      color: C.t3,
+      color: dark ? C.onDarkMute : C.mute2,
       letterSpacing: '.02em',
     }}
   >
@@ -86,8 +91,8 @@ export const Card: React.FC<{
     style={{
       position: 'relative',
       borderRadius: CARD.radius,
-      border: dark ? `2px solid ${C.lineDark}` : CARD.border,
-      background: dark ? C.panel : C.white,
+      border: dark ? `2px solid ${C.frost}` : CARD.border,
+      background: dark ? C.frost : C.card,
       overflow: 'hidden',
       boxShadow: dark ? 'none' : CARD.shadow,
       ...style,
@@ -100,7 +105,7 @@ export const Card: React.FC<{
 /** Small-caps mono micro-label. */
 export const Micro: React.FC<{children: React.ReactNode; color?: string; size?: number; style?: React.CSSProperties}> = ({
   children,
-  color = C.t3,
+  color = C.mute2,
   size = 22,
   style,
 }) => (
@@ -119,7 +124,7 @@ export const Micro: React.FC<{children: React.ReactNode; color?: string; size?: 
   </div>
 );
 
-/** Pill / chip (active = accent, inactive = grey). */
+/** Pill / chip: active = Blue Glow + white (approved pairing), inactive = Gray 400 + Gray 900. */
 export const Pill: React.FC<{active?: number; label: string; size?: number; dark?: boolean; style?: React.CSSProperties}> = ({
   active = 0,
   label,
@@ -127,14 +132,8 @@ export const Pill: React.FC<{active?: number; label: string; size?: number; dark
   dark,
   style,
 }) => {
-  const bgIdle = dark ? C.panel3 : C.surf2;
-  const mix = (a: string, b: string, t: number) => {
-    const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16);
-    const r = Math.round(((pa >> 16) & 255) * (1 - t) + ((pb >> 16) & 255) * t);
-    const g = Math.round(((pa >> 8) & 255) * (1 - t) + ((pb >> 8) & 255) * t);
-    const bl = Math.round((pa & 255) * (1 - t) + (pb & 255) * t);
-    return `rgb(${r},${g},${bl})`;
-  };
+  const bgIdle = dark ? '#1D2166' : GRAY[400];
+  const fgIdle = dark ? '#B8BEFF' : GRAY[900];
   return (
     <div
       style={{
@@ -143,8 +142,8 @@ export const Pill: React.FC<{active?: number; label: string; size?: number; dark
         justifyContent: 'center',
         padding: `${size * 0.42}px ${size * 0.9}px`,
         borderRadius: 999,
-        background: mix(bgIdle, C.accent, active),
-        color: mix(dark ? C.t2 : C.t3, C.white, active),
+        background: mixHex(bgIdle, BLUE[500], active),
+        color: mixHex(fgIdle, WHITE[100], active),
         fontFamily: FONT.mono,
         fontSize: size,
         letterSpacing: '.14em',
@@ -257,4 +256,56 @@ export const Reveal: React.FC<RevealProps> = ({
 export const useCount = (f: number, start: number, dur: number, from: number, to: number) => {
   const t = ramp(f, start, dur, EASE.soft);
   return from + (to - from) * t;
+};
+
+// ------------------------------------------------------------------
+// Step header used by the loop scenes (01–04): Season Serif numeral in
+// Blue Glow + Season Sans title, masked rise-in. Place at top: 250.
+// ------------------------------------------------------------------
+export const StepHeader: React.FC<{n: string; title: string; start: number; exit?: number; onBlue?: boolean; style?: React.CSSProperties}> = ({
+  n,
+  title,
+  start,
+  exit,
+  onBlue,
+  style,
+}) => {
+  const f = useCurrentFrame();
+  const p = ramp(f, start, 34, EASE.out);
+  const q = exit !== undefined ? ramp(f, exit, 20, EASE.in) : 0;
+  const line = ramp(f, start + 6, 40, EASE.sys);
+  return (
+    <div style={{position: 'absolute', left: 72, right: 72, top: 250, ...style}}>
+      <div style={{display: 'flex', alignItems: 'baseline', gap: 28, overflow: 'hidden', paddingBottom: 8}}>
+        <span
+          style={{
+            fontFamily: FONT.serif,
+            fontSize: 120,
+            lineHeight: 1,
+            color: onBlue ? WHITE[100] : BLUE[500],
+            transform: `translateY(${(1 - p) * 110 - q * 110}%)`,
+            display: 'inline-block',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          {n}
+        </span>
+        <span
+          style={{
+            fontFamily: FONT.sans,
+            fontWeight: 500,
+            fontSize: 58,
+            lineHeight: 1.05,
+            color: onBlue ? WHITE[100] : C.ink,
+            transform: `translateY(${(1 - ramp(f, start + 5, 34, EASE.out)) * 130 - q * 130}%)`,
+            display: 'inline-block',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          {title}
+        </span>
+      </div>
+      <div style={{height: 2, marginTop: 18, background: onBlue ? BLUE[300] : GRAY[600], transformOrigin: 'left', transform: `scaleX(${line * (1 - q)})`}} />
+    </div>
+  );
 };

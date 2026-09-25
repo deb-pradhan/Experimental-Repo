@@ -1,0 +1,337 @@
+{
+ "source": "audio/src/vo/vo_signal_a.mp3",
+ "lines": [
+  {
+   "id": "L01",
+   "text": "This market doesn't trend.",
+   "pieces": [
+    [
+     0.1,
+     1.49,
+     1.0
+    ]
+   ]
+  },
+  {
+   "id": "L02",
+   "text": "It whipsaws.",
+   "pieces": [
+    [
+     2.48,
+     3.27,
+     3.0
+    ]
+   ]
+  },
+  {
+   "id": "L03",
+   "text": "Ninety-one direction changes in a month.",
+   "pieces": [
+    [
+     4.19,
+     6.14,
+     4.6
+    ]
+   ]
+  },
+  {
+   "id": "L04",
+   "text": "Five hundred and forty-two million dollars of longs, liquidated.",
+   "pieces": [
+    [
+     7.1,
+     10.54,
+     8.3
+    ]
+   ]
+  },
+  {
+   "id": "L05",
+   "text": "Six hundred and sixteen million of shorts.",
+   "pieces": [
+    [
+     11.44,
+     13.5,
+     12.2
+    ]
+   ]
+  },
+  {
+   "id": "L06",
+   "text": "Pick one side, and this market makes you pay.",
+   "pieces": [
+    [
+     14.86,
+     15.71,
+     15.8
+    ],
+    [
+     16.18,
+     17.47,
+     17.12
+    ]
+   ]
+  },
+  {
+   "id": "L07",
+   "text": "Unless you can trade both.",
+   "pieces": [
+    [
+     18.19,
+     19.59,
+     18.8
+    ]
+   ]
+  },
+  {
+   "id": "L08",
+   "text": "Meet Superstar.",
+   "pieces": [
+    [
+     20.76,
+     21.65,
+     22.35
+    ]
+   ]
+  },
+  {
+   "id": "L09",
+   "text": "An intelligent agent, trading both sides for you.",
+   "pieces": [
+    [
+     22.58,
+     25.03,
+     23.55
+    ]
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "Every four hours, it takes a fresh read of the market, and makes one decision.",
+   "pieces": [
+    [
+     25.9,
+     26.68,
+     27.0
+    ],
+    [
+     27.12,
+     28.84,
+     28.22
+    ],
+    [
+     29.52,
+     30.62,
+     30.62
+    ]
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "It reads the last four hours, hour by hour.",
+   "pieces": [
+    [
+     31.7,
+     33.59,
+     34.4
+    ],
+    [
+     34.09,
+     34.78,
+     36.79
+    ]
+   ]
+  },
+  {
+   "id": "L12",
+   "text": "Weighs eighteen market signals: leverage, liquidations, order flow, whales against retail.",
+   "pieces": [
+    [
+     35.63,
+     41.63,
+     42.2
+    ]
+   ]
+  },
+  {
+   "id": "L13",
+   "text": "Argues the bull case, and the bear case, each with the exact level that proves it wrong.",
+   "pieces": [
+    [
+     42.25,
+     44.08,
+     50.2
+    ],
+    [
+     44.95,
+     47.11,
+     52.9
+    ]
+   ]
+  },
+  {
+   "id": "L14",
+   "text": "Then it chooses. Long. Short. Or nothing at all.",
+   "pieces": [
+    [
+     48.15,
+     49.45,
+     55.4
+    ],
+    [
+     49.94,
+     50.27,
+     57.19
+    ],
+    [
+     50.93,
+     51.26,
+     58.18
+    ],
+    [
+     51.82,
+     52.44,
+     59.07
+    ]
+   ]
+  },
+  {
+   "id": "L15",
+   "text": "In the backtest, it sat out 1,350 of 2,298 reviews.",
+   "pieces": [
+    [
+     53.78,
+     57.54,
+     60.2
+    ],
+    [
+     58.83,
+     61.49,
+     64.31
+    ]
+   ]
+  },
+  {
+   "id": "L16",
+   "text": "Risk comes first. The loss limit is set before entry, and never widened.",
+   "pieces": [
+    [
+     62.05,
+     63.25,
+     67.2
+    ],
+    [
+     63.75,
+     65.56,
+     68.9
+    ],
+    [
+     66.2,
+     67.14,
+     71.35
+    ]
+   ]
+  },
+  {
+   "id": "L17",
+   "text": "Size follows the limit. The stop only moves to protect.",
+   "pieces": [
+    [
+     67.96,
+     69.18,
+     72.6
+    ],
+    [
+     69.87,
+     71.8,
+     74.51
+    ]
+   ]
+  },
+  {
+   "id": "L18",
+   "text": "Backtested as Bitcoin rose to one hundred and twenty-four thousand, and fell to sixty-three,",
+   "pieces": [
+    [
+     72.69,
+     77.21,
+     76.8
+    ]
+   ]
+  },
+  {
+   "id": "L19",
+   "text": "it finished positive through both halves.",
+   "pieces": [
+    [
+     78.08,
+     79.82,
+     81.6
+    ]
+   ]
+  },
+  {
+   "id": "L20",
+   "text": "Spot, perps, and HIP-3, on Hyperliquid.",
+   "pieces": [
+    [
+     80.91,
+     81.26,
+     84.2
+    ],
+    [
+     81.74,
+     82.09,
+     85.03
+    ],
+    [
+     82.6,
+     83.33,
+     85.89
+    ],
+    [
+     83.76,
+     84.54,
+     87.05
+    ]
+   ]
+  },
+  {
+   "id": "L21",
+   "text": "USDC in. USDC out.",
+   "pieces": [
+    [
+     85.22,
+     86.13,
+     88.0
+    ],
+    [
+     86.75,
+     87.77,
+     89.53
+    ]
+   ]
+  },
+  {
+   "id": "L22",
+   "text": "Superstar. Now live on Deploy.",
+   "pieces": [
+    [
+     88.27,
+     88.89,
+     91.0
+    ],
+    [
+     89.89,
+     90.25,
+     91.9
+    ],
+    [
+     91.11,
+     91.98,
+     92.54
+    ]
+   ]
+  }
+ ]
+}

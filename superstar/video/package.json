@@ -18,6 +18,8 @@
     "@remotion/renderer": "4.0.529",
     "@remotion/shapes": "4.0.529",
     "@remotion/three": "4.0.529",
+    "@web3icons/core": "^4.0.56",
+    "cryptocurrency-icons": "^0.18.1",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "remotion": "4.0.529",

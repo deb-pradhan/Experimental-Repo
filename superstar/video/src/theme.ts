@@ -1,67 +1,54 @@
 import {Easing} from 'remotion';
 
 // ============================================================
-// Deploy design system tokens (deploy-diagrams / design-system.md).
+// Deploy colour system (docs/02-color-system.md, client-supplied).
 // The ONLY place colours, fonts and motion constants live.
-//  - One accent hue: indigo. Everything else is grey.
-//  - No gradient grounds, no decorative glows, no green/red.
-//  - Geist Mono = labels/UI/numbers, Season Serif
-//    = statement numerals + verdict words, Season Sans = body.
+//  - 60-30-10: ~60% Soft Black or White, ~30% Blue Glow, ~10% Turquoise/Gray.
+//  - Turquoise = one emphasised element per composition, never a surface.
+//  - No opacity tints of brand colours: ramp steps only. The single approved
+//    opacity is the rgba(255,255,255,0.1) frosted-glass card on dark.
+//  - No green/red for long/short: Blue Glow (active) vs Gray (inactive) + label.
+// Type: Season Sans (headlines/body), Season Serif (numerals, accent words),
+//       Geist Mono (status headers, labels, data).
 // ============================================================
 
-export const C = {
-  // accent (indigo) — the only chromatic colour
-  brand: '#474DEF', // strongest accent moment
-  accent: '#5B61E0', // cores, pulses, active strokes
-  muted: '#4B4FB0', // quieter accent fills
-  soft: '#8487D6', // secondary lines
-  light: '#A6ABFF', // highlights, small text on dark
-  lighter: '#C4C7FF',
-  deep: '#33367A', // verdict serif text on light
-  deep2: '#383C8A',
-  deep3: '#2A2C66',
-  // dark grounds + panels
-  bg: '#08080E',
-  bg2: '#0B0B14',
-  bg3: '#0D0D14',
-  panel: '#101019',
-  panel2: '#12121D',
-  panel3: '#171725',
-  // text on light
-  text: '#0B0B14', // ink
-  t1: '#4B4C66',
-  t2: '#6E6E84',
-  t3: '#8A8BA3',
-  t4: '#9A9AAB',
-  faint: '#B0B1C6',
-  faint2: '#B7B8C8',
-  // light surfaces + borders
-  white: '#FFFFFF',
-  surf: '#F6F6FB',
-  surf2: '#F1F1FA',
-  surf3: '#F7F7FC',
-  border: '#E8E8F1',
-  border2: '#ECECF4',
-  border3: '#E6E7F2',
-  // neutral marks (inactive)
-  grey: '#C6C7D4',
-  grey2: '#C7C8DE',
-  grey3: '#DBDCE6',
-  // hairlines on dark
-  lineDark: 'rgba(166,171,255,.14)',
-  lineDark2: 'rgba(255,255,255,.08)',
-} as const;
+export const BLACK = {100: '#F2F2F2', 200: '#D6D6D6', 300: '#B8B8B8', 400: '#8F8F8F', 500: '#131313', 600: '#101010', 700: '#0C0C0C', 800: '#080808', 900: '#040404', 1000: '#000000'} as const;
+export const BLUE = {100: '#EEF0FF', 200: '#D9DDFF', 300: '#B8BEFF', 400: '#7E86F5', 500: '#474DEF', 600: '#3E44D1', 700: '#3338B0', 800: '#272C8C', 900: '#1D2166', 1000: '#141842'} as const;
+export const WHITE = {100: '#FFFFFF', 200: '#FAFAFA', 300: '#F5F5F7', 400: '#EFEFF2', 500: '#FFFFFF', 600: '#E6E6EA', 700: '#CFCFD6', 800: '#B8B8C2', 900: '#9F9FA9', 1000: '#868692'} as const;
+export const GRAY = {100: '#FFFFFF', 200: '#FBFBFF', 300: '#F6F6FF', 400: '#E9E9F2', 500: '#F6F6FF', 600: '#D2D2DD', 700: '#B2B2BF', 800: '#8F8F9C', 900: '#6B6B78', 1000: '#484855'} as const;
+export const TURQ = {100: '#ECFFFF', 200: '#C8FFFF', 300: '#9AFFFF', 400: '#4EF2F2', 500: '#00E2E2', 600: '#00C6C6', 700: '#00A3A3', 800: '#007D7D', 900: '#005757', 1000: '#003333'} as const;
 
-// translucent accent helpers (sanctioned in the system)
-export const A = (alpha: number) => `rgba(91,97,224,${alpha})`; // accent
-export const AM = (alpha: number) => `rgba(75,79,176,${alpha})`; // accent muted
-export const AL = (alpha: number) => `rgba(166,171,255,${alpha})`; // accent light
-export const G = (alpha: number) => `rgba(138,139,163,${alpha})`; // grey t3
+export const C = {
+  // anchors
+  softBlack: BLACK[500], // primary dark surface / primary text on light
+  blue: BLUE[500], // Blue Glow — the brand carrier
+  white: WHITE[100],
+  gray: GRAY[300], // soft brand-tinted surface
+  turq: TURQ[500], // accent only
+  black: BLACK[1000],
+  // text on light
+  ink: BLACK[500],
+  mute: GRAY[900], // primary muted text
+  mute2: GRAY[800], // secondary text on gray
+  mute3: GRAY[700], // tertiary text
+  // surfaces + lines on light
+  card: WHITE[100], // card on gray section
+  cardGray: GRAY[400], // card on gray section (tinted)
+  line: GRAY[600], // border on gray section
+  hair: WHITE[600], // light hairline border on white
+  // text + lines on dark
+  onDark: WHITE[100],
+  onDarkMute: BLACK[400], // muted text on dark
+  onDarkMute2: BLACK[300],
+  frost: 'rgba(255,255,255,0.1)', // the one approved opacity: frosted-glass card / hairline on dark
+  // blue ramp shortcuts
+  b100: BLUE[100], b200: BLUE[200], b300: BLUE[300], b400: BLUE[400], b600: BLUE[600], b700: BLUE[700], b800: BLUE[800], b900: BLUE[900], b1000: BLUE[1000],
+} as const;
 
 export const FONT = {
   mono: '"Geist Mono", "Geistmono", ui-monospace, Menlo, monospace',
   serif: '"Season Serif", "Seasonserif", Georgia, serif',
-  sans: '"Season Sans", "Inter", system-ui, sans-serif',
+  sans: '"Season Sans", "Seasonsans", "Inter", system-ui, sans-serif',
 } as const;
 
 export const W = 1080;
@@ -71,11 +58,12 @@ export const FPS = 60;
 // Safe area for 9:16 platforms (keep critical content inside)
 export const SAFE = {top: 250, bottom: 1600, left: 72, right: 1008} as const;
 
-// Viewport card (the canonical Deploy surface), scaled ×2 for 1080-wide film
+// Viewport card (Deploy surface), scaled for a 1080-wide film.
+// Shadow is a soft neutral drop shadow (not a coloured glow).
 export const CARD = {
   radius: 44,
-  border: `2px solid ${C.border}`,
-  shadow: '0 80px 180px -120px rgba(70,70,130,.55)',
+  border: `2px solid ${GRAY[600]}`,
+  shadow: '0 60px 140px -90px rgba(19,19,19,.35)',
 } as const;
 
 // Music grid: 120 BPM → beat = 30 f, bar = 120 f @ 60 fps
@@ -83,10 +71,17 @@ export const BEAT = 30;
 export const BAR = 120;
 
 export const EASE = {
-  sys: Easing.bezier(0.3, 0.7, 0.2, 1), // the system curve cubic-bezier(.3,.7,.2,1)
+  sys: Easing.bezier(0.3, 0.7, 0.2, 1), // system curve cubic-bezier(.3,.7,.2,1)
   out: Easing.bezier(0.16, 1, 0.3, 1), // expo-out arrivals
   in: Easing.bezier(0.7, 0, 0.84, 0), // expo-in exits
   inOut: Easing.bezier(0.87, 0, 0.13, 1), // expo-in-out moves
   soft: Easing.bezier(0.33, 1, 0.68, 1), // cubic-out
   cubic: Easing.bezier(0.65, 0, 0.35, 1), // cubic-in-out
 } as const;
+
+/** Linear mix between two ramp hexes (for animated transitions between two approved steps). */
+export const mixHex = (a: string, b: string, t: number) => {
+  const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16);
+  const ch = (s: number) => Math.round(((pa >> s) & 255) * (1 - t) + ((pb >> s) & 255) * t);
+  return `rgb(${ch(16)},${ch(8)},${ch(0)})`;
+};
