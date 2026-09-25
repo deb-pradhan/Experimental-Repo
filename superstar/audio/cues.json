@@ -1,0 +1,3002 @@
+[
+ {
+  "scene": "S01",
+  "film": 0,
+  "t": 0,
+  "kind": "riser",
+  "dur": 240,
+  "note": "dur=240 low tension bed swell under the canyon"
+ },
+ {
+  "scene": "S01",
+  "film": 58,
+  "t": 0.967,
+  "kind": "blip",
+  "note": "status line + live dot"
+ },
+ {
+  "scene": "S01",
+  "film": 66,
+  "t": 1.1,
+  "kind": "draw",
+  "dur": 326,
+  "note": "dur=326 price line"
+ },
+ {
+  "scene": "S01",
+  "film": 93,
+  "t": 1.55,
+  "kind": "tick",
+  "note": "flip 1 up"
+ },
+ {
+  "scene": "S01",
+  "film": 116,
+  "t": 1.933,
+  "kind": "tick",
+  "note": "flip 2 down"
+ },
+ {
+  "scene": "S01",
+  "film": 121,
+  "t": 2.017,
+  "kind": "tick",
+  "note": "flip 3 up"
+ },
+ {
+  "scene": "S01",
+  "film": 126,
+  "t": 2.1,
+  "kind": "tick",
+  "note": "flip 4 down"
+ },
+ {
+  "scene": "S01",
+  "film": 143,
+  "t": 2.383,
+  "kind": "tick",
+  "note": "flip 5 up"
+ },
+ {
+  "scene": "S01",
+  "film": 146,
+  "t": 2.433,
+  "kind": "tick",
+  "note": "flip 6 down"
+ },
+ {
+  "scene": "S01",
+  "film": 149,
+  "t": 2.483,
+  "kind": "tick",
+  "note": "flip 7 up"
+ },
+ {
+  "scene": "S01",
+  "film": 151,
+  "t": 2.517,
+  "kind": "tick",
+  "note": "flip 8 down"
+ },
+ {
+  "scene": "S01",
+  "film": 154,
+  "t": 2.567,
+  "kind": "tick",
+  "note": "flip 9 up"
+ },
+ {
+  "scene": "S01",
+  "film": 160,
+  "t": 2.667,
+  "kind": "tick",
+  "note": "flip 10 down"
+ },
+ {
+  "scene": "S01",
+  "film": 164,
+  "t": 2.733,
+  "kind": "tick",
+  "note": "flip 11 up"
+ },
+ {
+  "scene": "S01",
+  "film": 169,
+  "t": 2.817,
+  "kind": "tick",
+  "note": "flip 12 down"
+ },
+ {
+  "scene": "S01",
+  "film": 171,
+  "t": 2.85,
+  "kind": "tick",
+  "note": "flip 13 up"
+ },
+ {
+  "scene": "S01",
+  "film": 178,
+  "t": 2.967,
+  "kind": "tick",
+  "note": "flip 14 down"
+ },
+ {
+  "scene": "S01",
+  "film": 180,
+  "t": 3,
+  "kind": "tick",
+  "note": "flip 15 up"
+ },
+ {
+  "scene": "S01",
+  "film": 181,
+  "t": 3.017,
+  "kind": "tick",
+  "note": "flip 16 down"
+ },
+ {
+  "scene": "S01",
+  "film": 186,
+  "t": 3.1,
+  "kind": "tick",
+  "note": "flip 17 up"
+ },
+ {
+  "scene": "S01",
+  "film": 187,
+  "t": 3.117,
+  "kind": "swipe",
+  "note": "\"It whipsaws.\" serif slam"
+ },
+ {
+  "scene": "S01",
+  "film": 188,
+  "t": 3.133,
+  "kind": "tick",
+  "note": "flip 18 down"
+ },
+ {
+  "scene": "S01",
+  "film": 191,
+  "t": 3.183,
+  "kind": "tick",
+  "note": "flip 19 up"
+ },
+ {
+  "scene": "S01",
+  "film": 195,
+  "t": 3.25,
+  "kind": "tick",
+  "note": "flip 20 down"
+ },
+ {
+  "scene": "S01",
+  "film": 196,
+  "t": 3.267,
+  "kind": "tick",
+  "note": "flip 21 up"
+ },
+ {
+  "scene": "S01",
+  "film": 199,
+  "t": 3.317,
+  "kind": "tick",
+  "note": "flip 22 down"
+ },
+ {
+  "scene": "S01",
+  "film": 201,
+  "t": 3.35,
+  "kind": "tick",
+  "note": "flip 23 up"
+ },
+ {
+  "scene": "S01",
+  "film": 202,
+  "t": 3.367,
+  "kind": "tick",
+  "note": "flip 24 down"
+ },
+ {
+  "scene": "S01",
+  "film": 203,
+  "t": 3.383,
+  "kind": "tick",
+  "note": "flip 25 up"
+ },
+ {
+  "scene": "S01",
+  "film": 204,
+  "t": 3.4,
+  "kind": "tick",
+  "note": "flip 26 down"
+ },
+ {
+  "scene": "S01",
+  "film": 206,
+  "t": 3.433,
+  "kind": "tick",
+  "note": "flip 27 up"
+ },
+ {
+  "scene": "S01",
+  "film": 206,
+  "t": 3.433,
+  "kind": "tick",
+  "note": "flip 28 down"
+ },
+ {
+  "scene": "S01",
+  "film": 207,
+  "t": 3.45,
+  "kind": "tick",
+  "note": "flip 29 up"
+ },
+ {
+  "scene": "S01",
+  "film": 208,
+  "t": 3.467,
+  "kind": "tick",
+  "note": "flip 30 down"
+ },
+ {
+  "scene": "S01",
+  "film": 209,
+  "t": 3.483,
+  "kind": "tick",
+  "note": "flip 31 up"
+ },
+ {
+  "scene": "S01",
+  "film": 210,
+  "t": 3.5,
+  "kind": "tick",
+  "note": "flip 32 down"
+ },
+ {
+  "scene": "S01",
+  "film": 211,
+  "t": 3.517,
+  "kind": "tick",
+  "note": "flip 33 up"
+ },
+ {
+  "scene": "S01",
+  "film": 212,
+  "t": 3.533,
+  "kind": "tick",
+  "note": "flip 34 down"
+ },
+ {
+  "scene": "S01",
+  "film": 212,
+  "t": 3.533,
+  "kind": "tick",
+  "note": "flip 35 up"
+ },
+ {
+  "scene": "S01",
+  "film": 214,
+  "t": 3.567,
+  "kind": "tick",
+  "note": "flip 36 down"
+ },
+ {
+  "scene": "S01",
+  "film": 215,
+  "t": 3.583,
+  "kind": "tick",
+  "note": "flip 37 up"
+ },
+ {
+  "scene": "S01",
+  "film": 216,
+  "t": 3.6,
+  "kind": "tick",
+  "note": "flip 38 down"
+ },
+ {
+  "scene": "S01",
+  "film": 217,
+  "t": 3.617,
+  "kind": "tick",
+  "note": "flip 39 up"
+ },
+ {
+  "scene": "S01",
+  "film": 217,
+  "t": 3.617,
+  "kind": "tick",
+  "note": "flip 40 down"
+ },
+ {
+  "scene": "S01",
+  "film": 220,
+  "t": 3.667,
+  "kind": "tick",
+  "note": "flip 41 up"
+ },
+ {
+  "scene": "S01",
+  "film": 221,
+  "t": 3.683,
+  "kind": "tick",
+  "note": "flip 42 down"
+ },
+ {
+  "scene": "S01",
+  "film": 221,
+  "t": 3.683,
+  "kind": "tick",
+  "note": "flip 43 up"
+ },
+ {
+  "scene": "S01",
+  "film": 224,
+  "t": 3.733,
+  "kind": "tick",
+  "note": "flip 44 down"
+ },
+ {
+  "scene": "S01",
+  "film": 225,
+  "t": 3.75,
+  "kind": "tick",
+  "note": "flip 45 up"
+ },
+ {
+  "scene": "S01",
+  "film": 227,
+  "t": 3.783,
+  "kind": "tick",
+  "note": "flip 46 down"
+ },
+ {
+  "scene": "S01",
+  "film": 230,
+  "t": 3.833,
+  "kind": "tick",
+  "note": "flip 47 up"
+ },
+ {
+  "scene": "S01",
+  "film": 231,
+  "t": 3.85,
+  "kind": "tick",
+  "note": "flip 48 down"
+ },
+ {
+  "scene": "S01",
+  "film": 232,
+  "t": 3.867,
+  "kind": "tick",
+  "note": "flip 49 up"
+ },
+ {
+  "scene": "S01",
+  "film": 232,
+  "t": 3.867,
+  "kind": "tick",
+  "note": "flip 50 down"
+ },
+ {
+  "scene": "S01",
+  "film": 234,
+  "t": 3.9,
+  "kind": "tick",
+  "note": "flip 51 up"
+ },
+ {
+  "scene": "S01",
+  "film": 236,
+  "t": 3.933,
+  "kind": "tick",
+  "note": "flip 52 down"
+ },
+ {
+  "scene": "S01",
+  "film": 237,
+  "t": 3.95,
+  "kind": "tick",
+  "note": "flip 53 up"
+ },
+ {
+  "scene": "S01",
+  "film": 238,
+  "t": 3.967,
+  "kind": "tick",
+  "note": "flip 54 down"
+ },
+ {
+  "scene": "S01",
+  "film": 240,
+  "t": 4,
+  "kind": "tick",
+  "note": "flip 55 up"
+ },
+ {
+  "scene": "S01",
+  "film": 241,
+  "t": 4.017,
+  "kind": "tick",
+  "note": "flip 56 down"
+ },
+ {
+  "scene": "S01",
+  "film": 242,
+  "t": 4.033,
+  "kind": "tick",
+  "note": "flip 57 up"
+ },
+ {
+  "scene": "S01",
+  "film": 243,
+  "t": 4.05,
+  "kind": "tick",
+  "note": "flip 58 down"
+ },
+ {
+  "scene": "S01",
+  "film": 244,
+  "t": 4.067,
+  "kind": "tick",
+  "note": "flip 59 up"
+ },
+ {
+  "scene": "S01",
+  "film": 245,
+  "t": 4.083,
+  "kind": "tick",
+  "note": "flip 60 down"
+ },
+ {
+  "scene": "S01",
+  "film": 247,
+  "t": 4.117,
+  "kind": "tick",
+  "note": "flip 61 up"
+ },
+ {
+  "scene": "S01",
+  "film": 248,
+  "t": 4.133,
+  "kind": "tick",
+  "note": "flip 62 down"
+ },
+ {
+  "scene": "S01",
+  "film": 250,
+  "t": 4.167,
+  "kind": "tick",
+  "note": "flip 63 up"
+ },
+ {
+  "scene": "S01",
+  "film": 251,
+  "t": 4.183,
+  "kind": "tick",
+  "note": "flip 64 down"
+ },
+ {
+  "scene": "S01",
+  "film": 252,
+  "t": 4.2,
+  "kind": "tick",
+  "note": "flip 65 up"
+ },
+ {
+  "scene": "S01",
+  "film": 253,
+  "t": 4.217,
+  "kind": "tick",
+  "note": "flip 66 down"
+ },
+ {
+  "scene": "S01",
+  "film": 253,
+  "t": 4.217,
+  "kind": "tick",
+  "note": "flip 67 up"
+ },
+ {
+  "scene": "S01",
+  "film": 259,
+  "t": 4.317,
+  "kind": "tick",
+  "note": "flip 68 down"
+ },
+ {
+  "scene": "S01",
+  "film": 260,
+  "t": 4.333,
+  "kind": "tick",
+  "note": "flip 69 up"
+ },
+ {
+  "scene": "S01",
+  "film": 265,
+  "t": 4.417,
+  "kind": "tick",
+  "note": "flip 70 down"
+ },
+ {
+  "scene": "S01",
+  "film": 266,
+  "t": 4.433,
+  "kind": "tick",
+  "note": "flip 71 up"
+ },
+ {
+  "scene": "S01",
+  "film": 267,
+  "t": 4.45,
+  "kind": "tick",
+  "note": "flip 72 down"
+ },
+ {
+  "scene": "S01",
+  "film": 268,
+  "t": 4.467,
+  "kind": "tick",
+  "note": "flip 73 up"
+ },
+ {
+  "scene": "S01",
+  "film": 271,
+  "t": 4.517,
+  "kind": "tick",
+  "note": "flip 74 down"
+ },
+ {
+  "scene": "S01",
+  "film": 275,
+  "t": 4.583,
+  "kind": "tick",
+  "note": "flip 75 up"
+ },
+ {
+  "scene": "S01",
+  "film": 280,
+  "t": 4.667,
+  "kind": "impact_soft",
+  "note": "hero 89 numeral grows"
+ },
+ {
+  "scene": "S01",
+  "film": 290,
+  "t": 4.833,
+  "kind": "tick",
+  "note": "flip 76 down"
+ },
+ {
+  "scene": "S01",
+  "film": 293,
+  "t": 4.883,
+  "kind": "tick",
+  "note": "flip 77 up"
+ },
+ {
+  "scene": "S01",
+  "film": 297,
+  "t": 4.95,
+  "kind": "tick",
+  "note": "flip 78 down"
+ },
+ {
+  "scene": "S01",
+  "film": 299,
+  "t": 4.983,
+  "kind": "tick",
+  "note": "flip 79 up"
+ },
+ {
+  "scene": "S01",
+  "film": 303,
+  "t": 5.05,
+  "kind": "tick",
+  "note": "flip 80 down"
+ },
+ {
+  "scene": "S01",
+  "film": 310,
+  "t": 5.167,
+  "kind": "tick",
+  "note": "flip 81 up"
+ },
+ {
+  "scene": "S01",
+  "film": 313,
+  "t": 5.217,
+  "kind": "tick",
+  "note": "flip 82 down"
+ },
+ {
+  "scene": "S01",
+  "film": 319,
+  "t": 5.317,
+  "kind": "tick",
+  "note": "flip 83 up"
+ },
+ {
+  "scene": "S01",
+  "film": 322,
+  "t": 5.367,
+  "kind": "tick",
+  "note": "flip 84 down"
+ },
+ {
+  "scene": "S01",
+  "film": 325,
+  "t": 5.417,
+  "kind": "tick",
+  "note": "flip 85 up"
+ },
+ {
+  "scene": "S01",
+  "film": 329,
+  "t": 5.483,
+  "kind": "tick",
+  "note": "flip 86 down"
+ },
+ {
+  "scene": "S01",
+  "film": 349,
+  "t": 5.817,
+  "kind": "tick",
+  "note": "flip 87 up"
+ },
+ {
+  "scene": "S01",
+  "film": 356,
+  "t": 5.933,
+  "kind": "tick",
+  "note": "flip 88 down"
+ },
+ {
+  "scene": "S01",
+  "film": 366,
+  "t": 6.1,
+  "kind": "tick",
+  "note": "flip 89 up"
+ },
+ {
+  "scene": "S01",
+  "film": 462,
+  "t": 7.7,
+  "kind": "whoosh",
+  "note": "push into the canyon → S02"
+ },
+ {
+  "scene": "S02",
+  "film": 482,
+  "t": 8.033,
+  "kind": "whoosh",
+  "note": "dive into the 3D candle row (from S01 push-in)"
+ },
+ {
+  "scene": "S02",
+  "film": 500,
+  "t": 8.333,
+  "kind": "shimmer",
+  "note": "candles rise in along the row"
+ },
+ {
+  "scene": "S02",
+  "film": 504,
+  "t": 8.4,
+  "kind": "tick_train",
+  "dur": 150,
+  "note": "dur=150 longs counter"
+ },
+ {
+  "scene": "S02",
+  "film": 506,
+  "t": 8.433,
+  "kind": "impact_soft",
+  "note": "$542M appears"
+ },
+ {
+  "scene": "S02",
+  "film": 522,
+  "t": 8.7,
+  "kind": "crackle",
+  "note": "long liq day 0 $9M"
+ },
+ {
+  "scene": "S02",
+  "film": 527,
+  "t": 8.783,
+  "kind": "crackle",
+  "note": "long liq day 1 $13M"
+ },
+ {
+  "scene": "S02",
+  "film": 531,
+  "t": 8.85,
+  "kind": "crackle_big",
+  "note": "long liq day 2 $53M"
+ },
+ {
+  "scene": "S02",
+  "film": 535,
+  "t": 8.917,
+  "kind": "crackle",
+  "note": "long liq day 3 $1M"
+ },
+ {
+  "scene": "S02",
+  "film": 539,
+  "t": 8.983,
+  "kind": "crackle",
+  "note": "long liq day 4 $18M"
+ },
+ {
+  "scene": "S02",
+  "film": 543,
+  "t": 9.05,
+  "kind": "crackle",
+  "note": "long liq day 5 $6M"
+ },
+ {
+  "scene": "S02",
+  "film": 548,
+  "t": 9.133,
+  "kind": "crackle",
+  "note": "long liq day 6 $28M"
+ },
+ {
+  "scene": "S02",
+  "film": 552,
+  "t": 9.2,
+  "kind": "crackle",
+  "note": "long liq day 7 $10M"
+ },
+ {
+  "scene": "S02",
+  "film": 556,
+  "t": 9.267,
+  "kind": "crackle",
+  "note": "long liq day 8 $6M"
+ },
+ {
+  "scene": "S02",
+  "film": 560,
+  "t": 9.333,
+  "kind": "crackle_big",
+  "note": "long liq day 9 $47M"
+ },
+ {
+  "scene": "S02",
+  "film": 564,
+  "t": 9.4,
+  "kind": "crackle",
+  "note": "long liq day 10 $1M"
+ },
+ {
+  "scene": "S02",
+  "film": 569,
+  "t": 9.483,
+  "kind": "crackle",
+  "note": "long liq day 11 $5M"
+ },
+ {
+  "scene": "S02",
+  "film": 573,
+  "t": 9.55,
+  "kind": "crackle",
+  "note": "long liq day 12 $10M"
+ },
+ {
+  "scene": "S02",
+  "film": 577,
+  "t": 9.617,
+  "kind": "crackle",
+  "note": "long liq day 13 $19M"
+ },
+ {
+  "scene": "S02",
+  "film": 581,
+  "t": 9.683,
+  "kind": "crackle",
+  "note": "long liq day 14 $20M"
+ },
+ {
+  "scene": "S02",
+  "film": 585,
+  "t": 9.75,
+  "kind": "crackle_big",
+  "note": "long liq day 15 $37M"
+ },
+ {
+  "scene": "S02",
+  "film": 590,
+  "t": 9.833,
+  "kind": "crackle",
+  "note": "long liq day 16 $27M"
+ },
+ {
+  "scene": "S02",
+  "film": 594,
+  "t": 9.9,
+  "kind": "crackle",
+  "note": "long liq day 17 $1M"
+ },
+ {
+  "scene": "S02",
+  "film": 598,
+  "t": 9.967,
+  "kind": "crackle",
+  "note": "long liq day 18 $14M"
+ },
+ {
+  "scene": "S02",
+  "film": 602,
+  "t": 10.033,
+  "kind": "crackle",
+  "note": "long liq day 19 $8M"
+ },
+ {
+  "scene": "S02",
+  "film": 606,
+  "t": 10.1,
+  "kind": "crackle_big",
+  "note": "long liq day 20 $86M"
+ },
+ {
+  "scene": "S02",
+  "film": 611,
+  "t": 10.183,
+  "kind": "crackle",
+  "note": "long liq day 21 $12M"
+ },
+ {
+  "scene": "S02",
+  "film": 615,
+  "t": 10.25,
+  "kind": "crackle",
+  "note": "long liq day 22 $5M"
+ },
+ {
+  "scene": "S02",
+  "film": 619,
+  "t": 10.317,
+  "kind": "crackle",
+  "note": "long liq day 23 $5M"
+ },
+ {
+  "scene": "S02",
+  "film": 623,
+  "t": 10.383,
+  "kind": "crackle",
+  "note": "long liq day 24 $5M"
+ },
+ {
+  "scene": "S02",
+  "film": 627,
+  "t": 10.45,
+  "kind": "crackle",
+  "note": "long liq day 25 $13M"
+ },
+ {
+  "scene": "S02",
+  "film": 632,
+  "t": 10.533,
+  "kind": "crackle",
+  "note": "long liq day 26 $8M"
+ },
+ {
+  "scene": "S02",
+  "film": 636,
+  "t": 10.6,
+  "kind": "crackle",
+  "note": "long liq day 27 $15M"
+ },
+ {
+  "scene": "S02",
+  "film": 640,
+  "t": 10.667,
+  "kind": "crackle_big",
+  "note": "long liq day 28 $36M"
+ },
+ {
+  "scene": "S02",
+  "film": 644,
+  "t": 10.733,
+  "kind": "crackle",
+  "note": "long liq day 29 $22M"
+ },
+ {
+  "scene": "S02",
+  "film": 733,
+  "t": 12.217,
+  "kind": "tick_train",
+  "dur": 118,
+  "note": "dur=118 shorts counter"
+ },
+ {
+  "scene": "S02",
+  "film": 735,
+  "t": 12.25,
+  "kind": "impact_soft",
+  "note": "$616M appears"
+ },
+ {
+  "scene": "S02",
+  "film": 749,
+  "t": 12.483,
+  "kind": "crackle",
+  "note": "short liq day 0 $10M"
+ },
+ {
+  "scene": "S02",
+  "film": 753,
+  "t": 12.55,
+  "kind": "crackle",
+  "note": "short liq day 1 $24M"
+ },
+ {
+  "scene": "S02",
+  "film": 756,
+  "t": 12.6,
+  "kind": "crackle",
+  "note": "short liq day 2 $14M"
+ },
+ {
+  "scene": "S02",
+  "film": 760,
+  "t": 12.667,
+  "kind": "crackle",
+  "note": "short liq day 3 $3M"
+ },
+ {
+  "scene": "S02",
+  "film": 763,
+  "t": 12.717,
+  "kind": "crackle",
+  "note": "short liq day 4 $8M"
+ },
+ {
+  "scene": "S02",
+  "film": 766,
+  "t": 12.767,
+  "kind": "crackle",
+  "note": "short liq day 5 $15M"
+ },
+ {
+  "scene": "S02",
+  "film": 770,
+  "t": 12.833,
+  "kind": "crackle",
+  "note": "short liq day 6 $6M"
+ },
+ {
+  "scene": "S02",
+  "film": 773,
+  "t": 12.883,
+  "kind": "crackle",
+  "note": "short liq day 7 $9M"
+ },
+ {
+  "scene": "S02",
+  "film": 777,
+  "t": 12.95,
+  "kind": "crackle_big",
+  "note": "short liq day 8 $95M"
+ },
+ {
+  "scene": "S02",
+  "film": 780,
+  "t": 13,
+  "kind": "crackle",
+  "note": "short liq day 9 $8M"
+ },
+ {
+  "scene": "S02",
+  "film": 783,
+  "t": 13.05,
+  "kind": "crackle",
+  "note": "short liq day 10 $2M"
+ },
+ {
+  "scene": "S02",
+  "film": 787,
+  "t": 13.117,
+  "kind": "crackle",
+  "note": "short liq day 11 $11M"
+ },
+ {
+  "scene": "S02",
+  "film": 790,
+  "t": 13.167,
+  "kind": "crackle",
+  "note": "short liq day 12 $2M"
+ },
+ {
+  "scene": "S02",
+  "film": 794,
+  "t": 13.233,
+  "kind": "crackle",
+  "note": "short liq day 13 $5M"
+ },
+ {
+  "scene": "S02",
+  "film": 797,
+  "t": 13.283,
+  "kind": "crackle",
+  "note": "short liq day 14 $11M"
+ },
+ {
+  "scene": "S02",
+  "film": 800,
+  "t": 13.333,
+  "kind": "crackle",
+  "note": "short liq day 15 $4M"
+ },
+ {
+  "scene": "S02",
+  "film": 804,
+  "t": 13.4,
+  "kind": "crackle_big",
+  "note": "short liq day 16 $33M"
+ },
+ {
+  "scene": "S02",
+  "film": 807,
+  "t": 13.45,
+  "kind": "crackle",
+  "note": "short liq day 17 $0M"
+ },
+ {
+  "scene": "S02",
+  "film": 811,
+  "t": 13.517,
+  "kind": "crackle",
+  "note": "short liq day 18 $3M"
+ },
+ {
+  "scene": "S02",
+  "film": 814,
+  "t": 13.567,
+  "kind": "crackle",
+  "note": "short liq day 19 $25M"
+ },
+ {
+  "scene": "S02",
+  "film": 817,
+  "t": 13.617,
+  "kind": "crackle",
+  "note": "short liq day 20 $11M"
+ },
+ {
+  "scene": "S02",
+  "film": 821,
+  "t": 13.683,
+  "kind": "crackle",
+  "note": "short liq day 21 $11M"
+ },
+ {
+  "scene": "S02",
+  "film": 824,
+  "t": 13.733,
+  "kind": "crackle",
+  "note": "short liq day 22 $10M"
+ },
+ {
+  "scene": "S02",
+  "film": 826,
+  "t": 13.767,
+  "kind": "whoosh",
+  "note": "camera rises and pulls back"
+ },
+ {
+  "scene": "S02",
+  "film": 828,
+  "t": 13.8,
+  "kind": "crackle_big",
+  "note": "short liq day 23 $77M"
+ },
+ {
+  "scene": "S02",
+  "film": 831,
+  "t": 13.85,
+  "kind": "crackle",
+  "note": "short liq day 24 $10M"
+ },
+ {
+  "scene": "S02",
+  "film": 834,
+  "t": 13.9,
+  "kind": "crackle",
+  "note": "short liq day 25 $7M"
+ },
+ {
+  "scene": "S02",
+  "film": 838,
+  "t": 13.967,
+  "kind": "crackle_big",
+  "note": "short liq day 26 $163M"
+ },
+ {
+  "scene": "S02",
+  "film": 841,
+  "t": 14.017,
+  "kind": "crackle",
+  "note": "short liq day 27 $15M"
+ },
+ {
+  "scene": "S02",
+  "film": 845,
+  "t": 14.083,
+  "kind": "crackle",
+  "note": "short liq day 28 $9M"
+ },
+ {
+  "scene": "S02",
+  "film": 848,
+  "t": 14.133,
+  "kind": "crackle",
+  "note": "short liq day 29 $15M"
+ },
+ {
+  "scene": "S03",
+  "film": 936,
+  "t": 15.6,
+  "kind": "draw",
+  "dur": 256,
+  "note": "dur=256 hourly tape plays"
+ },
+ {
+  "scene": "S03",
+  "film": 997,
+  "t": 16.617,
+  "kind": "click",
+  "note": "LONG opens (0)"
+ },
+ {
+  "scene": "S03",
+  "film": 1006,
+  "t": 16.767,
+  "kind": "crackle_big",
+  "note": "LONG liquidated (0)"
+ },
+ {
+  "scene": "S03",
+  "film": 1008,
+  "t": 16.8,
+  "kind": "click",
+  "note": "SHORT opens (1)"
+ },
+ {
+  "scene": "S03",
+  "film": 1044,
+  "t": 17.4,
+  "kind": "crackle_big",
+  "note": "SHORT liquidated (1)"
+ },
+ {
+  "scene": "S03",
+  "film": 1128,
+  "t": 18.8,
+  "kind": "click",
+  "note": "SHORT opens (2)"
+ },
+ {
+  "scene": "S03",
+  "film": 1142,
+  "t": 19.033,
+  "kind": "crackle_big",
+  "note": "SHORT liquidated (2)"
+ },
+ {
+  "scene": "S03",
+  "film": 1144,
+  "t": 19.067,
+  "kind": "click",
+  "note": "LONG opens (3)"
+ },
+ {
+  "scene": "S03",
+  "film": 1175,
+  "t": 19.583,
+  "kind": "crackle_big",
+  "note": "LONG liquidated (3)"
+ },
+ {
+  "scene": "S03",
+  "film": 1192,
+  "t": 19.867,
+  "kind": "swipe",
+  "note": "\"both\" lands"
+ },
+ {
+  "scene": "S03",
+  "film": 1214,
+  "t": 20.233,
+  "kind": "tape_stop",
+  "note": "freeze-frame + drain to grey"
+ },
+ {
+  "scene": "S03",
+  "film": 1292,
+  "t": 21.533,
+  "kind": "heartbeat",
+  "note": "the seed breathes in the silence"
+ },
+ {
+  "scene": "S03",
+  "film": 1296,
+  "t": 21.6,
+  "kind": "reverse_swell",
+  "note": "suck-in peaks as the chart collapses into one point"
+ },
+ {
+  "scene": "S04",
+  "film": 1320,
+  "t": 22,
+  "kind": "impact_big",
+  "note": "THE reveal impact (score hit at 22.0 s) + iris opens"
+ },
+ {
+  "scene": "S04",
+  "film": 1322,
+  "t": 22.033,
+  "kind": "iris_open",
+  "note": "airy bright opening swell"
+ },
+ {
+  "scene": "S04",
+  "film": 1340,
+  "t": 22.333,
+  "kind": "energy_form",
+  "note": "spheres converge (plate)"
+ },
+ {
+  "scene": "S04",
+  "film": 1365,
+  "t": 22.75,
+  "kind": "swipe",
+  "note": "\"Superstar\" rises"
+ },
+ {
+  "scene": "S04",
+  "film": 1384,
+  "t": 23.067,
+  "kind": "star_lock",
+  "note": "shards snap into the star (plate ~3.1 s)"
+ },
+ {
+  "scene": "S04",
+  "film": 1504,
+  "t": 25.067,
+  "kind": "shimmer",
+  "note": "\"both sides for you.\" in Blue Glow"
+ },
+ {
+  "scene": "S04",
+  "film": 1506,
+  "t": 25.1,
+  "kind": "none",
+  "note": "plate→3D handoff (silent)"
+ },
+ {
+  "scene": "S05",
+  "film": 1560,
+  "t": 26,
+  "kind": "whoosh",
+  "note": "Blue Glow floods out of the star on the groove downbeat"
+ },
+ {
+  "scene": "S05",
+  "film": 1580,
+  "t": 26.333,
+  "kind": "blip",
+  "note": "status line"
+ },
+ {
+  "scene": "S05",
+  "film": 1594,
+  "t": 26.567,
+  "kind": "draw",
+  "dur": 70,
+  "note": "dur=70 clock ring draws"
+ },
+ {
+  "scene": "S05",
+  "film": 1614,
+  "t": 26.9,
+  "kind": "tick",
+  "note": "node 0 appears"
+ },
+ {
+  "scene": "S05",
+  "film": 1622,
+  "t": 27.033,
+  "kind": "tick",
+  "note": "node 1 appears"
+ },
+ {
+  "scene": "S05",
+  "film": 1630,
+  "t": 27.167,
+  "kind": "tick",
+  "note": "node 2 appears"
+ },
+ {
+  "scene": "S05",
+  "film": 1638,
+  "t": 27.3,
+  "kind": "tick",
+  "note": "node 3 appears"
+ },
+ {
+  "scene": "S05",
+  "film": 1646,
+  "t": 27.433,
+  "kind": "tick",
+  "note": "node 4 appears"
+ },
+ {
+  "scene": "S05",
+  "film": 1654,
+  "t": 27.567,
+  "kind": "tick",
+  "note": "node 5 appears"
+ },
+ {
+  "scene": "S05",
+  "film": 1656,
+  "t": 27.6,
+  "kind": "clock_sweep",
+  "dur": 300,
+  "note": "dur=300 sweep hand"
+ },
+ {
+  "scene": "S05",
+  "film": 1664,
+  "t": 27.733,
+  "kind": "ping",
+  "note": "review 00:00 lights"
+ },
+ {
+  "scene": "S05",
+  "film": 1686,
+  "t": 28.1,
+  "kind": "blip",
+  "note": "data reaches core 0"
+ },
+ {
+  "scene": "S05",
+  "film": 1714,
+  "t": 28.567,
+  "kind": "ping",
+  "note": "review 04:00 lights"
+ },
+ {
+  "scene": "S05",
+  "film": 1736,
+  "t": 28.933,
+  "kind": "blip",
+  "note": "data reaches core 1"
+ },
+ {
+  "scene": "S05",
+  "film": 1764,
+  "t": 29.4,
+  "kind": "ping",
+  "note": "review 08:00 lights"
+ },
+ {
+  "scene": "S05",
+  "film": 1786,
+  "t": 29.767,
+  "kind": "blip",
+  "note": "data reaches core 2"
+ },
+ {
+  "scene": "S05",
+  "film": 1814,
+  "t": 30.233,
+  "kind": "ping",
+  "note": "review 12:00 lights"
+ },
+ {
+  "scene": "S05",
+  "film": 1836,
+  "t": 30.6,
+  "kind": "blip",
+  "note": "data reaches core 3"
+ },
+ {
+  "scene": "S05",
+  "film": 1862,
+  "t": 31.033,
+  "kind": "impact_soft",
+  "note": "\"One decision.\""
+ },
+ {
+  "scene": "S05",
+  "film": 1864,
+  "t": 31.067,
+  "kind": "ping",
+  "note": "review 16:00 lights"
+ },
+ {
+  "scene": "S05",
+  "film": 1886,
+  "t": 31.433,
+  "kind": "blip",
+  "note": "data reaches core 4"
+ },
+ {
+  "scene": "S05",
+  "film": 1914,
+  "t": 31.9,
+  "kind": "ping",
+  "note": "review 20:00 lights"
+ },
+ {
+  "scene": "S05",
+  "film": 1936,
+  "t": 32.267,
+  "kind": "blip",
+  "note": "data reaches core 5"
+ },
+ {
+  "scene": "S05",
+  "film": 2016,
+  "t": 33.6,
+  "kind": "swipe",
+  "note": "panel contracts to a card"
+ },
+ {
+  "scene": "S05",
+  "film": 2034,
+  "t": 33.9,
+  "kind": "whoosh",
+  "note": "card flies up → S06"
+ },
+ {
+  "scene": "S06",
+  "film": 2052,
+  "t": 34.2,
+  "kind": "draw",
+  "dur": 40,
+  "note": "dur=40 · price grid, strip rules and column dividers draw on"
+ },
+ {
+  "scene": "S06",
+  "film": 2054,
+  "t": 34.233,
+  "kind": "type",
+  "dur": 18,
+  "note": "dur=18 · status line \"superstar · review 21:00 utc\""
+ },
+ {
+  "scene": "S06",
+  "film": 2058,
+  "t": 34.3,
+  "kind": "card_in",
+  "note": "review card rises into place"
+ },
+ {
+  "scene": "S06",
+  "film": 2060,
+  "t": 34.333,
+  "kind": "tick",
+  "note": "column pill −3h pops"
+ },
+ {
+  "scene": "S06",
+  "film": 2064,
+  "t": 34.4,
+  "kind": "tick",
+  "note": "column pill −2h pops"
+ },
+ {
+  "scene": "S06",
+  "film": 2068,
+  "t": 34.467,
+  "kind": "tick",
+  "note": "column pill −1h pops"
+ },
+ {
+  "scene": "S06",
+  "film": 2071,
+  "t": 34.517,
+  "kind": "swipe",
+  "note": "scan bar arms (\"reads\")"
+ },
+ {
+  "scene": "S06",
+  "film": 2072,
+  "t": 34.533,
+  "kind": "tick",
+  "note": "column pill now pops"
+ },
+ {
+  "scene": "S06",
+  "film": 2074,
+  "t": 34.567,
+  "kind": "pop",
+  "note": "turquoise live dot on `now`"
+ },
+ {
+  "scene": "S06",
+  "film": 2102,
+  "t": 35.033,
+  "kind": "scan",
+  "dur": 26,
+  "note": "dur=26 · scan sweeps −3h"
+ },
+ {
+  "scene": "S06",
+  "film": 2122,
+  "t": 35.367,
+  "kind": "pop",
+  "note": "candle −3h lands (\"last\")"
+ },
+ {
+  "scene": "S06",
+  "film": 2124,
+  "t": 35.4,
+  "kind": "blip",
+  "note": "OI point −3h"
+ },
+ {
+  "scene": "S06",
+  "film": 2126,
+  "t": 35.433,
+  "kind": "tick_train",
+  "dur": 10,
+  "note": "dur=10 · band readings roll to −3h"
+ },
+ {
+  "scene": "S06",
+  "film": 2130,
+  "t": 35.5,
+  "kind": "tick",
+  "note": "liq bars −3h grow"
+ },
+ {
+  "scene": "S06",
+  "film": 2136,
+  "t": 35.6,
+  "kind": "scan",
+  "dur": 26,
+  "note": "dur=26 · scan sweeps −2h"
+ },
+ {
+  "scene": "S06",
+  "film": 2156,
+  "t": 35.933,
+  "kind": "pop",
+  "note": "candle −2h lands (\"hours\")"
+ },
+ {
+  "scene": "S06",
+  "film": 2158,
+  "t": 35.967,
+  "kind": "blip",
+  "note": "OI point −2h"
+ },
+ {
+  "scene": "S06",
+  "film": 2160,
+  "t": 36,
+  "kind": "tick_train",
+  "dur": 10,
+  "note": "dur=10 · band readings roll to −2h"
+ },
+ {
+  "scene": "S06",
+  "film": 2164,
+  "t": 36.067,
+  "kind": "tick",
+  "note": "liq bars −2h grow"
+ },
+ {
+  "scene": "S06",
+  "film": 2187,
+  "t": 36.45,
+  "kind": "scan",
+  "dur": 26,
+  "note": "dur=26 · scan sweeps −1h"
+ },
+ {
+  "scene": "S06",
+  "film": 2207,
+  "t": 36.783,
+  "kind": "pop",
+  "note": "candle −1h lands (\"hour\")"
+ },
+ {
+  "scene": "S06",
+  "film": 2209,
+  "t": 36.817,
+  "kind": "blip",
+  "note": "OI point −1h"
+ },
+ {
+  "scene": "S06",
+  "film": 2211,
+  "t": 36.85,
+  "kind": "tick_train",
+  "dur": 10,
+  "note": "dur=10 · band readings roll to −1h"
+ },
+ {
+  "scene": "S06",
+  "film": 2213,
+  "t": 36.883,
+  "kind": "scan",
+  "dur": 26,
+  "note": "dur=26 · scan sweeps now"
+ },
+ {
+  "scene": "S06",
+  "film": 2215,
+  "t": 36.917,
+  "kind": "tick",
+  "note": "liq bars −1h grow"
+ },
+ {
+  "scene": "S06",
+  "film": 2233,
+  "t": 37.217,
+  "kind": "pop",
+  "note": "candle now lands (\"hour,\")"
+ },
+ {
+  "scene": "S06",
+  "film": 2235,
+  "t": 37.25,
+  "kind": "blip",
+  "note": "OI point now"
+ },
+ {
+  "scene": "S06",
+  "film": 2237,
+  "t": 37.283,
+  "kind": "tick_train",
+  "dur": 10,
+  "note": "dur=10 · band readings roll to now"
+ },
+ {
+  "scene": "S06",
+  "film": 2239,
+  "t": 37.317,
+  "kind": "blip",
+  "note": "last-price tag 83,859 latches on the axis"
+ },
+ {
+  "scene": "S06",
+  "film": 2241,
+  "t": 37.35,
+  "kind": "tick",
+  "note": "liq bars now grow (spike)"
+ },
+ {
+  "scene": "S06",
+  "film": 2247,
+  "t": 37.45,
+  "kind": "swipe",
+  "note": "scan bar retracts"
+ },
+ {
+  "scene": "S06",
+  "film": 2268,
+  "t": 37.8,
+  "kind": "swipe",
+  "note": "strip read across time · PRICE"
+ },
+ {
+  "scene": "S06",
+  "film": 2284,
+  "t": 38.067,
+  "kind": "blip",
+  "note": "PRICE reading pulses"
+ },
+ {
+  "scene": "S06",
+  "film": 2302,
+  "t": 38.367,
+  "kind": "swipe",
+  "note": "strip read across time · OI"
+ },
+ {
+  "scene": "S06",
+  "film": 2318,
+  "t": 38.633,
+  "kind": "blip",
+  "note": "OI reading pulses"
+ },
+ {
+  "scene": "S06",
+  "film": 2336,
+  "t": 38.933,
+  "kind": "swipe",
+  "note": "strip read across time · LIQS"
+ },
+ {
+  "scene": "S06",
+  "film": 2352,
+  "t": 39.2,
+  "kind": "blip",
+  "note": "LIQS reading pulses"
+ },
+ {
+  "scene": "S06",
+  "film": 2412,
+  "t": 40.2,
+  "kind": "scan",
+  "dur": 52,
+  "note": "dur=52 · verification sweep across all four hours"
+ },
+ {
+  "scene": "S06",
+  "film": 2468,
+  "t": 41.133,
+  "kind": "lock",
+  "note": "read latches (check draws, pills + readings bump)"
+ },
+ {
+  "scene": "S06",
+  "film": 2508,
+  "t": 41.8,
+  "kind": "swipe",
+  "note": "step header masks out"
+ },
+ {
+  "scene": "S06",
+  "film": 2514,
+  "t": 41.9,
+  "kind": "whoosh",
+  "note": "card slides up and out"
+ },
+ {
+  "scene": "S06",
+  "film": 2518,
+  "t": 41.967,
+  "kind": "card_out"
+ },
+ {
+  "scene": "S07",
+  "film": 2532,
+  "t": 42.2,
+  "kind": "tick_train",
+  "dur": 24,
+  "note": "dur=24 · 18 chips pop in, counter 0→18"
+ },
+ {
+  "scene": "S07",
+  "film": 2534,
+  "t": 42.233,
+  "kind": "type",
+  "dur": 18,
+  "note": "dur=18 · status header"
+ },
+ {
+  "scene": "S07",
+  "film": 2538,
+  "t": 42.3,
+  "kind": "card_in",
+  "note": "signal-bus card rises into place"
+ },
+ {
+  "scene": "S07",
+  "film": 2556,
+  "t": 42.6,
+  "kind": "impact_soft",
+  "note": "counter lands on 18 (\"eighteen\")"
+ },
+ {
+  "scene": "S07",
+  "film": 2564,
+  "t": 42.733,
+  "kind": "draw",
+  "dur": 94,
+  "note": "dur=94 · 18 lanes draw on and bundle into the core"
+ },
+ {
+  "scene": "S07",
+  "film": 2628,
+  "t": 43.8,
+  "kind": "shimmer",
+  "note": "idle pulses start flowing down the ribbon"
+ },
+ {
+  "scene": "S07",
+  "film": 2664,
+  "t": 44.4,
+  "kind": "blip",
+  "note": "lens lights: positioning & leverage (\"leverage\")"
+ },
+ {
+  "scene": "S07",
+  "film": 2666,
+  "t": 44.433,
+  "kind": "swipe",
+  "note": "burst of pulses leaves the lit chips"
+ },
+ {
+  "scene": "S07",
+  "film": 2692,
+  "t": 44.867,
+  "kind": "ping",
+  "note": "burst arrives, core breathes"
+ },
+ {
+  "scene": "S07",
+  "film": 2714,
+  "t": 45.233,
+  "kind": "blip",
+  "note": "lens lights: forced buying & selling (\"liquidations\")"
+ },
+ {
+  "scene": "S07",
+  "film": 2716,
+  "t": 45.267,
+  "kind": "swipe",
+  "note": "burst of pulses leaves the lit chips"
+ },
+ {
+  "scene": "S07",
+  "film": 2742,
+  "t": 45.7,
+  "kind": "ping",
+  "note": "burst arrives, core breathes"
+ },
+ {
+  "scene": "S07",
+  "film": 2778,
+  "t": 46.3,
+  "kind": "blip",
+  "note": "lens lights: order flow (\"order\")"
+ },
+ {
+  "scene": "S07",
+  "film": 2780,
+  "t": 46.333,
+  "kind": "swipe",
+  "note": "burst of pulses leaves the lit chips"
+ },
+ {
+  "scene": "S07",
+  "film": 2806,
+  "t": 46.767,
+  "kind": "ping",
+  "note": "burst arrives, core breathes"
+ },
+ {
+  "scene": "S07",
+  "film": 2842,
+  "t": 47.367,
+  "kind": "blip",
+  "note": "lens lights: whales (\"whales\")"
+ },
+ {
+  "scene": "S07",
+  "film": 2844,
+  "t": 47.4,
+  "kind": "swipe",
+  "note": "burst of pulses leaves the lit chips"
+ },
+ {
+  "scene": "S07",
+  "film": 2870,
+  "t": 47.833,
+  "kind": "ping",
+  "note": "burst arrives, core breathes"
+ },
+ {
+  "scene": "S07",
+  "film": 2874,
+  "t": 47.9,
+  "kind": "blip",
+  "note": "lens lights: retail + price context (\"retail\")"
+ },
+ {
+  "scene": "S07",
+  "film": 2876,
+  "t": 47.933,
+  "kind": "swipe",
+  "note": "burst of pulses leaves the lit chips"
+ },
+ {
+  "scene": "S07",
+  "film": 2876,
+  "t": 47.933,
+  "kind": "slide",
+  "note": "view scrolls down to the core"
+ },
+ {
+  "scene": "S07",
+  "film": 2902,
+  "t": 48.367,
+  "kind": "ping",
+  "note": "burst arrives, core breathes"
+ },
+ {
+  "scene": "S07",
+  "film": 2902,
+  "t": 48.367,
+  "kind": "draw",
+  "dur": 18,
+  "note": "dur=18 · core emits the output line"
+ },
+ {
+  "scene": "S07",
+  "film": 2916,
+  "t": 48.6,
+  "kind": "swipe",
+  "note": "placeholder \"awaiting 18 inputs\" masks out"
+ },
+ {
+  "scene": "S07",
+  "film": 2920,
+  "t": 48.667,
+  "kind": "impact_soft",
+  "note": "output reaches the \"picture\" panel (border flashes)"
+ },
+ {
+  "scene": "S07",
+  "film": 2922,
+  "t": 48.7,
+  "kind": "draw",
+  "dur": 16,
+  "note": "dur=16 · quadrant axes draw"
+ },
+ {
+  "scene": "S07",
+  "film": 2930,
+  "t": 48.833,
+  "kind": "pop",
+  "note": "−2h point"
+ },
+ {
+  "scene": "S07",
+  "film": 2937,
+  "t": 48.95,
+  "kind": "pop",
+  "note": "−1h point"
+ },
+ {
+  "scene": "S07",
+  "film": 2944,
+  "t": 49.067,
+  "kind": "blip",
+  "note": "turquoise `now` point lands in price ↓ · OI ↓"
+ },
+ {
+  "scene": "S07",
+  "film": 2946,
+  "t": 49.1,
+  "kind": "lock",
+  "note": "active quadrant latches"
+ },
+ {
+  "scene": "S07",
+  "film": 2946,
+  "t": 49.1,
+  "kind": "type",
+  "dur": 21,
+  "note": "dur=21 · composite state readout"
+ },
+ {
+  "scene": "S07",
+  "film": 2958,
+  "t": 49.3,
+  "kind": "shimmer",
+  "note": "\"Long unwind\" resolves"
+ },
+ {
+  "scene": "S07",
+  "film": 2986,
+  "t": 49.767,
+  "kind": "swipe",
+  "note": "step header masks out"
+ },
+ {
+  "scene": "S07",
+  "film": 2994,
+  "t": 49.9,
+  "kind": "whoosh",
+  "note": "card slides up and out"
+ },
+ {
+  "scene": "S07",
+  "film": 2998,
+  "t": 49.967,
+  "kind": "card_out"
+ },
+ {
+  "scene": "S08",
+  "film": 3014,
+  "t": 50.233,
+  "kind": "tick_train",
+  "dur": 48,
+  "note": "dur=48 · 48 hourly candles print left→right"
+ },
+ {
+  "scene": "S08",
+  "film": 3018,
+  "t": 50.3,
+  "kind": "card_in",
+  "note": "chart card rises into place"
+ },
+ {
+  "scene": "S08",
+  "film": 3039,
+  "t": 50.65,
+  "kind": "card_in",
+  "note": "BULL card drops in (\"bull\")"
+ },
+ {
+  "scene": "S08",
+  "film": 3043,
+  "t": 50.717,
+  "kind": "swipe",
+  "note": "tug bar leans bull"
+ },
+ {
+  "scene": "S08",
+  "film": 3095,
+  "t": 51.583,
+  "kind": "card_in",
+  "note": "BEAR card rises in (\"bear\")"
+ },
+ {
+  "scene": "S08",
+  "film": 3099,
+  "t": 51.65,
+  "kind": "swipe",
+  "note": "tug bar leans bear"
+ },
+ {
+  "scene": "S08",
+  "film": 3174,
+  "t": 52.9,
+  "kind": "tick_train",
+  "dur": 60,
+  "note": "dur=60 · both invalidation prices scramble"
+ },
+ {
+  "scene": "S08",
+  "film": 3206,
+  "t": 53.433,
+  "kind": "draw",
+  "dur": 10,
+  "note": "dur=10 · bull invalidation line"
+ },
+ {
+  "scene": "S08",
+  "film": 3214,
+  "t": 53.567,
+  "kind": "lock",
+  "note": "bull level locks $82,835 + dashed line snaps on (\"exact\")"
+ },
+ {
+  "scene": "S08",
+  "film": 3226,
+  "t": 53.767,
+  "kind": "draw",
+  "dur": 10,
+  "note": "dur=10 · bear invalidation line"
+ },
+ {
+  "scene": "S08",
+  "film": 3234,
+  "t": 53.9,
+  "kind": "lock",
+  "note": "bear level locks $85,277 + dashed line snaps on (\"level\")"
+ },
+ {
+  "scene": "S08",
+  "film": 3271,
+  "t": 54.517,
+  "kind": "swipe",
+  "note": "invalid zones shade in beyond both lines (\"proves it wrong\")"
+ },
+ {
+  "scene": "S08",
+  "film": 3298,
+  "t": 54.967,
+  "kind": "tick",
+  "note": "tug bar settles near 50/50"
+ },
+ {
+  "scene": "S08",
+  "film": 3330,
+  "t": 55.5,
+  "kind": "swipe",
+  "note": "header 03 masks out"
+ },
+ {
+  "scene": "S08",
+  "film": 3346,
+  "t": 55.767,
+  "kind": "whoosh",
+  "note": "cards + chart fold into one line (\"Then\")"
+ },
+ {
+  "scene": "S08",
+  "film": 3356,
+  "t": 55.933,
+  "kind": "swipe",
+  "note": "header 04 · Choose rises in"
+ },
+ {
+  "scene": "S08",
+  "film": 3366,
+  "t": 56.1,
+  "kind": "impact_soft",
+  "note": "LONG / SHORT / NO TRADE unfold (\"chooses\")"
+ },
+ {
+  "scene": "S08",
+  "film": 3366,
+  "t": 56.1,
+  "kind": "pop",
+  "note": "Superstar core appears above the options"
+ },
+ {
+  "scene": "S08",
+  "film": 3381,
+  "t": 56.35,
+  "kind": "tick",
+  "note": "core hovers LONG"
+ },
+ {
+  "scene": "S08",
+  "film": 3397,
+  "t": 56.617,
+  "kind": "tick",
+  "note": "core hovers NO TRADE"
+ },
+ {
+  "scene": "S08",
+  "film": 3413,
+  "t": 56.883,
+  "kind": "tick",
+  "note": "core hovers SHORT"
+ },
+ {
+  "scene": "S08",
+  "film": 3419,
+  "t": 56.983,
+  "kind": "swipe",
+  "dur": 12,
+  "note": "dur=12 · core dives toward LONG"
+ },
+ {
+  "scene": "S08",
+  "film": 3431,
+  "t": 57.183,
+  "kind": "lock",
+  "note": "core lands in LONG (\"Long.\") — highlight springs on"
+ },
+ {
+  "scene": "S08",
+  "film": 3432,
+  "t": 57.2,
+  "kind": "click"
+ },
+ {
+  "scene": "S08",
+  "film": 3434,
+  "t": 57.233,
+  "kind": "swipe",
+  "note": "header 04 masks out (S09 has no header)"
+ },
+ {
+  "scene": "S09",
+  "film": 3480,
+  "t": 58,
+  "kind": "cut_hush",
+  "note": "match cut onto Blue Glow as the score drops out (no hit — a hush)"
+ },
+ {
+  "scene": "S09",
+  "film": 3493,
+  "t": 58.217,
+  "kind": "click",
+  "note": "SHORT highlights"
+ },
+ {
+  "scene": "S09",
+  "film": 3552,
+  "t": 59.2,
+  "kind": "lock",
+  "note": "NO TRADE locks — turquoise (the key sound of the film, near silence)"
+ },
+ {
+  "scene": "S09",
+  "film": 3594,
+  "t": 59.9,
+  "kind": "swipe",
+  "note": "selector lifts"
+ },
+ {
+  "scene": "S09",
+  "film": 3612,
+  "t": 60.2,
+  "kind": "grain_in",
+  "dur": 90,
+  "note": "dur=90 2,298 dots appear (soft grains)"
+ },
+ {
+  "scene": "S09",
+  "film": 3724,
+  "t": 62.067,
+  "kind": "dotwave",
+  "dur": 146,
+  "note": "dur=146 1,350 go quiet — cascading soft grains"
+ },
+ {
+  "scene": "S09",
+  "film": 3724,
+  "t": 62.067,
+  "kind": "tick_train",
+  "dur": 146,
+  "note": "dur=146 counter to 1,350"
+ },
+ {
+  "scene": "S09",
+  "film": 3808,
+  "t": 63.467,
+  "kind": "shimmer",
+  "note": "\"Nothing is a valid move.\""
+ },
+ {
+  "scene": "S09",
+  "film": 3916,
+  "t": 65.267,
+  "kind": "whoosh",
+  "note": "blue curtain lifts → S10"
+ },
+ {
+  "scene": "S10",
+  "film": 3940,
+  "t": 65.667,
+  "kind": "type",
+  "dur": 30,
+  "note": "dur=30 · card header"
+ },
+ {
+  "scene": "S10",
+  "film": 3952,
+  "t": 65.867,
+  "kind": "card_in",
+  "note": "risk-engine card settles"
+ },
+ {
+  "scene": "S10",
+  "film": 3960,
+  "t": 66,
+  "kind": "draw",
+  "dur": 259,
+  "note": "dur=259 · pre-entry price crawls (quiet, under VO tail)"
+ },
+ {
+  "scene": "S10",
+  "film": 4039,
+  "t": 67.317,
+  "kind": "swipe",
+  "note": "\"Risk\" rises"
+ },
+ {
+  "scene": "S10",
+  "film": 4077,
+  "t": 67.95,
+  "kind": "swipe",
+  "note": "\"first.\" rises"
+ },
+ {
+  "scene": "S10",
+  "film": 4128,
+  "t": 68.8,
+  "kind": "swipe",
+  "note": "headline exits up"
+ },
+ {
+  "scene": "S10",
+  "film": 4136,
+  "t": 68.933,
+  "kind": "draw",
+  "dur": 18,
+  "note": "dur=18 · loss-limit line draws across"
+ },
+ {
+  "scene": "S10",
+  "film": 4154,
+  "t": 69.233,
+  "kind": "card_in",
+  "note": "rule rows 01/02/03 slide in"
+ },
+ {
+  "scene": "S10",
+  "film": 4158,
+  "t": 69.3,
+  "kind": "lock",
+  "note": "loss limit locks in (before entry)"
+ },
+ {
+  "scene": "S10",
+  "film": 4160,
+  "t": 69.333,
+  "kind": "swipe",
+  "note": "rule 01 fills Blue Glow"
+ },
+ {
+  "scene": "S10",
+  "film": 4219,
+  "t": 70.317,
+  "kind": "pop",
+  "note": "price reaches entry · entry dot"
+ },
+ {
+  "scene": "S10",
+  "film": 4222,
+  "t": 70.367,
+  "kind": "draw",
+  "dur": 20,
+  "note": "dur=20 · entry line"
+ },
+ {
+  "scene": "S10",
+  "film": 4236,
+  "t": 70.6,
+  "kind": "slide",
+  "note": "max-loss band sweeps out"
+ },
+ {
+  "scene": "S10",
+  "film": 4248,
+  "t": 70.8,
+  "kind": "pop",
+  "note": "widen handle appears"
+ },
+ {
+  "scene": "S10",
+  "film": 4270,
+  "t": 71.167,
+  "kind": "slide",
+  "dur": 20,
+  "note": "dur=20 · limit line pulled down (tension)"
+ },
+ {
+  "scene": "S10",
+  "film": 4292,
+  "t": 71.533,
+  "kind": "lock",
+  "note": "snaps back · latch"
+ },
+ {
+  "scene": "S10",
+  "film": 4300,
+  "t": 71.667,
+  "kind": "click",
+  "note": "padlock closes on the limit"
+ },
+ {
+  "scene": "S10",
+  "film": 4304,
+  "t": 71.733,
+  "kind": "pop",
+  "note": "rule 01 lock glyph"
+ },
+ {
+  "scene": "S10",
+  "film": 4374,
+  "t": 72.9,
+  "kind": "whoosh",
+  "note": "chart reframes (soft)"
+ },
+ {
+  "scene": "S10",
+  "film": 4376,
+  "t": 72.933,
+  "kind": "card_in",
+  "note": "formula panel opens"
+ },
+ {
+  "scene": "S10",
+  "film": 4376,
+  "t": 72.933,
+  "kind": "tick",
+  "note": "LIMIT + fixed bar"
+ },
+ {
+  "scene": "S10",
+  "film": 4380,
+  "t": 73,
+  "kind": "swipe",
+  "note": "rule 02 fills Blue Glow"
+ },
+ {
+  "scene": "S10",
+  "film": 4392,
+  "t": 73.2,
+  "kind": "tick",
+  "note": "÷ STOP bracket (chart bracket lights)"
+ },
+ {
+  "scene": "S10",
+  "film": 4408,
+  "t": 73.467,
+  "kind": "tick",
+  "note": "= SIZE"
+ },
+ {
+  "scene": "S10",
+  "film": 4408,
+  "t": 73.467,
+  "kind": "tick_train",
+  "dur": 34,
+  "note": "dur=34 · size bar solving (oscillates, settles)"
+ },
+ {
+  "scene": "S10",
+  "film": 4442,
+  "t": 74.033,
+  "kind": "lock",
+  "note": "size solved · check"
+ },
+ {
+  "scene": "S10",
+  "film": 4456,
+  "t": 74.267,
+  "kind": "draw",
+  "dur": 104,
+  "note": "dur=104 · price climbs from entry"
+ },
+ {
+  "scene": "S10",
+  "film": 4460,
+  "t": 74.333,
+  "kind": "card_out",
+  "note": "formula panel folds away"
+ },
+ {
+  "scene": "S10",
+  "film": 4466,
+  "t": 74.433,
+  "kind": "pop",
+  "note": "turquoise stop marker"
+ },
+ {
+  "scene": "S10",
+  "film": 4470,
+  "t": 74.5,
+  "kind": "whoosh",
+  "note": "chart zooms out for the climb"
+ },
+ {
+  "scene": "S10",
+  "film": 4470,
+  "t": 74.5,
+  "kind": "ratchet",
+  "note": "stop steps up to 97.9"
+ },
+ {
+  "scene": "S10",
+  "film": 4486,
+  "t": 74.767,
+  "kind": "swipe",
+  "note": "rule 03 fills Blue Glow"
+ },
+ {
+  "scene": "S10",
+  "film": 4486,
+  "t": 74.767,
+  "kind": "ratchet",
+  "note": "stop steps up to 101.3"
+ },
+ {
+  "scene": "S10",
+  "film": 4492,
+  "t": 74.867,
+  "kind": "pop",
+  "note": "rule 03 up-arrow glyph"
+ },
+ {
+  "scene": "S10",
+  "film": 4502,
+  "t": 75.033,
+  "kind": "ratchet",
+  "note": "stop steps up to 103.7"
+ },
+ {
+  "scene": "S10",
+  "film": 4518,
+  "t": 75.3,
+  "kind": "ratchet",
+  "note": "stop steps up to 109.5"
+ },
+ {
+  "scene": "S10",
+  "film": 4534,
+  "t": 75.567,
+  "kind": "ratchet",
+  "note": "stop steps up to 116.5"
+ },
+ {
+  "scene": "S10",
+  "film": 4542,
+  "t": 75.7,
+  "kind": "click",
+  "note": "pullback · stop holds (marker ring)"
+ },
+ {
+  "scene": "S10",
+  "film": 4550,
+  "t": 75.833,
+  "kind": "ratchet",
+  "note": "stop steps up to 120.8"
+ },
+ {
+  "scene": "S11",
+  "film": 4566,
+  "t": 76.1,
+  "kind": "ratchet",
+  "note": "last stop step (S10 chart, carried over)"
+ },
+ {
+  "scene": "S11",
+  "film": 4572,
+  "t": 76.2,
+  "kind": "lock",
+  "note": "\"protect\" · LOCKED IN latch"
+ },
+ {
+  "scene": "S11",
+  "film": 4578,
+  "t": 76.3,
+  "kind": "card_out",
+  "note": "rule rows lift away"
+ },
+ {
+  "scene": "S11",
+  "film": 4594,
+  "t": 76.567,
+  "kind": "type",
+  "dur": 16,
+  "note": "dur=16 · header → superstar · backtest"
+ },
+ {
+  "scene": "S11",
+  "film": 4600,
+  "t": 76.667,
+  "kind": "whoosh",
+  "note": "card lifts + resizes into the backtest card"
+ },
+ {
+  "scene": "S11",
+  "film": 4620,
+  "t": 77,
+  "kind": "draw",
+  "dur": 230,
+  "note": "dur=230 · BTC + equity lines draw month by month"
+ },
+ {
+  "scene": "S11",
+  "film": 4624,
+  "t": 77.067,
+  "kind": "shimmer",
+  "note": "grid draws"
+ },
+ {
+  "scene": "S11",
+  "film": 4639,
+  "t": 77.317,
+  "kind": "blip",
+  "note": "monthly bar 1 +6k"
+ },
+ {
+  "scene": "S11",
+  "film": 4653,
+  "t": 77.55,
+  "kind": "blip",
+  "note": "monthly bar 2 +12k"
+ },
+ {
+  "scene": "S11",
+  "film": 4657,
+  "t": 77.617,
+  "kind": "pop",
+  "note": "BTC $104k callout"
+ },
+ {
+  "scene": "S11",
+  "film": 4667,
+  "t": 77.783,
+  "kind": "blip",
+  "note": "monthly bar 3 -8k"
+ },
+ {
+  "scene": "S11",
+  "film": 4682,
+  "t": 78.033,
+  "kind": "blip",
+  "note": "monthly bar 4 +24k"
+ },
+ {
+  "scene": "S11",
+  "film": 4696,
+  "t": 78.267,
+  "kind": "blip",
+  "note": "monthly bar 5 +39.2k"
+ },
+ {
+  "scene": "S11",
+  "film": 4710,
+  "t": 78.5,
+  "kind": "blip",
+  "note": "monthly bar 6 +16.8k"
+ },
+ {
+  "scene": "S11",
+  "film": 4710,
+  "t": 78.5,
+  "kind": "pop",
+  "note": "$124k callout (peak)"
+ },
+ {
+  "scene": "S11",
+  "film": 4728,
+  "t": 78.8,
+  "kind": "blip",
+  "note": "monthly bar 7 -18k"
+ },
+ {
+  "scene": "S11",
+  "film": 4732,
+  "t": 78.867,
+  "kind": "tick",
+  "note": "halfway marker drops"
+ },
+ {
+  "scene": "S11",
+  "film": 4745,
+  "t": 79.083,
+  "kind": "blip",
+  "note": "monthly bar 8 -7.8k"
+ },
+ {
+  "scene": "S11",
+  "film": 4763,
+  "t": 79.383,
+  "kind": "blip",
+  "note": "monthly bar 9 +27.8k"
+ },
+ {
+  "scene": "S11",
+  "film": 4780,
+  "t": 79.667,
+  "kind": "blip",
+  "note": "monthly bar 10 +18k"
+ },
+ {
+  "scene": "S11",
+  "film": 4797,
+  "t": 79.95,
+  "kind": "blip",
+  "note": "monthly bar 11 +25k"
+ },
+ {
+  "scene": "S11",
+  "film": 4815,
+  "t": 80.25,
+  "kind": "blip",
+  "note": "monthly bar 12 -5k"
+ },
+ {
+  "scene": "S11",
+  "film": 4833,
+  "t": 80.55,
+  "kind": "blip",
+  "note": "monthly bar 13 +28k"
+ },
+ {
+  "scene": "S11",
+  "film": 4854,
+  "t": 80.9,
+  "kind": "blip",
+  "note": "monthly bar 14 +13.465k"
+ },
+ {
+  "scene": "S11",
+  "film": 4854,
+  "t": 80.9,
+  "kind": "pop",
+  "note": "$63k callout"
+ },
+ {
+  "scene": "S11",
+  "film": 4854,
+  "t": 80.9,
+  "kind": "tick_train",
+  "dur": 62,
+  "note": "dur=62 · $100,000 → $271,465 count-up"
+ },
+ {
+  "scene": "S11",
+  "film": 4916,
+  "t": 81.933,
+  "kind": "impact_soft",
+  "note": "$271,465 lands (\"finished\")"
+ },
+ {
+  "scene": "S11",
+  "film": 4928,
+  "t": 82.133,
+  "kind": "pop",
+  "note": "+171.46% chip (turquoise) · \"positive\""
+ },
+ {
+  "scene": "S11",
+  "film": 4940,
+  "t": 82.333,
+  "kind": "tick_train",
+  "dur": 40,
+  "note": "dur=40 · stat count-ups"
+ },
+ {
+  "scene": "S11",
+  "film": 4946,
+  "t": 82.433,
+  "kind": "card_in",
+  "note": "stat tiles rise (3, staggered 6f)"
+ },
+ {
+  "scene": "S11",
+  "film": 4952,
+  "t": 82.533,
+  "kind": "draw",
+  "dur": 16,
+  "note": "dur=16 · drawdown bracket"
+ },
+ {
+  "scene": "S11",
+  "film": 4972,
+  "t": 82.867,
+  "kind": "lock",
+  "note": "first half ✓ · \"both\""
+ },
+ {
+  "scene": "S11",
+  "film": 4986,
+  "t": 83.1,
+  "kind": "lock",
+  "note": "second half ✓ · \"halves\""
+ },
+ {
+  "scene": "S11",
+  "film": 5032,
+  "t": 83.867,
+  "kind": "whoosh",
+  "note": "Blue Glow sheet rises → S12"
+ },
+ {
+  "scene": "S12",
+  "film": 5054,
+  "t": 84.233,
+  "kind": "swipe",
+  "note": "\"Spot.\" rises"
+ },
+ {
+  "scene": "S12",
+  "film": 5060,
+  "t": 84.333,
+  "kind": "draw",
+  "dur": 24,
+  "note": "dur=24 · rail under Spot"
+ },
+ {
+  "scene": "S12",
+  "film": 5110,
+  "t": 85.167,
+  "kind": "swipe",
+  "note": "\"Perps.\" rises"
+ },
+ {
+  "scene": "S12",
+  "film": 5116,
+  "t": 85.267,
+  "kind": "draw",
+  "dur": 24,
+  "note": "dur=24 · rail under Perps"
+ },
+ {
+  "scene": "S12",
+  "film": 5163,
+  "t": 86.05,
+  "kind": "swipe",
+  "note": "\"HIP-3.\" rises"
+ },
+ {
+  "scene": "S12",
+  "film": 5169,
+  "t": 86.15,
+  "kind": "draw",
+  "dur": 24,
+  "note": "dur=24 · rail under HIP-3"
+ },
+ {
+  "scene": "S12",
+  "film": 5223,
+  "t": 87.05,
+  "kind": "draw",
+  "dur": 22,
+  "note": "dur=22 · rails converge down to the mark"
+ },
+ {
+  "scene": "S12",
+  "film": 5231,
+  "t": 87.183,
+  "kind": "pop",
+  "note": "Hyperliquid mark lands"
+ },
+ {
+  "scene": "S12",
+  "film": 5233,
+  "t": 87.217,
+  "kind": "swipe",
+  "note": "\"on Hyperliquid\" rises"
+ },
+ {
+  "scene": "S12",
+  "film": 5254,
+  "t": 87.567,
+  "kind": "ping",
+  "note": "pulse 1 reaches the mark"
+ },
+ {
+  "scene": "S12",
+  "film": 5260,
+  "t": 87.667,
+  "kind": "ping",
+  "note": "pulse 2 reaches the mark"
+ },
+ {
+  "scene": "S12",
+  "film": 5264,
+  "t": 87.733,
+  "kind": "whoosh",
+  "note": "page 1 lifts away"
+ },
+ {
+  "scene": "S12",
+  "film": 5266,
+  "t": 87.767,
+  "kind": "ping",
+  "note": "pulse 3 reaches the mark"
+ },
+ {
+  "scene": "S12",
+  "film": 5284,
+  "t": 88.067,
+  "kind": "swipe",
+  "note": "\"USDC in.\" rises"
+ },
+ {
+  "scene": "S12",
+  "film": 5286,
+  "t": 88.1,
+  "kind": "pop",
+  "note": "USDC coin appears"
+ },
+ {
+  "scene": "S12",
+  "film": 5302,
+  "t": 88.367,
+  "kind": "card_in",
+  "note": "wallet card rises"
+ },
+ {
+  "scene": "S12",
+  "film": 5302,
+  "t": 88.367,
+  "kind": "whoosh",
+  "note": "coin arcs down (short)"
+ },
+ {
+  "scene": "S12",
+  "film": 5312,
+  "t": 88.533,
+  "kind": "lock",
+  "note": "coin lands in the wallet slot · \"in\""
+ },
+ {
+  "scene": "S12",
+  "film": 5314,
+  "t": 88.567,
+  "kind": "shimmer",
+  "note": "coin flip settles"
+ },
+ {
+  "scene": "S12",
+  "film": 5372,
+  "t": 89.533,
+  "kind": "swipe",
+  "note": "\"USDC out.\" rises"
+ },
+ {
+  "scene": "S12",
+  "film": 5384,
+  "t": 89.733,
+  "kind": "whoosh",
+  "note": "coin lifts out and away"
+ },
+ {
+  "scene": "S12",
+  "film": 5388,
+  "t": 89.8,
+  "kind": "card_out",
+  "note": "wallet card drops"
+ },
+ {
+  "scene": "S12",
+  "film": 5398,
+  "t": 89.967,
+  "kind": "swipe",
+  "note": "last type clears → blue for the cut"
+ },
+ {
+  "scene": "S13",
+  "film": 5400,
+  "t": 90,
+  "kind": "whoosh_reverse",
+  "note": "mark flies in from depth, spinning"
+ },
+ {
+  "scene": "S13",
+  "film": 5460,
+  "t": 91,
+  "kind": "impact_big",
+  "note": "FINAL HIT — the mark lands face-on"
+ },
+ {
+  "scene": "S13",
+  "film": 5460,
+  "t": 91,
+  "kind": "shimmer",
+  "note": "\"Superstar\""
+ },
+ {
+  "scene": "S13",
+  "film": 5462,
+  "t": 91.033,
+  "kind": "logo_sting",
+  "note": "tonal shimmer + soft hit"
+ },
+ {
+  "scene": "S13",
+  "film": 5480,
+  "t": 91.333,
+  "kind": "swipe",
+  "note": "mark docks into the lockup"
+ },
+ {
+  "scene": "S13",
+  "film": 5494,
+  "t": 91.567,
+  "kind": "type",
+  "dur": 40,
+  "note": "dur=40 wordmark glyphs rise (6 soft ticks)"
+ },
+ {
+  "scene": "S13",
+  "film": 5528,
+  "t": 92.133,
+  "kind": "pop",
+  "note": "NOW LIVE pill"
+ },
+ {
+  "scene": "S13",
+  "film": 5577,
+  "t": 92.95,
+  "kind": "tick",
+  "note": "url"
+ }
+]

@@ -1,0 +1,421 @@
+  0.000  S01  riser          dur=240 low tension bed swell under the canyon
+  0.967  S01  blip           status line + live dot
+  1.100  S01  draw           dur=326 price line
+  1.550  S01  tick           flip 1 up
+  1.933  S01  tick           flip 2 down
+  2.017  S01  tick           flip 3 up
+  2.100  S01  tick           flip 4 down
+  2.383  S01  tick           flip 5 up
+  2.433  S01  tick           flip 6 down
+  2.483  S01  tick           flip 7 up
+  2.517  S01  tick           flip 8 down
+  2.567  S01  tick           flip 9 up
+  2.667  S01  tick           flip 10 down
+  2.733  S01  tick           flip 11 up
+  2.817  S01  tick           flip 12 down
+  2.850  S01  tick           flip 13 up
+  2.967  S01  tick           flip 14 down
+  3.000  S01  tick           flip 15 up
+  3.017  S01  tick           flip 16 down
+  3.100  S01  tick           flip 17 up
+  3.117  S01  swipe          "It whipsaws." serif slam
+  3.133  S01  tick           flip 18 down
+  3.183  S01  tick           flip 19 up
+  3.250  S01  tick           flip 20 down
+  3.267  S01  tick           flip 21 up
+  3.317  S01  tick           flip 22 down
+  3.350  S01  tick           flip 23 up
+  3.367  S01  tick           flip 24 down
+  3.383  S01  tick           flip 25 up
+  3.400  S01  tick           flip 26 down
+  3.433  S01  tick           flip 27 up
+  3.433  S01  tick           flip 28 down
+  3.450  S01  tick           flip 29 up
+  3.467  S01  tick           flip 30 down
+  3.483  S01  tick           flip 31 up
+  3.500  S01  tick           flip 32 down
+  3.517  S01  tick           flip 33 up
+  3.533  S01  tick           flip 34 down
+  3.533  S01  tick           flip 35 up
+  3.567  S01  tick           flip 36 down
+  3.583  S01  tick           flip 37 up
+  3.600  S01  tick           flip 38 down
+  3.617  S01  tick           flip 39 up
+  3.617  S01  tick           flip 40 down
+  3.667  S01  tick           flip 41 up
+  3.683  S01  tick           flip 42 down
+  3.683  S01  tick           flip 43 up
+  3.733  S01  tick           flip 44 down
+  3.750  S01  tick           flip 45 up
+  3.783  S01  tick           flip 46 down
+  3.833  S01  tick           flip 47 up
+  3.850  S01  tick           flip 48 down
+  3.867  S01  tick           flip 49 up
+  3.867  S01  tick           flip 50 down
+  3.900  S01  tick           flip 51 up
+  3.933  S01  tick           flip 52 down
+  3.950  S01  tick           flip 53 up
+  3.967  S01  tick           flip 54 down
+  4.000  S01  tick           flip 55 up
+  4.017  S01  tick           flip 56 down
+  4.033  S01  tick           flip 57 up
+  4.050  S01  tick           flip 58 down
+  4.067  S01  tick           flip 59 up
+  4.083  S01  tick           flip 60 down
+  4.117  S01  tick           flip 61 up
+  4.133  S01  tick           flip 62 down
+  4.167  S01  tick           flip 63 up
+  4.183  S01  tick           flip 64 down
+  4.200  S01  tick           flip 65 up
+  4.217  S01  tick           flip 66 down
+  4.217  S01  tick           flip 67 up
+  4.317  S01  tick           flip 68 down
+  4.333  S01  tick           flip 69 up
+  4.417  S01  tick           flip 70 down
+  4.433  S01  tick           flip 71 up
+  4.450  S01  tick           flip 72 down
+  4.467  S01  tick           flip 73 up
+  4.517  S01  tick           flip 74 down
+  4.583  S01  tick           flip 75 up
+  4.667  S01  impact_soft    hero 89 numeral grows
+  4.833  S01  tick           flip 76 down
+  4.883  S01  tick           flip 77 up
+  4.950  S01  tick           flip 78 down
+  4.983  S01  tick           flip 79 up
+  5.050  S01  tick           flip 80 down
+  5.167  S01  tick           flip 81 up
+  5.217  S01  tick           flip 82 down
+  5.317  S01  tick           flip 83 up
+  5.367  S01  tick           flip 84 down
+  5.417  S01  tick           flip 85 up
+  5.483  S01  tick           flip 86 down
+  5.817  S01  tick           flip 87 up
+  5.933  S01  tick           flip 88 down
+  6.100  S01  tick           flip 89 up
+  7.700  S01  whoosh         push into the canyon → S02
+  8.033  S02  whoosh         dive into the 3D candle row (from S01 push-in)
+  8.333  S02  shimmer        candles rise in along the row
+  8.400  S02  tick_train     dur=150 longs counter
+  8.433  S02  impact_soft    $542M appears
+  8.700  S02  crackle        long liq day 0 $9M
+  8.783  S02  crackle        long liq day 1 $13M
+  8.850  S02  crackle_big    long liq day 2 $53M
+  8.917  S02  crackle        long liq day 3 $1M
+  8.983  S02  crackle        long liq day 4 $18M
+  9.050  S02  crackle        long liq day 5 $6M
+  9.133  S02  crackle        long liq day 6 $28M
+  9.200  S02  crackle        long liq day 7 $10M
+  9.267  S02  crackle        long liq day 8 $6M
+  9.333  S02  crackle_big    long liq day 9 $47M
+  9.400  S02  crackle        long liq day 10 $1M
+  9.483  S02  crackle        long liq day 11 $5M
+  9.550  S02  crackle        long liq day 12 $10M
+  9.617  S02  crackle        long liq day 13 $19M
+  9.683  S02  crackle        long liq day 14 $20M
+  9.750  S02  crackle_big    long liq day 15 $37M
+  9.833  S02  crackle        long liq day 16 $27M
+  9.900  S02  crackle        long liq day 17 $1M
+  9.967  S02  crackle        long liq day 18 $14M
+ 10.033  S02  crackle        long liq day 19 $8M
+ 10.100  S02  crackle_big    long liq day 20 $86M
+ 10.183  S02  crackle        long liq day 21 $12M
+ 10.250  S02  crackle        long liq day 22 $5M
+ 10.317  S02  crackle        long liq day 23 $5M
+ 10.383  S02  crackle        long liq day 24 $5M
+ 10.450  S02  crackle        long liq day 25 $13M
+ 10.533  S02  crackle        long liq day 26 $8M
+ 10.600  S02  crackle        long liq day 27 $15M
+ 10.667  S02  crackle_big    long liq day 28 $36M
+ 10.733  S02  crackle        long liq day 29 $22M
+ 12.217  S02  tick_train     dur=118 shorts counter
+ 12.250  S02  impact_soft    $616M appears
+ 12.483  S02  crackle        short liq day 0 $10M
+ 12.550  S02  crackle        short liq day 1 $24M
+ 12.600  S02  crackle        short liq day 2 $14M
+ 12.667  S02  crackle        short liq day 3 $3M
+ 12.717  S02  crackle        short liq day 4 $8M
+ 12.767  S02  crackle        short liq day 5 $15M
+ 12.833  S02  crackle        short liq day 6 $6M
+ 12.883  S02  crackle        short liq day 7 $9M
+ 12.950  S02  crackle_big    short liq day 8 $95M
+ 13.000  S02  crackle        short liq day 9 $8M
+ 13.050  S02  crackle        short liq day 10 $2M
+ 13.117  S02  crackle        short liq day 11 $11M
+ 13.167  S02  crackle        short liq day 12 $2M
+ 13.233  S02  crackle        short liq day 13 $5M
+ 13.283  S02  crackle        short liq day 14 $11M
+ 13.333  S02  crackle        short liq day 15 $4M
+ 13.400  S02  crackle_big    short liq day 16 $33M
+ 13.450  S02  crackle        short liq day 17 $0M
+ 13.517  S02  crackle        short liq day 18 $3M
+ 13.567  S02  crackle        short liq day 19 $25M
+ 13.617  S02  crackle        short liq day 20 $11M
+ 13.683  S02  crackle        short liq day 21 $11M
+ 13.733  S02  crackle        short liq day 22 $10M
+ 13.767  S02  whoosh         camera rises and pulls back
+ 13.800  S02  crackle_big    short liq day 23 $77M
+ 13.850  S02  crackle        short liq day 24 $10M
+ 13.900  S02  crackle        short liq day 25 $7M
+ 13.967  S02  crackle_big    short liq day 26 $163M
+ 14.017  S02  crackle        short liq day 27 $15M
+ 14.083  S02  crackle        short liq day 28 $9M
+ 14.133  S02  crackle        short liq day 29 $15M
+ 15.600  S03  draw           dur=256 hourly tape plays
+ 16.617  S03  click          LONG opens (0)
+ 16.767  S03  crackle_big    LONG liquidated (0)
+ 16.800  S03  click          SHORT opens (1)
+ 17.400  S03  crackle_big    SHORT liquidated (1)
+ 18.800  S03  click          SHORT opens (2)
+ 19.033  S03  crackle_big    SHORT liquidated (2)
+ 19.067  S03  click          LONG opens (3)
+ 19.583  S03  crackle_big    LONG liquidated (3)
+ 19.867  S03  swipe          "both" lands
+ 20.233  S03  tape_stop      freeze-frame + drain to grey
+ 21.533  S03  heartbeat      the seed breathes in the silence
+ 21.600  S03  reverse_swell  suck-in peaks as the chart collapses into one point
+ 22.000  S04  impact_big     THE reveal impact (score hit at 22.0 s) + iris opens
+ 22.033  S04  iris_open      airy bright opening swell
+ 22.333  S04  energy_form    spheres converge (plate)
+ 22.750  S04  swipe          "Superstar" rises
+ 23.067  S04  star_lock      shards snap into the star (plate ~3.1 s)
+ 25.067  S04  shimmer        "both sides for you." in Blue Glow
+ 26.000  S05  whoosh         Blue Glow floods out of the star on the groove downbeat
+ 26.333  S05  blip           status line
+ 26.567  S05  draw           dur=70 clock ring draws
+ 26.900  S05  tick           node 0 appears
+ 27.033  S05  tick           node 1 appears
+ 27.167  S05  tick           node 2 appears
+ 27.300  S05  tick           node 3 appears
+ 27.433  S05  tick           node 4 appears
+ 27.567  S05  tick           node 5 appears
+ 27.600  S05  clock_sweep    dur=300 sweep hand
+ 27.733  S05  ping           review 00:00 lights
+ 28.100  S05  blip           data reaches core 0
+ 28.567  S05  ping           review 04:00 lights
+ 28.933  S05  blip           data reaches core 1
+ 29.400  S05  ping           review 08:00 lights
+ 29.767  S05  blip           data reaches core 2
+ 30.233  S05  ping           review 12:00 lights
+ 30.600  S05  blip           data reaches core 3
+ 31.033  S05  impact_soft    "One decision."
+ 31.067  S05  ping           review 16:00 lights
+ 31.433  S05  blip           data reaches core 4
+ 31.900  S05  ping           review 20:00 lights
+ 32.267  S05  blip           data reaches core 5
+ 33.600  S05  swipe          panel contracts to a card
+ 33.900  S05  whoosh         card flies up → S06
+ 34.200  S06  draw           dur=40 · price grid, strip rules and column dividers draw on
+ 34.233  S06  type           dur=18 · status line "superstar · review 21:00 utc"
+ 34.300  S06  card_in        review card rises into place
+ 34.333  S06  tick           column pill −3h pops
+ 34.400  S06  tick           column pill −2h pops
+ 34.467  S06  tick           column pill −1h pops
+ 34.517  S06  swipe          scan bar arms ("reads")
+ 34.533  S06  tick           column pill now pops
+ 34.567  S06  pop            turquoise live dot on `now`
+ 35.033  S06  scan           dur=26 · scan sweeps −3h
+ 35.367  S06  pop            candle −3h lands ("last")
+ 35.400  S06  blip           OI point −3h
+ 35.433  S06  tick_train     dur=10 · band readings roll to −3h
+ 35.500  S06  tick           liq bars −3h grow
+ 35.600  S06  scan           dur=26 · scan sweeps −2h
+ 35.933  S06  pop            candle −2h lands ("hours")
+ 35.967  S06  blip           OI point −2h
+ 36.000  S06  tick_train     dur=10 · band readings roll to −2h
+ 36.067  S06  tick           liq bars −2h grow
+ 36.450  S06  scan           dur=26 · scan sweeps −1h
+ 36.783  S06  pop            candle −1h lands ("hour")
+ 36.817  S06  blip           OI point −1h
+ 36.850  S06  tick_train     dur=10 · band readings roll to −1h
+ 36.883  S06  scan           dur=26 · scan sweeps now
+ 36.917  S06  tick           liq bars −1h grow
+ 37.217  S06  pop            candle now lands ("hour,")
+ 37.250  S06  blip           OI point now
+ 37.283  S06  tick_train     dur=10 · band readings roll to now
+ 37.317  S06  blip           last-price tag 83,859 latches on the axis
+ 37.350  S06  tick           liq bars now grow (spike)
+ 37.450  S06  swipe          scan bar retracts
+ 37.800  S06  swipe          strip read across time · PRICE
+ 38.067  S06  blip           PRICE reading pulses
+ 38.367  S06  swipe          strip read across time · OI
+ 38.633  S06  blip           OI reading pulses
+ 38.933  S06  swipe          strip read across time · LIQS
+ 39.200  S06  blip           LIQS reading pulses
+ 40.200  S06  scan           dur=52 · verification sweep across all four hours
+ 41.133  S06  lock           read latches (check draws, pills + readings bump)
+ 41.800  S06  swipe          step header masks out
+ 41.900  S06  whoosh         card slides up and out
+ 41.967  S06  card_out       
+ 42.200  S07  tick_train     dur=24 · 18 chips pop in, counter 0→18
+ 42.233  S07  type           dur=18 · status header
+ 42.300  S07  card_in        signal-bus card rises into place
+ 42.600  S07  impact_soft    counter lands on 18 ("eighteen")
+ 42.733  S07  draw           dur=94 · 18 lanes draw on and bundle into the core
+ 43.800  S07  shimmer        idle pulses start flowing down the ribbon
+ 44.400  S07  blip           lens lights: positioning & leverage ("leverage")
+ 44.433  S07  swipe          burst of pulses leaves the lit chips
+ 44.867  S07  ping           burst arrives, core breathes
+ 45.233  S07  blip           lens lights: forced buying & selling ("liquidations")
+ 45.267  S07  swipe          burst of pulses leaves the lit chips
+ 45.700  S07  ping           burst arrives, core breathes
+ 46.300  S07  blip           lens lights: order flow ("order")
+ 46.333  S07  swipe          burst of pulses leaves the lit chips
+ 46.767  S07  ping           burst arrives, core breathes
+ 47.367  S07  blip           lens lights: whales ("whales")
+ 47.400  S07  swipe          burst of pulses leaves the lit chips
+ 47.833  S07  ping           burst arrives, core breathes
+ 47.900  S07  blip           lens lights: retail + price context ("retail")
+ 47.933  S07  swipe          burst of pulses leaves the lit chips
+ 47.933  S07  slide          view scrolls down to the core
+ 48.367  S07  ping           burst arrives, core breathes
+ 48.367  S07  draw           dur=18 · core emits the output line
+ 48.600  S07  swipe          placeholder "awaiting 18 inputs" masks out
+ 48.667  S07  impact_soft    output reaches the "picture" panel (border flashes)
+ 48.700  S07  draw           dur=16 · quadrant axes draw
+ 48.833  S07  pop            −2h point
+ 48.950  S07  pop            −1h point
+ 49.067  S07  blip           turquoise `now` point lands in price ↓ · OI ↓
+ 49.100  S07  lock           active quadrant latches
+ 49.100  S07  type           dur=21 · composite state readout
+ 49.300  S07  shimmer        "Long unwind" resolves
+ 49.767  S07  swipe          step header masks out
+ 49.900  S07  whoosh         card slides up and out
+ 49.967  S07  card_out       
+ 50.233  S08  tick_train     dur=48 · 48 hourly candles print left→right
+ 50.300  S08  card_in        chart card rises into place
+ 50.650  S08  card_in        BULL card drops in ("bull")
+ 50.717  S08  swipe          tug bar leans bull
+ 51.583  S08  card_in        BEAR card rises in ("bear")
+ 51.650  S08  swipe          tug bar leans bear
+ 52.900  S08  tick_train     dur=60 · both invalidation prices scramble
+ 53.433  S08  draw           dur=10 · bull invalidation line
+ 53.567  S08  lock           bull level locks $82,835 + dashed line snaps on ("exact")
+ 53.767  S08  draw           dur=10 · bear invalidation line
+ 53.900  S08  lock           bear level locks $85,277 + dashed line snaps on ("level")
+ 54.517  S08  swipe          invalid zones shade in beyond both lines ("proves it wrong")
+ 54.967  S08  tick           tug bar settles near 50/50
+ 55.500  S08  swipe          header 03 masks out
+ 55.767  S08  whoosh         cards + chart fold into one line ("Then")
+ 55.933  S08  swipe          header 04 · Choose rises in
+ 56.100  S08  impact_soft    LONG / SHORT / NO TRADE unfold ("chooses")
+ 56.100  S08  pop            Superstar core appears above the options
+ 56.350  S08  tick           core hovers LONG
+ 56.617  S08  tick           core hovers NO TRADE
+ 56.883  S08  tick           core hovers SHORT
+ 56.983  S08  swipe          dur=12 · core dives toward LONG
+ 57.183  S08  lock           core lands in LONG ("Long.") — highlight springs on
+ 57.200  S08  click          
+ 57.233  S08  swipe          header 04 masks out (S09 has no header)
+ 58.000  S09  cut_hush       match cut onto Blue Glow as the score drops out (no hit — a 
+ 58.217  S09  click          SHORT highlights
+ 59.200  S09  lock           NO TRADE locks — turquoise (the key sound of the film, near 
+ 59.900  S09  swipe          selector lifts
+ 60.200  S09  grain_in       dur=90 2,298 dots appear (soft grains)
+ 62.067  S09  dotwave        dur=146 1,350 go quiet — cascading soft grains
+ 62.067  S09  tick_train     dur=146 counter to 1,350
+ 63.467  S09  shimmer        "Nothing is a valid move."
+ 65.267  S09  whoosh         blue curtain lifts → S10
+ 65.667  S10  type           dur=30 · card header
+ 65.867  S10  card_in        risk-engine card settles
+ 66.000  S10  draw           dur=259 · pre-entry price crawls (quiet, under VO tail)
+ 67.317  S10  swipe          "Risk" rises
+ 67.950  S10  swipe          "first." rises
+ 68.800  S10  swipe          headline exits up
+ 68.933  S10  draw           dur=18 · loss-limit line draws across
+ 69.233  S10  card_in        rule rows 01/02/03 slide in
+ 69.300  S10  lock           loss limit locks in (before entry)
+ 69.333  S10  swipe          rule 01 fills Blue Glow
+ 70.317  S10  pop            price reaches entry · entry dot
+ 70.367  S10  draw           dur=20 · entry line
+ 70.600  S10  slide          max-loss band sweeps out
+ 70.800  S10  pop            widen handle appears
+ 71.167  S10  slide          dur=20 · limit line pulled down (tension)
+ 71.533  S10  lock           snaps back · latch
+ 71.667  S10  click          padlock closes on the limit
+ 71.733  S10  pop            rule 01 lock glyph
+ 72.900  S10  whoosh         chart reframes (soft)
+ 72.933  S10  card_in        formula panel opens
+ 72.933  S10  tick           LIMIT + fixed bar
+ 73.000  S10  swipe          rule 02 fills Blue Glow
+ 73.200  S10  tick           ÷ STOP bracket (chart bracket lights)
+ 73.467  S10  tick           = SIZE
+ 73.467  S10  tick_train     dur=34 · size bar solving (oscillates, settles)
+ 74.033  S10  lock           size solved · check
+ 74.267  S10  draw           dur=104 · price climbs from entry
+ 74.333  S10  card_out       formula panel folds away
+ 74.433  S10  pop            turquoise stop marker
+ 74.500  S10  whoosh         chart zooms out for the climb
+ 74.500  S10  ratchet        stop steps up to 97.9
+ 74.767  S10  swipe          rule 03 fills Blue Glow
+ 74.767  S10  ratchet        stop steps up to 101.3
+ 74.867  S10  pop            rule 03 up-arrow glyph
+ 75.033  S10  ratchet        stop steps up to 103.7
+ 75.300  S10  ratchet        stop steps up to 109.5
+ 75.567  S10  ratchet        stop steps up to 116.5
+ 75.700  S10  click          pullback · stop holds (marker ring)
+ 75.833  S10  ratchet        stop steps up to 120.8
+ 76.100  S11  ratchet        last stop step (S10 chart, carried over)
+ 76.200  S11  lock           "protect" · LOCKED IN latch
+ 76.300  S11  card_out       rule rows lift away
+ 76.567  S11  type           dur=16 · header → superstar · backtest
+ 76.667  S11  whoosh         card lifts + resizes into the backtest card
+ 77.000  S11  draw           dur=230 · BTC + equity lines draw month by month
+ 77.067  S11  shimmer        grid draws
+ 77.317  S11  blip           monthly bar 1 +6k
+ 77.550  S11  blip           monthly bar 2 +12k
+ 77.617  S11  pop            BTC $104k callout
+ 77.783  S11  blip           monthly bar 3 -8k
+ 78.033  S11  blip           monthly bar 4 +24k
+ 78.267  S11  blip           monthly bar 5 +39.2k
+ 78.500  S11  blip           monthly bar 6 +16.8k
+ 78.500  S11  pop            $124k callout (peak)
+ 78.800  S11  blip           monthly bar 7 -18k
+ 78.867  S11  tick           halfway marker drops
+ 79.083  S11  blip           monthly bar 8 -7.8k
+ 79.383  S11  blip           monthly bar 9 +27.8k
+ 79.667  S11  blip           monthly bar 10 +18k
+ 79.950  S11  blip           monthly bar 11 +25k
+ 80.250  S11  blip           monthly bar 12 -5k
+ 80.550  S11  blip           monthly bar 13 +28k
+ 80.900  S11  blip           monthly bar 14 +13.465k
+ 80.900  S11  pop            $63k callout
+ 80.900  S11  tick_train     dur=62 · $100,000 → $271,465 count-up
+ 81.933  S11  impact_soft    $271,465 lands ("finished")
+ 82.133  S11  pop            +171.46% chip (turquoise) · "positive"
+ 82.333  S11  tick_train     dur=40 · stat count-ups
+ 82.433  S11  card_in        stat tiles rise (3, staggered 6f)
+ 82.533  S11  draw           dur=16 · drawdown bracket
+ 82.867  S11  lock           first half ✓ · "both"
+ 83.100  S11  lock           second half ✓ · "halves"
+ 83.867  S11  whoosh         Blue Glow sheet rises → S12
+ 84.233  S12  swipe          "Spot." rises
+ 84.333  S12  draw           dur=24 · rail under Spot
+ 85.167  S12  swipe          "Perps." rises
+ 85.267  S12  draw           dur=24 · rail under Perps
+ 86.050  S12  swipe          "HIP-3." rises
+ 86.150  S12  draw           dur=24 · rail under HIP-3
+ 87.050  S12  draw           dur=22 · rails converge down to the mark
+ 87.183  S12  pop            Hyperliquid mark lands
+ 87.217  S12  swipe          "on Hyperliquid" rises
+ 87.567  S12  ping           pulse 1 reaches the mark
+ 87.667  S12  ping           pulse 2 reaches the mark
+ 87.733  S12  whoosh         page 1 lifts away
+ 87.767  S12  ping           pulse 3 reaches the mark
+ 88.067  S12  swipe          "USDC in." rises
+ 88.100  S12  pop            USDC coin appears
+ 88.367  S12  card_in        wallet card rises
+ 88.367  S12  whoosh         coin arcs down (short)
+ 88.533  S12  lock           coin lands in the wallet slot · "in"
+ 88.567  S12  shimmer        coin flip settles
+ 89.533  S12  swipe          "USDC out." rises
+ 89.733  S12  whoosh         coin lifts out and away
+ 89.800  S12  card_out       wallet card drops
+ 89.967  S12  swipe          last type clears → blue for the cut
+ 90.000  S13  whoosh_reverse mark flies in from depth, spinning
+ 91.000  S13  impact_big     FINAL HIT — the mark lands face-on
+ 91.000  S13  shimmer        "Superstar"
+ 91.033  S13  logo_sting     tonal shimmer + soft hit
+ 91.333  S13  swipe          mark docks into the lockup
+ 91.567  S13  type           dur=40 wordmark glyphs rise (6 soft ticks)
+ 92.133  S13  pop            NOW LIVE pill
+ 92.950  S13  tick           url

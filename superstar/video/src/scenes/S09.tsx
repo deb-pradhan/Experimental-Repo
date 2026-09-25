@@ -142,10 +142,6 @@ export const S09: React.FC = () => {
         <div style={{position: 'absolute', left: 72, top: 1430}}>
           <Reveal text="Nothing is a valid move." start={T.valid} size={94} family="serif" color={WHITE[100]} tracking={-0.03} stagger={4} dur={28} />
         </div>
-        <div style={{position: 'absolute', left: 72, right: 72, top: 1566, display: 'flex', justifyContent: 'space-between', fontFamily: FONT.mono, fontSize: 22, color: BLUE[200], opacity: fieldIn}}>
-          <span>simulated backtest · not live trading</span>
-          <span>{BACKTEST.reviews.toLocaleString('en-US')} reviews</span>
-        </div>
       </div>
     </AbsoluteFill>
   );

@@ -4,13 +4,11 @@ import './fonts';
 import {Film, SceneFrame} from './Film';
 import {FPS, H, W} from './theme';
 import {DURATION, SCENES, SceneId} from './timeline';
-import {DevStar} from './dev/DevStar';
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition id="SuperstarLaunch" component={Film} durationInFrames={DURATION} fps={FPS} width={W} height={H} defaultProps={{withAudio: true}} />
-      <Composition id="DevStar" component={DevStar} durationInFrames={60} fps={FPS} width={W} height={H} />
       {(Object.keys(SCENES) as SceneId[]).map((id) => (
         <Composition
           key={id}

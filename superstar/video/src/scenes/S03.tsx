@@ -170,7 +170,7 @@ export const S03: React.FC = () => {
 
       {/* mono meta */}
       <div style={{position: 'absolute', left: 90, right: 90, top: 1420, display: 'flex', justifyContent: 'space-between', opacity: ramp(f, 10, 20) * (1 - exitText)}}>
-        <Micro color={BLACK[300]} size={22}>btc-perp · 1h · last 48 hours</Micro>
+        <span />
         <Micro color={BLACK[300]} size={22}>illustrative positions</Micro>
       </div>
     </AbsoluteFill>
@@ -185,6 +185,6 @@ export const CUES: {at: number; kind: string; note?: string}[] = [
   ]),
   {at: T.both, kind: 'swipe', note: '"both" lands'},
   {at: T.freeze, kind: 'tape_stop', note: 'freeze-frame + drain to grey'},
-  {at: T.collapse + 40, kind: 'reverse_swell', note: 'collapse into one point (suck-in)'},
+  {at: T.collapse + 60, kind: 'reverse_swell', note: 'suck-in peaks as the chart collapses into one point'},
   {at: T.seed + 6, kind: 'heartbeat', note: 'the seed breathes in the silence'},
 ];

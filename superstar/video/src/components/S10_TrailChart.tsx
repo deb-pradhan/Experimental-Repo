@@ -22,11 +22,11 @@ const X0 = 44;
 const X1 = 892;
 const Y0 = 60;
 const Y1 = 760;
-export const U_ENTRY = 0.22;
+export const U_ENTRY = 0.28;
 const ENTRY = 100;
 const LIMIT = 94;
 const TRAIL = 6.5;
-const U_HANDLE = 0.66;
+const U_HANDLE = 0.6;
 
 /** Key frames, S10-local. */
 export const TC = {
@@ -59,8 +59,8 @@ export const TC = {
 
 // ---------- price model ----------
 const KP: [number, number][] = [
-  [0, 101.4], [0.035, 100.7], [0.07, 102.2], [0.11, 101.1], [0.15, 102.5], [0.185, 100.9], [U_ENTRY, 100],
-  [0.3, 104.5], [0.35, 102.4], [0.46, 110.0], [0.52, 107.2], [0.62, 116.0], [0.68, 112.3], [0.79, 123.0], [0.85, 118.6], [0.96, 129.0], [1.0, 127.8],
+  [0, 101.2], [0.04, 100.7], [0.08, 101.8], [0.125, 101.0], [0.17, 102.0], [0.21, 101.1], [0.245, 101.5], [U_ENTRY, 100],
+  [0.354, 104.5], [0.4, 102.4], [0.502, 110.0], [0.557, 107.2], [0.649, 116.0], [0.705, 112.3], [0.806, 123.0], [0.862, 118.6], [0.963, 129.0], [1.0, 127.8],
 ];
 const pw = (pts: readonly (readonly [number, number])[], x: number) => {
   if (x <= pts[0][0]) return pts[0][1];
@@ -73,10 +73,10 @@ const pw = (pts: readonly (readonly [number, number])[], x: number) => {
   }
   return pts[pts.length - 1][1];
 };
-export const priceAt = (u: number) => pw(KP, u) + noise1(u * 70, 5) * 0.3 * clamp01(Math.abs(u - U_ENTRY) * 25);
+export const priceAt = (u: number) => pw(KP, u) + noise1(u * 52, 5) * 0.17 * clamp01(Math.abs(u - U_ENTRY) * 25);
 
 const POST_K: [number, number][] = [
-  [526, U_ENTRY], [538, 0.3], [545, 0.35], [560, 0.46], [567, 0.52], [581, 0.62], [588, 0.68], [602, 0.79], [609, 0.85], [622, 0.96], [630, 1.0],
+  [526, U_ENTRY], [538, 0.354], [545, 0.4], [560, 0.502], [567, 0.557], [581, 0.649], [588, 0.705], [602, 0.806], [609, 0.862], [622, 0.963], [630, 1.0],
 ];
 export const headU = (f: number) => {
   if (f < TC.post0) return U_ENTRY * clamp01((f - TC.pre0) / (TC.entry - TC.pre0));
@@ -105,10 +105,11 @@ export const STEPS: Step[] = (() => {
 
 /** Framing (price range shown) — a slow camera on the chart. */
 const rangeAt = (f: number): [number, number] => {
+  const z = ramp(f, TC.limitDraw - 10, 40, EASE.inOut);
   const a = ramp(f, TC.f12, 38, EASE.inOut);
   const b = ramp(f, TC.f23, 40, EASE.inOut);
-  const lo = lerp(lerp(88, 88, a), 90, b);
-  const hi = lerp(lerp(105, 116, a), 134, b);
+  const lo = lerp(lerp(lerp(96.2, 88, z), 88, a), 90, b);
+  const hi = lerp(lerp(lerp(104.6, 105, z), 116, a), 134, b);
   return [lo, hi];
 };
 
@@ -211,11 +212,11 @@ export const CardShell: React.FC<{x: number; y: number; w: number; h: number; ch
 // swept in left→right; done rules keep a Blue Glow numeral and a status glyph.
 // ------------------------------------------------------------------
 export const RULES = [
-  {n: '01', title: 'Loss limit set before entry', on: 204, off: 438, icon: 'lock' as const, iconAt: 370},
-  {n: '02', title: 'Size follows the limit', on: 436, off: 541, icon: 'check' as const, iconAt: 512},
-  {n: '03', title: 'Stops only move to protect', on: 541, off: 1e9, icon: 'up' as const, iconAt: 560},
+  {n: '01', title: 'Loss limit first', on: 218, off: 438, icon: 'lock' as const, iconAt: 370},
+  {n: '02', title: 'Size follows limit', on: 436, off: 541, icon: 'check' as const, iconAt: 512},
+  {n: '03', title: 'Stops only protect', on: 541, off: 1e9, icon: 'up' as const, iconAt: 560},
 ];
-export const ROW = {x: 72, w: 936, h: 100, top: 262, step: 114, in: 204} as const;
+export const ROW = {x: 72, w: 936, h: 100, top: 262, step: 114, in: 212} as const;
 
 const RowContent: React.FC<{n: string; title: string; numC: string; titleC: string; icon: 'lock' | 'check' | 'up'; iconC: string; iconK: number; shackle: number}> = ({
   n,
@@ -228,10 +229,10 @@ const RowContent: React.FC<{n: string; title: string; numC: string; titleC: stri
   shackle,
 }) => (
   <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', padding: '0 34px'}}>
-    <div style={{width: 104, fontFamily: FONT.serif, fontSize: 60, lineHeight: 1, color: numC, letterSpacing: '-0.02em', marginTop: 2}}>{n}</div>
-    <div style={{fontFamily: FONT.sans, fontWeight: 500, fontSize: 42, letterSpacing: '-0.02em', color: titleC, whiteSpace: 'nowrap'}}>{title}</div>
+    <div style={{width: 118, fontFamily: FONT.serif, fontSize: 70, lineHeight: 1, color: numC, letterSpacing: '-0.02em', marginTop: 4}}>{n}</div>
+    <div style={{fontFamily: FONT.sans, fontWeight: 500, fontSize: 50, letterSpacing: '-0.02em', color: titleC, whiteSpace: 'nowrap'}}>{title}</div>
     <div style={{marginLeft: 'auto', transform: `scale(${iconK})`, opacity: iconK > 0.01 ? 1 : 0}}>
-      <Glyph kind={icon} color={iconC} size={40} shackle={shackle} />
+      <Glyph kind={icon} color={iconC} size={44} shackle={shackle} />
     </div>
   </div>
 );
@@ -298,7 +299,9 @@ export const RuleRows: React.FC<{f: number; exitAt?: number}> = ({f, exitAt}) =>
 export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) => {
   const [lo, hi] = rangeAt(f);
   const Y = (v: number) => Y0 + ((hi - v) / (hi - lo)) * (Y1 - Y0);
-  const X = (u: number) => X0 + u * (X1 - X0);
+  // time axis: opens zoomed on the waiting market, pulls back as the loss limit arrives
+  const ux1 = lerp(0.31, 1, ramp(f, TC.limitDraw - 12, 50, EASE.inOut));
+  const X = (u: number) => X0 + (u / ux1) * (X1 - X0);
   const head = headU(f);
   const post = f >= TC.post0;
   const xE = X(U_ENTRY);
@@ -319,7 +322,8 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
   const bandP = ramp(f, TC.band, 26, EASE.out);
   const outward = (p: number): [number, number] => [lerp(xE, X0, p), lerp(xE, X1, p)];
   const [eL, eR] = outward(entP);
-  const [bL, bR] = outward(bandP);
+  const bL = xE;
+  const bR = lerp(xE, X1, bandP);
   const bandPts: [number, number][] = [];
   if (bandP > 0) {
     const uL = (bL - X0) / (X1 - X0);
@@ -333,7 +337,6 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
   const brIn = ramp(f, TC.band + 12, 18, EASE.out) * (1 - ramp(f, TC.formulaOut, 16, EASE.in));
   const brHi = ramp(f, TC.term2, 12, EASE.sys) * (1 - ramp(f, TC.solved + 4, 12, EASE.sys));
   const brX = X1 - 16;
-  const brLabel = f >= TC.term2 ? 'STOP DISTANCE' : 'MAX LOSS';
 
   // ---- rule 03: price climbs, stop ratchets ----
   const pricePre: [number, number][] = [];
@@ -349,7 +352,7 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
   }
   // area under the post-entry price (Blue Glow)
   const areaD = post && pricePost.length > 1 ? `${P([[xE, Y1], ...pricePost, [X(head), Y1]])} Z` : `M${xE} ${Y1} Z`;
-  const outD = `M0 0 H${BODY_W} V${BODY_H} H0 Z ${areaD}`;
+  const outD = `M0 0 H${X1 + 8} V${BODY_H} H0 Z ${areaD}`;
 
   // stop path
   type Seg = {u0: number; u1: number; lvl: number};
@@ -404,9 +407,7 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
               strokeWidth={3 + 2 * brHi}
               strokeLinejoin="round"
             />
-            <text x={brX - 26} y={(Y(ENTRY) + yLim(1)) / 2 + 8} textAnchor="end" fill={brC} style={{...mono(22), fontWeight: brHi > 0.5 ? 600 : 400}}>
-              {typed(brLabel, f, f >= TC.term2 ? TC.term2 : TC.band + 16, 1.2)}
-            </text>
+
           </g>
         ) : null}
         {limP > 0.2 ? (
@@ -415,7 +416,7 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
           </text>
         ) : null}
         {f >= TC.entry + 4 ? (
-          <text x={xE + 24} y={Y(ENTRY) + 36} fill={mute} style={mono(22)}>
+          <text x={xE - 24} y={Y(ENTRY) + 36} textAnchor="end" fill={mute} style={mono(22)}>
             {typed('ENTRY', f, TC.entry + 4, 0.6)}
           </text>
         ) : null}
@@ -431,7 +432,6 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
   const preHead = f >= TC.pre0 && f < TC.entry + 2;
   const hx = X(preEnd);
   const hy = Y(priceAt(preEnd));
-  const noPos = ramp(f, 48, 14, EASE.out) * (1 - ramp(f, TC.entry - 12, 10, EASE.in));
 
   // entry dot
   const eK = settle(f, TC.entry - 3, 16, 0.35);
@@ -440,18 +440,15 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
   // post head
   const px = X(head);
   const py = Y(priceAt(head));
-  const priceLab = ramp(f, 540, 14, EASE.out);
-  const stopLab = ramp(f, 566, 14, EASE.out);
   const markK = settle(f, 536, 14, 0.3);
   const markPulse = latestStepF > 0 ? settle(f, latestStepF - 4, 14, 0.6) : 1;
-  const holdK = ramp(f, TC.hold - 4, 10, EASE.out) * (1 - ramp(f, TC.hold + 22, 10, EASE.in));
+  const holdK = f >= TC.hold - 4 && f < TC.hold + 20 ? 1 : 0;
 
   // widen handle / latch badge
   const handleK = settle(f, TC.handleIn, 14, 0.3) * (1 - ramp(f, TC.badgeOut, 14, EASE.in));
   const latched = f >= TC.snap;
   const hX = X(U_HANDLE);
   const hY = yLim(U_HANDLE);
-  const chipK = ramp(f, TC.pull0 + 6, 10, EASE.out) * (1 - ramp(f, TC.badgeOut - 4, 12, EASE.in));
   const badgeFlash = latched ? 1 - ramp(f, TC.snap, 22, EASE.sys) : 0;
 
   // formula panel (rule 02)
@@ -461,7 +458,7 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
   const solve = f < TC.solve0 ? 0 : 1 - Math.exp(-6 * t) * Math.cos(16 * t);
   const solvedK = settle(f, TC.solved - 2, 14, 0.4);
 
-  const lockedMid = lockedRects.length ? lockedRects[lockedRects.length - 1] : null;
+  const lockedMid = lockedRects.length ? [...lockedRects].sort((a, b) => (b.u1 - b.u0) * (b.lvl - ENTRY) - (a.u1 - a.u0) * (a.lvl - ENTRY))[0] : null;
 
   return (
     <div style={{position: 'absolute', left: 0, top: 0, width: BODY_W, height: BODY_H}}>
@@ -485,17 +482,12 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
           ))}
         </g>
         <line x1={X0} x2={lerp(X0, X1, gridP)} y1={Y1} y2={Y1} stroke={GRAY[600]} strokeWidth={2} />
-        {Array.from({length: 29}).map((_, i) => {
-          const u = i / 28;
-          const k = clamp01(gridP * 1.3 - u);
-          return k > 0 ? <line key={i} x1={X(u)} x2={X(u)} y1={Y1} y2={Y1 + 12 * k} stroke={GRAY[600]} strokeWidth={2} /> : null;
+        {Array.from({length: 57}).map((_, i) => {
+          const u = i / 56;
+          const k = clamp01(gridP * 1.3 - (X(u) - X0) / (X1 - X0));
+          return k > 0 && X(u) <= X1 + 1 ? <line key={i} x1={X(u)} x2={X(u)} y1={Y1} y2={Y1 + 12 * k} stroke={GRAY[600]} strokeWidth={2} /> : null;
         })}
-        <text x={X0} y={30} fill={GRAY[800]} style={mono(22)}>
-          {typed('PRICE', f, 20, 0.5)}
-        </text>
-        <text x={X1} y={Y1 + 56} textAnchor="end" fill={GRAY[800]} style={mono(22)}>
-          {typed('TIME →', f, 26, 0.5)}
-        </text>
+
 
         {/* Blue Glow area under the live trade */}
         {post ? <path d={areaD} fill={BLUE[500]} /> : null}
@@ -518,15 +510,16 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
         })}
 
         {/* price: market before entry (gray), the trade after (Blue Glow) */}
-        {pricePre.length > 1 ? <path d={P(pricePre)} fill="none" stroke={GRAY[700]} strokeWidth={4} strokeLinejoin="round" strokeLinecap="round" /> : null}
+        {pricePre.length > 1 ? <path d={P(pricePre)} fill="none" stroke={GRAY[800]} strokeWidth={4.5} strokeLinejoin="round" strokeLinecap="round" /> : null}
         {pricePost.length > 1 ? <path d={P(pricePost)} fill="none" stroke={BLUE[500]} strokeWidth={6} strokeLinejoin="round" strokeLinecap="round" /> : null}
 
-        {preHead ? <circle cx={hx} cy={hy} r={8} fill={GRAY[900]} /> : null}
-        {noPos > 0 ? (
-          <text x={hx + 18} y={hy - 20} fill={GRAY[900]} style={mono(22)} opacity={noPos}>
-            NO POSITION
-          </text>
+        {preHead ? (
+          <g>
+            <circle cx={hx} cy={hy} r={8 + 22 * ((f % 48) / 48)} fill="none" stroke={mixHex(GRAY[600], WHITE[100], (f % 48) / 48)} strokeWidth={3} />
+            <circle cx={hx} cy={hy} r={8} fill={GRAY[900]} />
+          </g>
         ) : null}
+
 
         {/* entry marker */}
         {f >= TC.entry - 3 ? (
@@ -538,29 +531,14 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
 
         {/* post head + labels */}
         {post ? <circle cx={px} cy={py} r={10} fill={BLUE[500]} stroke={WHITE[100]} strokeWidth={4} /> : null}
-        {priceLab > 0 && post ? (
-          <text x={px - 18} y={py - 24} textAnchor="end" fill={BLUE[500]} style={{...mono(22), fontWeight: 600}} opacity={priceLab}>
-            PRICE
-          </text>
-        ) : null}
-        {stopLab > 0 && post ? (
-          <text x={px - 18} y={Y(cur) - 16} textAnchor="end" fill={WHITE[100]} style={{...mono(22), fontWeight: 600}} opacity={stopLab}>
-            TRAILING STOP
-          </text>
-        ) : null}
+
         {/* the scene's one turquoise element: the stop's latest step */}
         {post && f >= 532 ? (
           <circle cx={X(head)} cy={Y(cur)} r={11 * markK * (0.85 + 0.15 * markPulse)} fill={TURQ[500]} stroke={WHITE[100]} strokeWidth={3} />
         ) : null}
-
-        {/* stop holds on the pullback */}
+        {/* pullback: price dips, the stop holds (ring on the marker) */}
         {holdK > 0 ? (
-          <g opacity={holdK} transform={`translate(${X(0.85)} ${Y(cur) + 40 + (1 - holdK) * 10})`}>
-            <rect x={-104} y={-20} width={208} height={42} rx={21} fill={WHITE[100]} />
-            <text x={0} y={9} textAnchor="middle" fill={C.ink} style={{...mono(21), fontWeight: 600}}>
-              STOP HOLDS
-            </text>
-          </g>
+          <circle cx={X(head)} cy={Y(cur)} r={12 + 30 * ramp(f, TC.hold - 4, 24, EASE.out)} fill="none" stroke={mixHex(TURQ[300], BLUE[500], ramp(f, TC.hold - 4, 24, EASE.sys))} strokeWidth={4} />
         ) : null}
 
         {/* protect: the locked-in band gets its label + latch */}
@@ -603,103 +581,75 @@ export const TrailChart: React.FC<{f: number; id?: string}> = ({f, id = 's10'}) 
               <Glyph kind="down" color={WHITE[100]} size={28} />
             )}
           </div>
-          {chipK > 0 ? (
-            <div
-              style={{
-                position: 'absolute',
-                left: hX + 40,
-                top: hY - 21,
-                height: 42,
-                padding: '0 18px',
-                borderRadius: 21,
-                background: C.ink,
-                color: WHITE[100],
-                display: 'flex',
-                alignItems: 'center',
-                ...mono(21),
-                fontWeight: 600,
-                whiteSpace: 'nowrap',
-                opacity: chipK,
-                transform: `translateX(${(1 - chipK) * -12}px)`,
-              }}
-            >
-              {latched ? typed('NEVER WIDENED', f, TC.snap + 2, 1.4) : 'WIDEN?'}
-            </div>
-          ) : null}
+
         </>
       ) : null}
 
-      {/* rule 02 · the sizing formula (built term by term) */}
+      {/* rule 02 · LIMIT ÷ STOP = SIZE, built term by term; the size bar solves itself */}
       {fIn > 0 && fOut < 1 ? (
         <div
           style={{
             position: 'absolute',
             left: X0,
-            top: 56,
+            top: 70,
             width: X1 - X0,
-            height: 306,
-            borderRadius: 30,
+            height: 250,
+            borderRadius: 34,
             background: BLUE[500],
-            clipPath: `inset(${fOut * 100}% 0 ${(1 - fIn) * 100}% 0 round 30px)`,
+            clipPath: `inset(${fOut * 100}% 0 ${(1 - fIn) * 100}% 0 round 34px)`,
             transform: `translateY(${(1 - fIn) * 24 - fOut * 20}px)`,
           }}
         >
-          {[
-            {op: '', term: 'LOSS LIMIT', sub: 'hard cap · before entry', at: TC.term1},
-            {op: '÷', term: 'STOP DISTANCE', sub: 'how far to the stop', at: TC.term2},
-            {op: '=', term: 'POSITION SIZE', sub: 'solved, not guessed', at: TC.term3},
-          ].map((row, i) => {
-            const k = ramp(f, row.at, 20, EASE.out);
-            return (
-              <div key={i} style={{position: 'absolute', left: 32, top: 26 + i * 92, height: 84, width: 420, overflow: 'hidden'}}>
-                <div style={{transform: `translateY(${(1 - k) * 100}%)`, display: 'flex', alignItems: 'flex-start'}}>
-                  <div style={{width: 56, fontFamily: FONT.serif, fontSize: 46, lineHeight: '44px', color: BLUE[200]}}>{row.op}</div>
-                  <div>
-                    <div style={{...mono(31, 0.08), color: WHITE[100], fontWeight: 600, lineHeight: '40px'}}>{row.term}</div>
-                    <div style={{...mono(22, 0.02), color: BLUE[200], marginTop: 4}}>{row.sub}</div>
-                  </div>
-                </div>
+          {(() => {
+            const k1 = ramp(f, TC.term1, 18, EASE.out);
+            const k2 = ramp(f, TC.term2, 18, EASE.out);
+            const k3 = ramp(f, TC.term3, 18, EASE.out);
+            const op1 = ramp(f, TC.term2 - 4, 14, EASE.out);
+            const op2 = ramp(f, TC.term3 - 4, 14, EASE.out);
+            const lab = (txt: string, k: number, left: number) => (
+              <div style={{position: 'absolute', left, top: 52, height: 44, overflow: 'hidden'}}>
+                <div style={{...mono(34, 0.1), fontWeight: 600, color: WHITE[100], lineHeight: '44px', transform: `translateY(${(1 - k) * 48}px)`}}>{txt}</div>
               </div>
             );
-          })}
-          {/* right column: fixed cap · distance · solved size */}
-          {(() => {
-            const k1 = ramp(f, TC.term1 + 4, 16, EASE.out);
-            const k2 = ramp(f, TC.term2 + 4, 16, EASE.out);
-            const k3 = ramp(f, TC.term3 + 2, 12, EASE.out);
-            const trackW = 330;
+            const op = (ch: string, k: number, left: number) => (
+              <div style={{position: 'absolute', left, top: 70, fontFamily: FONT.serif, fontSize: 96, lineHeight: '96px', color: BLUE[200], transform: `scale(${k})`, opacity: k > 0.01 ? 1 : 0}}>{ch}</div>
+            );
+            const barTop = 150;
+            const sizeW = 300 * solve;
             return (
               <>
-                <div style={{position: 'absolute', left: 470, top: 44, height: 24, width: 96 * k1, borderRadius: 12, background: WHITE[100]}} />
-                <div style={{position: 'absolute', left: 582, top: 42, ...mono(22), color: BLUE[200], opacity: k1}}>FIXED</div>
-                <svg style={{position: 'absolute', left: 470, top: 116}} width={60} height={64}>
-                  <path d={`M4 6 H26 V${6 + 52 * k2} H4`} fill="none" stroke={WHITE[100]} strokeWidth={4} strokeLinejoin="round" opacity={k2 > 0 ? 1 : 0} />
+                {lab('LIMIT', k1, 44)}
+                <div style={{position: 'absolute', left: 44, top: barTop, height: 34, width: 124 * k1, borderRadius: 17, background: WHITE[100]}} />
+                {op('÷', op1, 212)}
+                {lab('STOP', k2, 300)}
+                <svg style={{position: 'absolute', left: 300, top: barTop - 34, overflow: 'visible'}} width={80} height={104}>
+                  <path d={`M8 6 H44 V${6 + 90 * k2} H8`} fill="none" stroke={WHITE[100]} strokeWidth={6} strokeLinejoin="round" opacity={k2 > 0 ? 1 : 0} />
                 </svg>
-                <div style={{position: 'absolute', left: 530, top: 134, ...mono(22), color: BLUE[200], opacity: k2}}>ENTRY → LIMIT</div>
-                <div style={{position: 'absolute', left: 470, top: 226, height: 24, width: trackW, borderRadius: 12, background: BLUE[600], opacity: k3}} />
-                <div style={{position: 'absolute', left: 470, top: 226, height: 24, width: Math.max(0, trackW * 0.86 * solve), borderRadius: 12, background: WHITE[100]}} />
+                {op('=', op2, 404)}
+                {lab('SIZE', k3, 486)}
+                <div style={{position: 'absolute', left: 486, top: barTop, height: 34, width: 300, borderRadius: 17, background: BLUE[600], opacity: k3}} />
+                <div style={{position: 'absolute', left: 486, top: barTop, height: 34, width: Math.max(0, sizeW), borderRadius: 17, background: WHITE[100]}} />
                 {solvedK > 0.01 ? (
                   <div
                     style={{
                       position: 'absolute',
-                      left: 470 + trackW * 0.86 - 30,
-                      top: 208,
-                      width: 60,
-                      height: 60,
+                      left: 486 + 300 - 40,
+                      top: barTop - 23,
+                      width: 80,
+                      height: 80,
                       borderRadius: '50%',
                       background: WHITE[100],
+                      border: `6px solid ${BLUE[500]}`,
+                      boxSizing: 'border-box',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       transform: `scale(${solvedK})`,
                     }}
                   >
-                    <Glyph kind="check" color={BLUE[500]} size={32} />
+                    <Glyph kind="check" color={BLUE[500]} size={40} />
                   </div>
                 ) : null}
-                <div style={{position: 'absolute', left: 470, top: 262, ...mono(22), color: BLUE[200], opacity: solvedK > 0.01 ? 1 : 0}}>
-                  {typed('SOLVED', f, TC.solved, 0.8)}
-                </div>
               </>
             );
           })()}

@@ -8,18 +8,22 @@ import {local, voF, wordF} from '../timeline';
 
 // S01 · Cold open (0–8 s). Candle-canyon hero plate (graded to the ramps) under the real
 // Hyperliquid BTC-PERP 4h line for the last 30 days. Every direction change pops a tick and
-// feeds a counter that grows into the hero "91" as the narrator says it.
+// feeds a counter that grows into the hero "89" as the narrator says it.
 
 // Last 180 CLOSED 4h candles (the 20:00 UTC candle was still open at pull time).
 const CLOSES = (M.btc.h4 as number[][]).filter((c) => c[0] < 1790366400).slice(-180).map((c) => c[4]);
 // Direction changes, flat candles ignored (matches docs/03-quant-brief.md: 89).
+const FLIP_DIR: number[] = []; // +1 = turned up (a low), -1 = turned down (a high); drives the tick pitch
 const FLIPS: number[] = (() => {
   const idx: number[] = [];
   let prev = 0;
   for (let i = 1; i < CLOSES.length; i++) {
     const s = Math.sign(CLOSES[i] - CLOSES[i - 1]);
     if (s === 0) continue;
-    if (prev !== 0 && s !== prev) idx.push(i - 1);
+    if (prev !== 0 && s !== prev) {
+      idx.push(i - 1);
+      FLIP_DIR.push(s);
+    }
     prev = s;
   }
   return idx;
@@ -172,7 +176,7 @@ export const S01: React.FC = () => {
             direction changes
           </div>
           <div style={{fontFamily: FONT.mono, fontSize: 24, letterSpacing: '.06em', color: BLACK[300], marginTop: 8, opacity: heroP}}>
-            in 180 four-hour candles · 30 days
+            in 30 days
           </div>
         </div>
       </div>
@@ -188,9 +192,9 @@ export const CUES: {at: number; kind: string; note?: string}[] = [
   ...FLIPS.map((i, n) => {
     let at = T.lineStart;
     while (at < T.lineEnd && ramp(at, T.lineStart, T.lineEnd - T.lineStart, EASE.cubic) * (CLOSES.length - 1) < i) at++;
-    return {at, kind: 'tick', note: `flip ${n + 1}`};
+    return {at, kind: 'tick', note: `flip ${n + 1} ${FLIP_DIR[n] > 0 ? 'up' : 'down'}`};
   }),
   {at: T.l2 + 6, kind: 'swipe', note: '"It whipsaws." serif slam'},
-  {at: T.hero + 10, kind: 'impact_soft', note: 'hero 91 numeral grows'},
+  {at: T.hero + 10, kind: 'impact_soft', note: 'hero 89 numeral grows'},
   {at: T.exit + 10, kind: 'whoosh', note: 'push into the canyon → S02'},
 ];

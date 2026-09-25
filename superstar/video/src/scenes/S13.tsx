@@ -5,7 +5,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import * as THREE from 'three';
 import {SVGLoader} from 'three/examples/jsm/loaders/SVGLoader.js';
 import {lerp, ramp, settle} from '../anim';
-import {PulseDot} from '../components/ui';
+import {Star3D} from '../components/Star';
 import {BACKTEST} from '../data/backtest';
 import {LOGO} from '../data/logo';
 import {BLUE, C, EASE, FONT, GRAY, H, TURQ, W} from '../theme';
@@ -15,7 +15,7 @@ import {local, voF, wordF} from '../timeline';
 // path, flies in and lands face-on on the final hit; it docks into the lockup while the wordmark builds
 // glyph by glyph from the official outlines. "Superstar" lands on the narrator's word, then "Now live".
 
-const LOCK = {w: 760, cx: 540, cy: 690}; // lockup width in px, centre
+const LOCK = {w: 760, cx: 540, cy: 760}; // lockup width in px, centre
 const U = LOCK.w / LOGO.viewBox.w; // px per logo unit
 const LX = LOCK.cx - LOCK.w / 2; // lockup left
 const LY = LOCK.cy - (LOGO.viewBox.h * U) / 2; // lockup top
@@ -24,10 +24,10 @@ const MARK_CX = LX + MARK_PX / 2, MARK_CY = LY + MARK_PX / 2;
 
 export const T = {
   fly: 0,
-  land: 50,
-  dock0: 62,
-  dock1: 108,
-  glyphs: 84,
+  land: 60, // 91.0 s: on the beat, with the narrator's "Superstar"
+  dock0: 72,
+  dock1: 118,
+  glyphs: 94,
   superstar: local('S13', voF('L22')),
   live: local('S13', wordF('L22', 'now')),
   url: local('S13', wordF('L22', 'deploy')),
@@ -83,6 +83,7 @@ export const S13: React.FC = () => {
   const live = settle(f, T.live - 2, 22, 0.25);
   const url = ramp(f, T.url, 24, EASE.out);
   const legal = ramp(f, T.legal, 30, EASE.out);
+  void url;
   const rule = ramp(f, Math.max(T.superstar - 10, T.dock1 - 26), 40, EASE.sys);
 
   return (
@@ -117,11 +118,17 @@ export const S13: React.FC = () => {
         </svg>
 
         {/* product line */}
-        <div style={{position: 'absolute', left: 72, right: 72, top: 860, height: 2, background: GRAY[600], transformOrigin: 'left', transform: `scaleX(${rule})`}} />
-        <div style={{position: 'absolute', left: 72, top: 902, overflow: 'hidden', paddingBottom: 12}}>
+        <div style={{position: 'absolute', left: 72, right: 72, top: 930, height: 2, background: GRAY[600], transformOrigin: 'left', transform: `scaleX(${rule})`}} />
+        {/* the Superstar core, small, spinning beside its name */}
+        {f >= T.dock1 - 20 && (
+          <AbsoluteFill style={{opacity: sup}}>
+            <Star3D width={W} height={H} x={880 - 540} y={1060 - 960} size={lerp(60, 190, sup)} rot={[0.5 + f * 0.004, 0.3 + f * 0.012, 0.2]} />
+          </AbsoluteFill>
+        )}
+        <div style={{position: 'absolute', left: 72, top: 972, overflow: 'hidden', paddingBottom: 12}}>
           <div style={{transform: `translateY(${(1 - sup) * 110}%)`, fontFamily: FONT.serif, fontSize: 168, lineHeight: 1, color: BLUE[500], letterSpacing: '-0.03em'}}>Superstar</div>
         </div>
-        <div style={{position: 'absolute', left: 72, top: 1110, display: 'flex', alignItems: 'center', gap: 22}}>
+        <div style={{position: 'absolute', left: 72, top: 1190, display: 'flex', alignItems: 'center', gap: 22}}>
           <div
             style={{
               display: 'inline-flex',
@@ -140,18 +147,11 @@ export const S13: React.FC = () => {
           >
             NOW LIVE
           </div>
-          <div style={{fontFamily: FONT.mono, fontSize: 30, color: C.ink, letterSpacing: '.02em', opacity: url, transform: `translateX(${(1 - url) * 20}px)`}}>deploy.finance/superstar</div>
         </div>
 
-        {/* legal */}
-        <div style={{position: 'absolute', left: 72, right: 72, top: 1262, opacity: legal, transform: `translateY(${(1 - legal) * 16}px)`}}>
-          <div style={{display: 'flex', alignItems: 'center', gap: 14, fontFamily: FONT.mono, fontSize: 22, color: GRAY[900], letterSpacing: '.04em', marginBottom: 16}}>
-            <PulseDot size={12} color={BLUE[500]} />
-            <span>spot · perps · HIP-3 on Hyperliquid · $10,000 USDC minimum</span>
-          </div>
-          <div style={{fontFamily: FONT.sans, fontSize: 24, lineHeight: 1.45, color: GRAY[900]}}>
-            {BACKTEST.disclaimer} Not investment advice. May not be available in all jurisdictions.
-          </div>
+        {/* one line of compliance, nothing more */}
+        <div style={{position: 'absolute', left: 72, right: 72, top: 1560, textAlign: 'center', fontFamily: FONT.mono, fontSize: 21, color: GRAY[800], letterSpacing: '.04em', opacity: legal}}>
+          backtest figures simulated · not investment advice
         </div>
       </AbsoluteFill>
     </AbsoluteFill>

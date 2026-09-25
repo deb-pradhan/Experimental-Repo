@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Sequence} from 'remotion';
+import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import {C} from './theme';
 import {SCENES, SceneId} from './timeline';
 import {S01} from './scenes/S01';
@@ -30,9 +30,11 @@ export const SceneFrame: React.FC<{id: SceneId}> = ({id}) => {
   );
 };
 
-export const Film: React.FC<{withAudio?: boolean}> = () => {
+export const Film: React.FC<{withAudio?: boolean}> = ({withAudio}) => {
   return (
     <AbsoluteFill style={{background: C.softBlack}}>
+      {/* the finished mix (score + narration + designed SFX), built by tools/mix_audio.py */}
+      {withAudio && <Audio src={staticFile('audio/mix.wav')} />}
       {(Object.keys(SCENES) as SceneId[]).map((id) => (
         <Sequence key={id} from={SCENES[id].from} durationInFrames={SCENES[id].to - SCENES[id].from} name={`${id} · ${SCENES[id].name}`}>
           <SceneFrame id={id} />

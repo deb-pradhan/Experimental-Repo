@@ -1,7 +1,7 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
-import {clamp} from '../anim';
-import {BLUE, C, FONT, WHITE, mixHex} from '../theme';
+import {clamp, ramp} from '../anim';
+import {BLUE, C, EASE, FONT, WHITE, mixHex} from '../theme';
 
 // ------------------------------------------------------------------
 // Small helpers shared by S06 / S07 / S08 (the "how it works" scenes).
@@ -156,3 +156,15 @@ export const usdCompact = (v: number) => {
 };
 
 export const px = (n: number) => `${n}px`;
+
+/** Masked exit for a StepHeader (ui.tsx's own `exit` leaves the title partly visible inside
+ *  the 120px numeral row). Everything inside rises 200px behind a clip at the header band. */
+export const HeaderMaskOut: React.FC<{exit: number; children: React.ReactNode; dur?: number}> = ({exit, children, dur = 22}) => {
+  const f = useCurrentFrame();
+  const q = ramp(f, exit, dur, EASE.in);
+  return (
+    <div style={{position: 'absolute', left: 0, right: 0, top: 230, height: 200, overflow: 'hidden'}}>
+      <div style={{position: 'absolute', left: 0, right: 0, top: -230, height: 1920, transform: `translateY(${-q * 210}px)`}}>{children}</div>
+    </div>
+  );
+};

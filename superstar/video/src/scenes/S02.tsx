@@ -171,7 +171,6 @@ export const S02: React.FC = () => {
         <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
           <span style={{width: 18, height: 18, background: BLUE[300], display: 'inline-block'}} />
           <Micro color={WHITE[100]} size={26}>shorts liquidated</Micro>
-          <span style={{marginLeft: 'auto', fontFamily: FONT.mono, fontSize: 22, color: BLACK[300]}}>squeezed on the way up</span>
         </div>
         <div style={{overflow: 'hidden', marginTop: 8}}>
           <div style={{transform: `translateY(${(1 - pS) * 110}%)`, fontFamily: FONT.serif, fontSize: 168, lineHeight: 1, color: WHITE[100], letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums'}}>
@@ -200,7 +199,6 @@ export const S02: React.FC = () => {
         <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
           <span style={{width: 18, height: 18, background: BLACK[300], display: 'inline-block'}} />
           <Micro color={WHITE[100]} size={26}>longs liquidated</Micro>
-          <span style={{marginLeft: 'auto', fontFamily: FONT.mono, fontSize: 22, color: BLACK[300]}}>flushed on the way down</span>
         </div>
         <div style={{overflow: 'hidden', marginTop: 8}}>
           <div style={{transform: `translateY(${(1 - pL) * 110}%)`, fontFamily: FONT.serif, fontSize: 168, lineHeight: 1, color: WHITE[100], letterSpacing: '-0.03em', fontVariantNumeric: 'tabular-nums'}}>

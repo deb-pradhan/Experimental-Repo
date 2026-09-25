@@ -297,7 +297,7 @@ export const StepHeader: React.FC<{n: string; title: string; start: number; exit
             fontSize: 58,
             lineHeight: 1.05,
             color: onBlue ? WHITE[100] : C.ink,
-            transform: `translateY(${(1 - ramp(f, start + 5, 34, EASE.out)) * 130 - q * 130}%)`,
+            transform: `translateY(${(1 - ramp(f, start + 5, 34, EASE.out)) * 140 - q * 150}px)`, // px, not %: the row is the 120px numeral tall
             display: 'inline-block',
             letterSpacing: '-0.02em',
           }}
