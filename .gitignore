@@ -4,3 +4,4 @@ video/.cache/
 __pycache__/
 *.pyc
 audio/mix/premaster.wav
+*.bundle
