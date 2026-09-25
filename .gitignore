@@ -1,0 +1,6 @@
+node_modules/
+video/out/
+video/.cache/
+__pycache__/
+*.pyc
+audio/mix/premaster.wav

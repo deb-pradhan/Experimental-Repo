@@ -1,0 +1,633 @@
+<title>Brutalist shadcn Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+/* ============================================================
+   SHADCN TOKEN CONTRACT → mapped to the Editorial Brutalist palette.
+   Single committed theme: white ground, black text, blue emphasis.
+   Black surfaces are used intentionally for chrome (overlays, command,
+   tooltip, sidebar) per the deck system's "black carries chrome" rule.
+   No shadows anywhere — overlays separate with a hairline ring + scrim.
+   ============================================================ */
+:root{
+  /* palette */
+  --black:#000; --white:#fff;
+  --lime:#E9FEA3; --yellow:#FBFD78; --lilac:#CB9FD2; --blue:#4C49F3;
+  --grey-bg:#E2E2E2; --grey-block:#CFCFCF;
+  --muted-dark:#9A9A9A; --muted-light:#555; --label:#6B6B6B;
+
+  /* shadcn contract */
+  --background:#fff; --foreground:#000;
+  --card:#fff; --card-foreground:#000;
+  --popover:#000; --popover-foreground:#fff;
+  --primary:#4C49F3; --primary-foreground:#fff;
+  --secondary:#000; --secondary-foreground:#fff;
+  --muted:#E2E2E2; --muted-foreground:#555;
+  --accent:#E9FEA3; --accent-foreground:#000;
+  --destructive:#000; --destructive-foreground:#fff;   /* no red in palette — see notice */
+  --border:rgba(0,0,0,.20); --border-strong:rgba(0,0,0,.42);
+  --input:rgba(0,0,0,.42); --ring:#4C49F3;
+  --radius:11px;
+
+  --font:"Manrope","Inter","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --fw-light:200; --fw-mid:300; --fw-semi:500; --fw-bold:600;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{ -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; scroll-behavior:smooth }
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} *{animation-duration:.001ms!important;transition-duration:.001ms!important} }
+body{ font:var(--fw-light) 14px/1.45 var(--font); letter-spacing:-0.011em; background:var(--background); color:var(--foreground) }
+:focus-visible{ outline:2px solid var(--ring); outline-offset:2px; border-radius:4px }
+
+/* ---------- type ---------- */
+.display{ font-weight:var(--fw-bold); font-size:32px; line-height:1; letter-spacing:-0.05em; text-wrap:balance }
+.h2{ font-weight:var(--fw-light); font-size:22px; letter-spacing:-0.03em; line-height:1.1 }
+.eyebrow{ font-size:10px; letter-spacing:0.09em; text-transform:uppercase; color:var(--muted-foreground) }
+.mut{ color:var(--muted-foreground) } .tnum{ font-variant-numeric:tabular-nums }
+.mono{ font-family:var(--mono); font-size:.92em; letter-spacing:0 }
+b,.bold{ font-weight:var(--fw-bold) }
+
+/* ---------- shell ---------- */
+.wrap{ display:grid; grid-template-columns:220px 1fr; width:100%; min-height:100vh }
+.rail{ position:sticky; top:0; align-self:start; height:100vh; overflow-y:auto; background:#000; color:#fff; padding:26px 20px 40px }
+.rail .mark{ display:flex; align-items:baseline; gap:1px; margin-bottom:6px }
+.rail .mark b{ font-size:18px; font-weight:var(--fw-bold); letter-spacing:-0.04em } .rail .mark span{ font-size:18px; letter-spacing:-0.04em; color:var(--lime) }
+.rail .sub{ font-size:10px; color:var(--muted-dark); margin-bottom:18px }
+.rail .grp{ font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-dark); margin:16px 0 5px }
+.rail a{ display:block; color:#fff; text-decoration:none; font-size:12px; padding:3px 0; opacity:.7; transition:opacity .15s,padding-left .15s }
+.rail a:hover{ opacity:1; padding-left:4px }
+.main{ padding:40px 46px 140px; min-width:0 }
+
+.chipset{ display:inline-flex; gap:1px; margin-bottom:16px }
+.chip{ height:26px; display:inline-flex; align-items:center; padding:0 9px; font-size:13px; letter-spacing:-0.02em; background:#000; color:#fff; border-radius:999px 0 0 999px }
+.chip.b{ background:var(--lime); color:#000; border-radius:0 999px 999px 0 }
+.lede{ max-width:64ch; margin-top:10px }
+.notice{ display:flex; gap:12px; background:var(--lime); color:#000; border-radius:var(--radius); padding:14px 16px; margin:20px 0 8px; max-width:74ch; font-size:12.5px; line-height:1.5 }
+.notice .k{ font-weight:var(--fw-bold); font-size:20px; line-height:.9 }
+.notice2{ display:flex; gap:12px; background:#000; color:#fff; border-radius:var(--radius); padding:14px 16px; margin:8px 0 40px; max-width:74ch; font-size:12.5px; line-height:1.5 }
+.notice2 b{ color:var(--lime) }
+
+/* component slot */
+.comp{ padding:30px 0; border-top:.75px solid var(--border) }
+.comp > header{ display:flex; align-items:baseline; gap:10px; margin-bottom:16px }
+.comp > header h3{ font-weight:var(--fw-light); font-size:18px; letter-spacing:-0.03em }
+.comp > header .n{ font-size:10px; color:var(--muted-foreground); font-variant-numeric:tabular-nums }
+.comp > header .badge-src{ margin-left:auto; font-size:9px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-foreground); border:.75px solid var(--border); border-radius:999px; padding:2px 8px }
+.demo{ display:flex; flex-wrap:wrap; gap:16px; align-items:flex-start }
+.demo.col{ flex-direction:column }
+.grid2{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; width:100% }
+.slot{ display:flex; flex-direction:column; gap:8px }
+.slot .lab{ font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted-foreground) }
+.row{ display:flex; gap:10px; align-items:center; flex-wrap:wrap }
+
+/* ============ BUTTON / TOGGLE / BADGE ============ */
+.btn{ font-family:var(--font); font-weight:var(--fw-mid); letter-spacing:-0.02em; cursor:pointer; border:0;
+  border-radius:999px; display:inline-flex; align-items:center; justify-content:center; gap:7px; white-space:nowrap;
+  height:38px; padding:0 17px; font-size:13.5px; transition:background .15s,transform .06s,box-shadow .15s; -webkit-tap-highlight-color:transparent }
+.btn:active{ transform:translateY(1px) }
+.btn-sm{ height:30px; padding:0 12px; font-size:12px } .btn-lg{ height:46px; padding:0 24px; font-size:15px }
+.btn-icon{ width:38px; padding:0 }
+.btn-primary{ background:var(--primary); color:#fff } .btn-primary:hover{ background:#3b38e6 }
+.btn-secondary{ background:#000; color:#fff } .btn-secondary:hover{ background:#1c1c1c }
+.btn-outline{ background:transparent; color:var(--foreground); box-shadow:inset 0 0 0 .75px var(--border-strong) } .btn-outline:hover{ background:rgba(0,0,0,.05) }
+.btn-ghost{ background:transparent; color:var(--foreground) } .btn-ghost:hover{ background:rgba(0,0,0,.06) }
+.btn-accent{ background:var(--lime); color:#000 } .btn-accent:hover{ background:#dff58c }
+.btn-destructive{ background:var(--destructive); color:#fff; box-shadow:inset 0 0 0 1.5px var(--blue) } .btn-destructive:hover{ background:#1c1c1c }
+.btn-link{ background:transparent; color:var(--primary); padding:0 2px; height:auto; text-underline-offset:3px } .btn-link:hover{ text-decoration:underline }
+.btn[disabled]{ opacity:.4; cursor:not-allowed } .btn[disabled]:active{ transform:none }
+.spin{ width:14px; height:14px; border:2px solid currentColor; border-top-color:transparent; border-radius:50%; animation:spin .7s linear infinite }
+@keyframes spin{ to{ transform:rotate(360deg) } }
+
+.toggle{ height:34px; min-width:34px; padding:0 12px; border-radius:8px; background:transparent; border:.75px solid var(--border); cursor:pointer; font-family:var(--font); font-size:13px; color:var(--foreground); display:inline-flex; align-items:center; gap:6px; transition:background .12s }
+.toggle:hover{ background:rgba(0,0,0,.05) }
+.toggle[aria-pressed=true]{ background:#000; color:#fff; border-color:#000 }
+.tgroup{ display:inline-flex; gap:0; border:.75px solid var(--border); border-radius:8px; overflow:hidden }
+.tgroup .toggle{ border:0; border-radius:0; border-right:.75px solid var(--border) } .tgroup .toggle:last-child{ border-right:0 }
+.tgroup .toggle[aria-pressed=true]{ background:var(--lime); color:#000 }
+
+.badge{ display:inline-flex; align-items:center; height:20px; padding:0 9px; border-radius:999px; font-size:10.5px; letter-spacing:-0.005em }
+.badge-default{ background:#000; color:#fff } .badge-primary{ background:var(--blue); color:#fff }
+.badge-accent{ background:var(--lime); color:#000 } .badge-secondary{ background:var(--grey-block); color:#000 }
+.badge-outline{ box-shadow:inset 0 0 0 .75px var(--border-strong); color:var(--foreground) }
+
+/* ============ FORM CONTROLS ============ */
+.label{ font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-foreground) }
+.input,.textarea{ font:var(--fw-light) 14px var(--font); letter-spacing:-0.011em; color:var(--foreground); background:transparent;
+  border:0; border-bottom:.75px solid var(--input); padding:7px 0; outline:none; width:260px; transition:border-color .15s,box-shadow .15s }
+.input::placeholder,.textarea::placeholder{ color:var(--muted-dark) }
+.input:focus,.textarea:focus{ border-bottom:1.5px solid var(--blue); box-shadow:0 1.5px 0 var(--blue) }
+.textarea{ resize:vertical; min-height:76px }
+.field{ display:flex; flex-direction:column; gap:6px }
+.field .help{ font-size:10.5px; color:var(--muted-foreground) }
+.field.invalid .input{ border-bottom:1.5px solid var(--blue) }
+.field.invalid .help{ color:var(--blue); font-weight:var(--fw-mid); display:flex; gap:6px; align-items:center }
+.field.invalid .help::before{ content:""; width:6px; height:6px; background:var(--blue); border-radius:50%; flex:none }
+
+.check,.radio{ display:inline-flex; align-items:center; gap:9px; cursor:pointer; font-size:13.5px; user-select:none }
+.check input,.radio input{ position:absolute; opacity:0; width:0; height:0 }
+.check .box{ width:18px; height:18px; border-radius:5px; border:.75px solid var(--border-strong); display:grid; place-items:center; transition:background .12s,border-color .12s }
+.check .box svg{ width:11px; height:11px; opacity:0; transition:opacity .12s }
+.check input:checked + .box{ background:var(--blue); border-color:var(--blue) } .check input:checked + .box svg{ opacity:1; stroke:#fff }
+.check input:focus-visible + .box{ outline:2px solid var(--ring); outline-offset:2px }
+.radio .dot{ width:18px; height:18px; border-radius:50%; border:.75px solid var(--border-strong); display:grid; place-items:center; transition:border-color .12s }
+.radio .dot::after{ content:""; width:9px; height:9px; border-radius:50%; background:var(--blue); transform:scale(0); transition:transform .12s }
+.radio input:checked + .dot{ border-color:var(--blue) } .radio input:checked + .dot::after{ transform:scale(1) }
+.radio input:focus-visible + .dot{ outline:2px solid var(--ring); outline-offset:2px }
+
+.switch{ position:relative; width:40px; height:22px; border-radius:999px; background:var(--grey-block); cursor:pointer; transition:background .18s; border:0; flex:none }
+.switch::after{ content:""; position:absolute; top:2px; left:2px; width:18px; height:18px; border-radius:50%; background:#fff; transition:transform .18s }
+.switch[aria-checked=true]{ background:var(--blue) } .switch[aria-checked=true]::after{ transform:translateX(18px) }
+
+.slider{ position:relative; width:240px; height:22px; display:flex; align-items:center; cursor:pointer; touch-action:none }
+.slider .track{ height:4px; width:100%; border-radius:999px; background:rgba(0,0,0,.14) }
+.slider .fill{ position:absolute; height:4px; border-radius:999px; background:var(--blue); left:0 }
+.slider .thumb{ position:absolute; width:16px; height:16px; border-radius:50%; background:#fff; box-shadow:inset 0 0 0 1.5px var(--blue); transform:translateX(-50%); transition:box-shadow .12s }
+.slider:focus-within .thumb{ box-shadow:inset 0 0 0 2px var(--blue), 0 0 0 4px rgba(76,73,243,.18) }
+
+.otp{ display:inline-flex; gap:8px } .otp input{ width:38px; height:44px; text-align:center; font:var(--fw-mid) 18px var(--mono); border:.75px solid var(--border-strong); border-radius:8px; background:transparent; outline:none; color:var(--foreground); letter-spacing:0 }
+.otp input:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(76,73,243,.15) }
+
+/* trigger shared (select/combobox/dropdown/date) */
+.trigger{ display:inline-flex; align-items:center; justify-content:space-between; gap:10px; min-width:220px; height:38px; padding:0 12px;
+  background:transparent; border:.75px solid var(--border-strong); border-radius:8px; cursor:pointer; font:var(--fw-light) 14px var(--font); color:var(--foreground); letter-spacing:-0.011em }
+.trigger .chev{ font-size:10px; color:var(--muted-foreground); transition:transform .18s }
+[data-open=true] > .trigger .chev, .trigger[aria-expanded=true] .chev{ transform:rotate(180deg) }
+.trigger:hover{ background:rgba(0,0,0,.04) }
+.menu{ position:absolute; z-index:40; margin-top:6px; min-width:220px; background:#000; color:#fff; border-radius:var(--radius); padding:6px; display:none; flex-direction:column; border:.75px solid rgba(255,255,255,.14) }
+[data-open=true] > .menu, .menu.open{ display:flex }
+.menu button,.menu a{ text-align:left; border:0; background:transparent; color:#fff; font:var(--fw-light) 13px var(--font); padding:8px 10px; border-radius:7px; cursor:pointer; text-decoration:none; display:flex; align-items:center; gap:9px; justify-content:space-between }
+.menu button:hover,.menu a:hover{ background:rgba(255,255,255,.12) }
+.menu [aria-selected=true]{ color:var(--lime) }
+.menu .sep{ height:.75px; background:rgba(255,255,255,.14); margin:5px 4px }
+.menu .mlabel{ font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted-dark); padding:6px 10px 3px }
+.menu .kbd{ font:500 10px var(--mono); color:var(--muted-dark) }
+
+/* ============ NAV ============ */
+.tabs .list{ display:inline-flex; gap:2px; background:var(--grey-bg); border-radius:999px; padding:3px }
+.tabs .tab{ border:0; background:transparent; padding:6px 14px; border-radius:999px; font:var(--fw-mid) 13px var(--font); color:var(--muted-foreground); cursor:pointer; transition:background .15s,color .15s }
+.tabs .tab[aria-selected=true]{ background:#000; color:#fff }
+.tabs .panel{ display:none; padding-top:16px; font-size:13px; max-width:52ch; color:var(--muted-foreground) } .tabs .panel.on{ display:block }
+
+.crumbs{ display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--muted-foreground) }
+.crumbs a{ color:var(--muted-foreground); text-decoration:none } .crumbs a:hover{ color:var(--foreground) }
+.crumbs .cur{ color:var(--foreground) } .crumbs .sl{ color:var(--muted-dark) }
+
+.pager{ display:inline-flex; gap:4px }
+.pager button{ min-width:34px; height:34px; border-radius:8px; border:.75px solid var(--border); background:transparent; cursor:pointer; font:var(--fw-light) 13px var(--font); color:var(--foreground); font-variant-numeric:tabular-nums }
+.pager button:hover{ background:rgba(0,0,0,.05) } .pager button[aria-current=true]{ background:#000; color:#fff; border-color:#000 }
+
+.navmenu{ display:inline-flex; gap:2px; position:relative }
+.navmenu > button{ border:0; background:transparent; padding:8px 12px; border-radius:8px; font:var(--fw-mid) 13px var(--font); cursor:pointer; color:var(--foreground) } .navmenu > button:hover{ background:rgba(0,0,0,.05) }
+
+.menubar{ display:inline-flex; gap:1px; border:.75px solid var(--border); border-radius:8px; padding:2px }
+.menubar > button{ border:0; background:transparent; padding:5px 11px; border-radius:6px; font:var(--fw-mid) 13px var(--font); cursor:pointer; color:var(--foreground) } .menubar > button:hover{ background:#000; color:#fff }
+
+.sidebar-demo{ width:230px; background:#000; color:#fff; border-radius:var(--radius); padding:14px; display:flex; flex-direction:column; gap:2px }
+.sidebar-demo .sh{ font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted-dark); padding:8px 8px 4px }
+.sidebar-demo a{ display:flex; align-items:center; gap:10px; color:#fff; text-decoration:none; font-size:13px; padding:8px; border-radius:8px; opacity:.75 }
+.sidebar-demo a:hover{ opacity:1; background:rgba(255,255,255,.08) }
+.sidebar-demo a.active{ opacity:1; background:var(--blue) }
+.sidebar-demo a .c{ margin-left:auto; font-size:10px; background:rgba(255,255,255,.16); border-radius:999px; padding:1px 7px }
+
+/* ============ OVERLAYS ============ */
+.scrim{ position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:90; display:none; align-items:center; justify-content:center; padding:20px }
+.scrim.on{ display:flex }
+.sheet-card{ background:#fff; color:#000; border-radius:var(--radius); width:min(440px,92vw); border:.75px solid var(--border); padding:24px; display:flex; flex-direction:column; gap:14px }
+.sheet-card h4{ font-size:20px; letter-spacing:-0.03em; font-weight:var(--fw-light) }
+.sheet-card p{ font-size:13px; color:var(--muted-foreground); line-height:1.5 }
+.sheet-card .foot{ display:flex; gap:8px; justify-content:flex-end; margin-top:6px }
+.side-scrim{ position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:90; display:none }
+.side-scrim.on{ display:block }
+.side-panel{ position:absolute; top:0; right:0; height:100%; width:min(380px,88vw); background:#fff; border-left:.75px solid var(--border); padding:24px; transform:translateX(100%); transition:transform .28s cubic-bezier(.2,.7,.2,1); display:flex; flex-direction:column; gap:14px }
+.side-scrim.on .side-panel{ transform:none }
+.drawer-panel{ position:absolute; left:0; right:0; bottom:0; background:#fff; border-top:.75px solid var(--border); border-radius:16px 16px 0 0; padding:22px 24px 28px; transform:translateY(100%); transition:transform .28s cubic-bezier(.2,.7,.2,1) }
+.side-scrim.on .drawer-panel{ transform:none }
+.drawer-grip{ width:40px; height:4px; border-radius:999px; background:var(--grey-block); margin:0 auto 14px }
+
+.pop{ position:absolute; z-index:40; margin-top:6px; background:#000; color:#fff; border-radius:var(--radius); padding:14px; width:250px; display:none; border:.75px solid rgba(255,255,255,.14) }
+.pop.open{ display:block } .pop .pt{ font-size:13px } .pop .pd{ font-size:11px; color:var(--muted-dark); margin-top:4px; line-height:1.5 }
+.hovercard{ position:absolute; z-index:40; margin-top:8px; background:#000; color:#fff; border-radius:var(--radius); padding:14px; width:270px; display:none; border:.75px solid rgba(255,255,255,.14) }
+.hoverwrap:hover .hovercard{ display:block }
+
+.tip{ position:relative; display:inline-flex }
+.tip .bubble{ position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%) translateY(4px); background:#000; color:#fff; font-size:11px; padding:5px 9px; border-radius:7px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .14s,transform .14s }
+.tip:hover .bubble,.tip:focus-within .bubble{ opacity:1; transform:translateX(-50%) translateY(0) }
+.tip .bubble::after{ content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:4px solid transparent; border-top-color:#000 }
+
+.ctxwrap{ display:grid; place-items:center; height:110px; width:100%; max-width:420px; border:.75px dashed var(--border-strong); border-radius:var(--radius); font-size:12px; color:var(--muted-foreground); user-select:none; cursor:context-menu }
+
+.command{ width:min(460px,92vw); background:#000; color:#fff; border-radius:var(--radius); border:.75px solid rgba(255,255,255,.14); overflow:hidden }
+.command .cin{ display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:.75px solid rgba(255,255,255,.12) }
+.command .cin input{ flex:1; background:transparent; border:0; outline:none; color:#fff; font:var(--fw-light) 15px var(--font); letter-spacing:-0.011em }
+.command .cin input::placeholder{ color:var(--muted-dark) }
+.command .clist{ max-height:260px; overflow-y:auto; padding:6px }
+.command .cmlabel{ font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted-dark); padding:8px 10px 4px }
+.command .citem{ display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:8px; font-size:13px; cursor:pointer }
+.command .citem:hover,.command .citem[data-active=true]{ background:rgba(255,255,255,.12) }
+.command .citem .kbd{ margin-left:auto; font:500 10px var(--mono); color:var(--muted-dark) }
+.command .empty{ padding:24px; text-align:center; color:var(--muted-dark); font-size:12px }
+
+/* ============ DATA DISPLAY ============ */
+.card{ background:var(--card); color:var(--card-foreground); border:.75px solid var(--border); border-radius:var(--radius); padding:20px; width:300px; display:flex; flex-direction:column; gap:6px }
+.card .ct{ font-size:16px; letter-spacing:-0.02em } .card .cd{ font-size:12px; color:var(--muted-foreground) }
+.card .cbody{ font-size:13px; line-height:1.5; margin:8px 0 } .card .cfoot{ display:flex; gap:8px; margin-top:6px }
+.card-accent{ background:var(--lime); border-color:transparent; color:#000 } .card-accent .cd{ color:var(--muted-light) }
+.card-dark{ background:#000; border-color:transparent; color:#fff } .card-dark .cd{ color:var(--muted-dark) }
+
+.tbl{ width:100%; max-width:640px; border-collapse:collapse; font-size:13px }
+.tbl caption{ text-align:left; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-foreground); padding-bottom:8px }
+.tbl th{ text-align:left; font-weight:var(--fw-mid); color:var(--muted-foreground); font-size:11px; padding:8px 10px; border-bottom:.75px solid var(--border-strong) }
+.tbl td{ padding:10px; border-bottom:.75px solid var(--border) } .tbl td.num{ text-align:right; font-variant-numeric:tabular-nums }
+.tbl tr:last-child td{ border-bottom:.75px solid var(--border-strong) }
+
+.avatar{ width:40px; height:40px; border-radius:999px; display:grid; place-items:center; font-size:14px; font-weight:var(--fw-bold); color:#000 }
+.avatar.sm{ width:30px; height:30px; font-size:11px } .avatar.ring{ box-shadow:0 0 0 2px #fff, 0 0 0 3px var(--border) }
+.astack{ display:flex } .astack .avatar{ margin-left:-8px; box-shadow:0 0 0 2px #fff } .astack .avatar:first-child{ margin-left:0 }
+
+.accordion{ width:100%; max-width:560px; border-top:.75px solid var(--border-strong) }
+.acc-item{ border-bottom:.75px solid var(--border) }
+.acc-head{ width:100%; text-align:left; background:transparent; border:0; cursor:pointer; padding:14px 0; font:var(--fw-mid) 14px var(--font); color:var(--foreground); display:flex; justify-content:space-between; align-items:center }
+.acc-head .pm{ transition:transform .2s; color:var(--muted-foreground) } .acc-item[data-open=true] .pm{ transform:rotate(45deg) }
+.acc-body{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .24s ease } .acc-item[data-open=true] .acc-body{ grid-template-rows:1fr }
+.acc-body > div{ overflow:hidden } .acc-body p{ font-size:12.5px; color:var(--muted-foreground); line-height:1.55; padding-bottom:16px; max-width:60ch }
+
+.collapse-body{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .24s ease } [data-collapse-open=true] .collapse-body{ grid-template-rows:1fr } .collapse-body > div{ overflow:hidden }
+
+.carousel{ width:340px } .carousel .stage{ overflow:hidden; border-radius:var(--radius) } .carousel .belt{ display:flex; transition:transform .3s cubic-bezier(.2,.7,.2,1) }
+.carousel .slide{ min-width:100%; height:150px; display:grid; place-items:center; font-size:34px; font-weight:var(--fw-bold); letter-spacing:-0.04em }
+.carousel .ctrls{ display:flex; justify-content:space-between; align-items:center; margin-top:12px } .carousel .dots{ display:flex; gap:6px } .carousel .dots i{ width:6px; height:6px; border-radius:50%; background:var(--grey-block) } .carousel .dots i.on{ background:#000 }
+
+.calendar{ width:280px; border:.75px solid var(--border); border-radius:var(--radius); padding:16px }
+.calendar .chead{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px } .calendar .chead b{ font-size:14px; letter-spacing:-0.02em; font-weight:var(--fw-mid) }
+.calendar .nav{ width:28px; height:28px; border-radius:7px; border:.75px solid var(--border); background:transparent; cursor:pointer; color:var(--foreground) } .calendar .nav:hover{ background:rgba(0,0,0,.05) }
+.calendar .dow,.calendar .days{ display:grid; grid-template-columns:repeat(7,1fr); gap:2px } .calendar .dow span{ text-align:center; font-size:9px; color:var(--muted-foreground); padding:4px 0 }
+.calendar .days button{ aspect-ratio:1; border:0; background:transparent; border-radius:7px; cursor:pointer; font:var(--fw-light) 12px var(--font); color:var(--foreground); font-variant-numeric:tabular-nums } .calendar .days button:hover{ background:rgba(0,0,0,.06) }
+.calendar .days button.mute{ color:var(--muted-dark) } .calendar .days button[aria-selected=true]{ background:var(--blue); color:#fff } .calendar .days button.today{ box-shadow:inset 0 0 0 .75px var(--border-strong) }
+
+.aspect{ width:240px; aspect-ratio:16/9; border-radius:var(--radius); background:var(--lilac); display:grid; place-items:center; color:#000; font-size:12px }
+.scrollarea{ width:280px; height:150px; border:.75px solid var(--border); border-radius:var(--radius); overflow-y:auto; padding:14px }
+.scrollarea p{ font-size:12.5px; color:var(--muted-foreground); line-height:1.6; margin-bottom:10px }
+.scrollarea::-webkit-scrollbar{ width:8px } .scrollarea::-webkit-scrollbar-thumb{ background:var(--grey-block); border-radius:999px }
+.separator{ height:.75px; background:var(--border-strong); width:100%; max-width:420px } .separator.v{ width:.75px; height:40px }
+
+.progress{ width:280px; height:6px; border-radius:999px; background:rgba(0,0,0,.12); overflow:hidden } .progress i{ display:block; height:100%; background:var(--blue); border-radius:999px; width:0; transition:width 1.1s cubic-bezier(.2,.7,.2,1) }
+.progress.accent i{ background:var(--lime) }
+
+.skel{ display:flex; flex-direction:column; gap:10px; width:300px } .skel .line{ height:12px; border-radius:6px; background:linear-gradient(90deg,var(--grey-bg),var(--grey-block),var(--grey-bg)); background-size:200% 100%; animation:shim 1.3s linear infinite }
+.skel .row{ display:flex; gap:12px; align-items:center } .skel .circle{ width:40px; height:40px; border-radius:50%; background:linear-gradient(90deg,var(--grey-bg),var(--grey-block),var(--grey-bg)); background-size:200% 100%; animation:shim 1.3s linear infinite; flex:none }
+@keyframes shim{ from{ background-position:200% 0 } to{ background-position:-200% 0 } }
+
+.resizable{ display:flex; width:min(460px,100%); height:130px; border:.75px solid var(--border); border-radius:var(--radius); overflow:hidden }
+.resizable .pane{ display:grid; place-items:center; font-size:12px; color:var(--muted-foreground) } .resizable .pane:first-child{ width:var(--split,55%); background:rgba(0,0,0,.03) }
+.resizable .handle{ width:6px; cursor:col-resize; background:var(--border); flex:none } .resizable .handle:hover{ background:var(--blue) } .resizable .pane:last-child{ flex:1 }
+
+/* ============ FEEDBACK ============ */
+.alert{ display:flex; gap:12px; border:.75px solid var(--border-strong); border-radius:var(--radius); padding:14px 16px; max-width:520px }
+.alert .ai{ font-weight:var(--fw-bold); flex:none } .alert .at{ font-size:13px; font-weight:var(--fw-mid) } .alert .ad{ font-size:12px; color:var(--muted-foreground); margin-top:3px; line-height:1.5 }
+.alert-primary{ border-color:var(--blue) } .alert-primary .ai{ color:var(--blue) }
+.alert-dark{ background:#000; color:#fff; border-color:transparent } .alert-dark .ad{ color:var(--muted-dark) } .alert-dark .ai{ color:var(--lime) }
+.toaster{ position:fixed; right:20px; bottom:20px; z-index:120; display:flex; flex-direction:column; gap:8px; align-items:flex-end }
+.toast{ display:inline-flex; gap:12px; align-items:center; background:#000; color:#fff; border-radius:999px; padding:10px 8px 10px 16px; font-size:12.5px; animation:toastin .28s cubic-bezier(.2,.7,.2,1) }
+.toast .ok{ width:20px; height:20px; border-radius:50%; background:var(--lime); color:#000; display:grid; place-items:center; font-size:11px; font-weight:var(--fw-bold) }
+@keyframes toastin{ from{ opacity:0; transform:translateY(10px) } to{ opacity:1; transform:none } }
+
+@media (max-width:860px){
+  .wrap{ grid-template-columns:1fr } .rail{ position:static; height:auto } .rail .grp{ display:inline-block; margin-right:10px } .main{ padding:26px 20px 90px }
+}
+</style>
+
+<div class="wrap">
+  <nav class="rail">
+    <div class="mark"><b>Hire</b><span>house</span></div>
+    <div class="sub">shadcn · Editorial Brutalist</div>
+    <div class="grp">Actions</div>
+    <a href="#c-button">Button</a><a href="#c-toggle">Toggle</a><a href="#c-togglegroup">Toggle group</a><a href="#c-badge">Badge</a>
+    <div class="grp">Forms</div>
+    <a href="#c-input">Input</a><a href="#c-textarea">Textarea</a><a href="#c-label">Label</a><a href="#c-checkbox">Checkbox</a><a href="#c-radio">Radio group</a><a href="#c-switch">Switch</a><a href="#c-slider">Slider</a><a href="#c-select">Select</a><a href="#c-combobox">Combobox</a><a href="#c-otp">Input OTP</a><a href="#c-form">Form</a><a href="#c-datepicker">Date picker</a>
+    <div class="grp">Navigation</div>
+    <a href="#c-tabs">Tabs</a><a href="#c-breadcrumb">Breadcrumb</a><a href="#c-pagination">Pagination</a><a href="#c-navmenu">Navigation menu</a><a href="#c-menubar">Menubar</a><a href="#c-sidebar">Sidebar</a>
+    <div class="grp">Overlays</div>
+    <a href="#c-dialog">Dialog</a><a href="#c-alertdialog">Alert dialog</a><a href="#c-sheet">Sheet</a><a href="#c-drawer">Drawer</a><a href="#c-popover">Popover</a><a href="#c-dropdown">Dropdown menu</a><a href="#c-context">Context menu</a><a href="#c-tooltip">Tooltip</a><a href="#c-hovercard">Hover card</a><a href="#c-command">Command</a>
+    <div class="grp">Data</div>
+    <a href="#c-card">Card</a><a href="#c-table">Table</a><a href="#c-avatar">Avatar</a><a href="#c-accordion">Accordion</a><a href="#c-collapsible">Collapsible</a><a href="#c-carousel">Carousel</a><a href="#c-calendar">Calendar</a><a href="#c-aspect">Aspect ratio</a><a href="#c-scrollarea">Scroll area</a><a href="#c-separator">Separator</a><a href="#c-progress">Progress</a><a href="#c-skeleton">Skeleton</a><a href="#c-resizable">Resizable</a>
+    <div class="grp">Feedback</div>
+    <a href="#c-alert">Alert</a><a href="#c-toast">Toast</a>
+  </nav>
+
+  <main class="main">
+    <div class="chipset"><span class="chip">shadcn</span><span class="chip b">Editorial Brutalist</span></div>
+    <h1 class="display">The full shadcn catalog, re-skinned in our design system.</h1>
+    <p class="lede mut">Every component mapped onto shadcn's own token contract — <span class="mono">--primary</span>, <span class="mono">--muted</span>, <span class="mono">--ring</span>, <span class="mono">--radius</span> — using the flat eleven-colour palette, Manrope ExtraLight, hairline borders and blue as the single emphasis. This page is a theme preview; the token block at the top of the source is the drop-in theme.</p>
+    <div class="notice"><span class="k">!</span><div><b>No shadows, anywhere.</b> The deck system forbids them, so overlays (dialog, popover, dropdown) separate with a hairline ring and a scrim instead of elevation. Black surfaces carry all chrome, which is where the accents fire hardest.</div></div>
+    <div class="notice2"><span>⚠</span><div><b>--destructive has no colour in this palette.</b> There is no red. Destructive actions render as the heaviest neutral (black) with a blue inset marker. If delete actions must truly shout, add a semantic-only red token outside the palette — it is the one place the deck system can't serve a functional UI need.</div></div>
+
+    <!-- ===== ACTIONS ===== -->
+    <section class="comp" id="c-button"><header><span class="n">01</span><h3>Button</h3><span class="badge-src">actions</span></header>
+      <div class="demo col">
+        <div class="row"><button class="btn btn-primary">Primary</button><button class="btn btn-secondary">Secondary</button><button class="btn btn-outline">Outline</button><button class="btn btn-ghost">Ghost</button><button class="btn btn-accent">Accent</button><button class="btn btn-destructive">Delete</button><button class="btn btn-link">Link</button></div>
+        <div class="row"><button class="btn btn-primary btn-lg">Large</button><button class="btn btn-primary">Default</button><button class="btn btn-primary btn-sm">Small</button><button class="btn btn-primary btn-icon" aria-label="Add">＋</button><button class="btn btn-primary" id="btnLoad"><span class="spin"></span>Loading</button><button class="btn btn-primary" disabled>Disabled</button></div>
+      </div>
+    </section>
+
+    <section class="comp" id="c-toggle"><header><span class="n">02</span><h3>Toggle</h3><span class="badge-src">actions</span></header>
+      <div class="demo"><button class="toggle" aria-pressed="false"><b>B</b></button><button class="toggle" aria-pressed="true"><i>I</i></button><button class="toggle" aria-pressed="false">Bookmark</button></div>
+    </section>
+
+    <section class="comp" id="c-togglegroup"><header><span class="n">03</span><h3>Toggle group</h3><span class="badge-src">actions</span></header>
+      <div class="demo"><div class="tgroup" data-single><button class="toggle" aria-pressed="true">Left</button><button class="toggle" aria-pressed="false">Center</button><button class="toggle" aria-pressed="false">Right</button></div></div>
+    </section>
+
+    <section class="comp" id="c-badge"><header><span class="n">04</span><h3>Badge</h3><span class="badge-src">actions</span></header>
+      <div class="demo"><span class="badge badge-default">Default</span><span class="badge badge-primary">Primary</span><span class="badge badge-accent">Accent</span><span class="badge badge-secondary">Secondary</span><span class="badge badge-outline">Outline</span></div>
+    </section>
+
+    <!-- ===== FORMS ===== -->
+    <section class="comp" id="c-input"><header><span class="n">05</span><h3>Input</h3><span class="badge-src">forms</span></header>
+      <div class="demo"><div class="field"><span class="label">Email</span><input class="input" placeholder="name@company.com"></div><div class="field"><span class="label">Disabled</span><input class="input" placeholder="Read only" disabled style="opacity:.5"></div></div>
+    </section>
+    <section class="comp" id="c-textarea"><header><span class="n">06</span><h3>Textarea</h3><span class="badge-src">forms</span></header>
+      <div class="demo"><div class="field"><span class="label">Notes</span><textarea class="textarea" placeholder="Leave a note for the hiring team…"></textarea></div></div>
+    </section>
+    <section class="comp" id="c-label"><header><span class="n">07</span><h3>Label</h3><span class="badge-src">forms</span></header>
+      <div class="demo"><label class="check"><input type="checkbox" checked><span class="box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><path d="M2 6l3 3 5-6"/></svg></span><span class="label" style="text-transform:none;letter-spacing:-0.011em;font-size:13.5px;color:var(--foreground)">Accept terms and conditions</span></label></div>
+    </section>
+    <section class="comp" id="c-checkbox"><header><span class="n">08</span><h3>Checkbox</h3><span class="badge-src">forms</span></header>
+      <div class="demo col">
+        <label class="check"><input type="checkbox" checked><span class="box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><path d="M2 6l3 3 5-6"/></svg></span>Email me about new applicants</label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><path d="M2 6l3 3 5-6"/></svg></span>Auto-invite above the Fit cutoff</label>
+      </div>
+    </section>
+    <section class="comp" id="c-radio"><header><span class="n">09</span><h3>Radio group</h3><span class="badge-src">forms</span></header>
+      <div class="demo col">
+        <label class="radio"><input type="radio" name="tier" checked><span class="dot"></span>Standard — free, stored not parsed</label>
+        <label class="radio"><input type="radio" name="tier"><span class="dot"></span>Fast Track — parsed and ranked</label>
+      </div>
+    </section>
+    <section class="comp" id="c-switch"><header><span class="n">10</span><h3>Switch</h3><span class="badge-src">forms</span></header>
+      <div class="demo"><button class="switch" role="switch" aria-checked="true"></button><button class="switch" role="switch" aria-checked="false"></button><span class="mut" style="font-size:12.5px">Anti-cheat monitoring</span></div>
+    </section>
+    <section class="comp" id="c-slider"><header><span class="n">11</span><h3>Slider</h3><span class="badge-src">forms</span></header>
+      <div class="demo col">
+        <div class="row"><div class="slider" data-slider tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"><div class="track"></div><div class="fill"></div><div class="thumb"></div></div><span class="tnum mut" data-slider-out style="font-size:13px">60</span></div>
+      </div>
+    </section>
+    <section class="comp" id="c-select"><header><span class="n">12</span><h3>Select</h3><span class="badge-src">forms</span></header>
+      <div class="demo"><div style="position:relative" data-menu><button class="trigger" aria-haspopup="listbox" aria-expanded="false"><span data-value>QA Engineer</span><span class="chev">▾</span></button><div class="menu" role="listbox"><button role="option" aria-selected="true">QA Engineer</button><button role="option">Senior WordPress Developer</button><button role="option">Web Developer</button></div></div></div>
+    </section>
+    <section class="comp" id="c-combobox"><header><span class="n">13</span><h3>Combobox</h3><span class="badge-src">forms</span></header>
+      <div class="demo"><div style="position:relative" data-combo><button class="trigger" aria-haspopup="listbox" aria-expanded="false"><span data-value class="mut">Search framework…</span><span class="chev">▾</span></button><div class="menu"><div style="padding:6px"><input class="input" data-combo-search placeholder="Search…" style="width:100%;border-bottom-color:rgba(255,255,255,.25);color:#fff"></div><div data-combo-list><button role="option">Next.js</button><button role="option">Remix</button><button role="option">Astro</button><button role="option">SvelteKit</button><button role="option">Nuxt</button></div></div></div></div>
+    </section>
+    <section class="comp" id="c-otp"><header><span class="n">14</span><h3>Input OTP</h3><span class="badge-src">forms</span></header>
+      <div class="demo"><div class="otp" data-otp><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"><input maxlength="1" inputmode="numeric"></div></div>
+    </section>
+    <section class="comp" id="c-form"><header><span class="n">15</span><h3>Form</h3><span class="badge-src">forms · validation</span></header>
+      <div class="demo"><div class="grid2" style="max-width:640px">
+        <div class="field"><span class="label">Candidate email</span><input class="input" style="width:100%" value="aadarsh@hirehouse.io"><span class="help">Used only to send the interview link.</span></div>
+        <div class="field invalid"><span class="label">Auto-reject Fit below</span><input class="input" style="width:100%" value="120"><span class="help">Must be between 0 and 100.</span></div>
+      </div></div>
+    </section>
+    <section class="comp" id="c-datepicker"><header><span class="n">16</span><h3>Date picker</h3><span class="badge-src">forms</span></header>
+      <div class="demo"><div style="position:relative" data-menu><button class="trigger" aria-expanded="false"><span>📅&nbsp; 20 Aug 2026</span><span class="chev">▾</span></button><div class="menu" style="width:auto;padding:0;background:#fff;border-color:var(--border)"><div class="calendar" style="border:0" data-cal-mini></div></div></div></div>
+    </section>
+
+    <!-- ===== NAVIGATION ===== -->
+    <section class="comp" id="c-tabs"><header><span class="n">17</span><h3>Tabs</h3><span class="badge-src">navigation</span></header>
+      <div class="demo col"><div class="tabs" data-tabs>
+        <div class="list" role="tablist"><button class="tab" role="tab" aria-selected="true">Overview</button><button class="tab" role="tab" aria-selected="false">Scores</button><button class="tab" role="tab" aria-selected="false">Activity</button></div>
+        <div class="panel on" role="tabpanel">The candidate summary, resume Fit and current pipeline stage.</div>
+        <div class="panel" role="tabpanel">Per-axis merit scores from the recorded video interview.</div>
+        <div class="panel" role="tabpanel">Comments, status changes and invite history, newest first.</div>
+      </div></div>
+    </section>
+    <section class="comp" id="c-breadcrumb"><header><span class="n">18</span><h3>Breadcrumb</h3><span class="badge-src">navigation</span></header>
+      <nav class="crumbs"><a href="#">Console</a><span class="sl">/</span><a href="#">Roles</a><span class="sl">/</span><a href="#">QA Engineer</a><span class="sl">/</span><span class="cur">Applicants</span></nav>
+    </section>
+    <section class="comp" id="c-pagination"><header><span class="n">19</span><h3>Pagination</h3><span class="badge-src">navigation</span></header>
+      <div class="demo" data-pager><div class="pager"><button>‹</button><button aria-current="true">1</button><button>2</button><button>3</button><button>…</button><button>9</button><button>›</button></div></div>
+    </section>
+    <section class="comp" id="c-navmenu"><header><span class="n">20</span><h3>Navigation menu</h3><span class="badge-src">navigation</span></header>
+      <div class="demo"><div class="navmenu" data-menu style="position:relative"><button aria-expanded="false" aria-haspopup="true">Product ▾</button><div class="menu" style="min-width:280px"><div class="mlabel">Platform</div><a href="#"><span>Ranking engine</span></a><a href="#"><span>Video interviews</span></a><a href="#"><span>Anti-cheat</span></a><div class="sep"></div><a href="#"><span>Pricing</span></a></div></div><button class="btn btn-ghost">Docs</button><button class="btn btn-ghost">Pricing</button></div>
+    </section>
+    <section class="comp" id="c-menubar"><header><span class="n">21</span><h3>Menubar</h3><span class="badge-src">navigation</span></header>
+      <div class="demo"><div class="menubar" data-menu style="position:relative"><button aria-expanded="false" aria-haspopup="true">File</button><button>Edit</button><button>View</button><div class="menu" style="left:2px"><button><span>New role</span><span class="kbd">⌘N</span></button><button><span>Import CSV</span><span class="kbd">⌘I</span></button><div class="sep"></div><button><span>Export</span><span class="kbd">⌘E</span></button></div></div></div>
+    </section>
+    <section class="comp" id="c-sidebar"><header><span class="n">22</span><h3>Sidebar</h3><span class="badge-src">navigation</span></header>
+      <div class="demo"><div class="sidebar-demo"><div class="sh">Recruit</div><a href="#" class="active">▤ Applicants <span class="c">12</span></a><a href="#">◱ Roles</a><a href="#">◷ Interviews</a><div class="sh">Org</div><a href="#">⚙ Settings</a><a href="#">◫ Billing</a></div></div>
+    </section>
+
+    <!-- ===== OVERLAYS ===== -->
+    <section class="comp" id="c-dialog"><header><span class="n">23</span><h3>Dialog</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><button class="btn btn-primary" data-open-scrim="dlg">Open dialog</button></div>
+    </section>
+    <section class="comp" id="c-alertdialog"><header><span class="n">24</span><h3>Alert dialog</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><button class="btn btn-destructive" data-open-scrim="alertdlg">Reject candidate</button></div>
+    </section>
+    <section class="comp" id="c-sheet"><header><span class="n">25</span><h3>Sheet</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><button class="btn btn-secondary" data-open-side="sheet">Open candidate drawer</button></div>
+    </section>
+    <section class="comp" id="c-drawer"><header><span class="n">26</span><h3>Drawer</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><button class="btn btn-secondary" data-open-side="drawer">Open bottom drawer</button></div>
+    </section>
+    <section class="comp" id="c-popover"><header><span class="n">27</span><h3>Popover</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><div style="position:relative" data-pop><button class="btn btn-outline" data-pop-trigger>Dimensions</button><div class="pop"><div class="pt">Set the axis weights</div><div class="pd">Adjust how much each merit axis counts toward the overall Fit score.</div></div></div></div>
+    </section>
+    <section class="comp" id="c-dropdown"><header><span class="n">28</span><h3>Dropdown menu</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><div style="position:relative" data-menu><button class="btn btn-outline" aria-haspopup="menu" aria-expanded="false">Actions ▾</button><div class="menu"><div class="mlabel">Candidate</div><button><span>View resume</span></button><button><span>Send invite</span><span class="kbd">⌘I</span></button><button><span>Add comment</span></button><div class="sep"></div><button><span style="color:#ff8f8f">Reject</span></button></div></div></div>
+    </section>
+    <section class="comp" id="c-context"><header><span class="n">29</span><h3>Context menu</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><div class="ctxwrap" data-ctx>Right-click anywhere in this field<div class="menu" style="min-width:200px"><button><span>Open</span></button><button><span>Copy link</span><span class="kbd">⌘C</span></button><div class="sep"></div><button><span>Move to…</span></button></div></div></div>
+    </section>
+    <section class="comp" id="c-tooltip"><header><span class="n">30</span><h3>Tooltip</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><span class="tip"><button class="btn btn-outline">Hover me</button><span class="bubble">Ranked by conservative Fit</span></span><span class="tip"><button class="btn btn-icon btn-outline" aria-label="Info">i</button><span class="bubble">rating − 2 × RD</span></span></div>
+    </section>
+    <section class="comp" id="c-hovercard"><header><span class="n">31</span><h3>Hover card</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><div class="hoverwrap" style="position:relative;display:inline-block"><button class="btn btn-link">@aadarsh</button><div class="hovercard"><div class="row" style="gap:10px"><span class="avatar sm" style="background:var(--lime)">AV</span><div><div style="font-size:13px">Aadarsh Velu</div><div class="mut" style="font-size:11px">QA Engineer · rank 1 of 12</div></div></div><p class="mut" style="font-size:11px;margin-top:10px;line-height:1.5">Applied 4 days ago. Merit score 87, invited to video interview.</p></div></div></div>
+    </section>
+    <section class="comp" id="c-command"><header><span class="n">32</span><h3>Command</h3><span class="badge-src">overlays</span></header>
+      <div class="demo"><button class="btn btn-outline" data-open-scrim="cmd">Open command <span class="kbd" style="font:500 10px var(--mono);color:var(--muted-foreground)">⌘K</span></button></div>
+    </section>
+
+    <!-- ===== DATA ===== -->
+    <section class="comp" id="c-card"><header><span class="n">33</span><h3>Card</h3><span class="badge-src">data</span></header>
+      <div class="demo">
+        <div class="card"><div class="ct">Create a role</div><div class="cd">Post a new opening and start ranking.</div><div class="cbody mut">Applicants are parsed and scored against your rubric automatically.</div><div class="cfoot"><button class="btn btn-primary btn-sm">Create</button><button class="btn btn-ghost btn-sm">Cancel</button></div></div>
+        <div class="card card-accent"><div class="ct">Traction</div><div class="cd">Where we are.</div><div class="cbody">Positive proof beat — lime signals a milestone in the deck system.</div></div>
+        <div class="card card-dark"><div class="ct">Merit score</div><div class="cd">Conservative estimate.</div><div class="cbody">The heaviest chrome surface; accents fire hardest against black.</div></div>
+      </div>
+    </section>
+    <section class="comp" id="c-table"><header><span class="n">34</span><h3>Table</h3><span class="badge-src">data</span></header>
+      <div class="demo"><table class="tbl"><caption>Applicants · QA Engineer</caption>
+        <thead><tr><th>Candidate</th><th>Stage</th><th>Fit</th><th class="num">Score</th></tr></thead>
+        <tbody>
+          <tr><td>Aadarsh Velu</td><td><span class="badge badge-secondary">Applied</span></td><td>62%</td><td class="num">87</td></tr>
+          <tr><td>Prabhjot Singh</td><td><span class="badge badge-secondary">Applied</span></td><td>54%</td><td class="num">74</td></tr>
+          <tr><td>Rahul Murali</td><td><span class="badge badge-primary">Invited</span></td><td>88%</td><td class="num">91</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+    <section class="comp" id="c-avatar"><header><span class="n">35</span><h3>Avatar</h3><span class="badge-src">data</span></header>
+      <div class="demo" style="align-items:center"><span class="avatar" style="background:var(--lime)">AV</span><span class="avatar" style="background:var(--lilac)">PS</span><span class="avatar" style="background:var(--yellow)">RM</span><span class="avatar" style="background:var(--blue);color:#fff">TV</span><div class="astack"><span class="avatar sm" style="background:var(--lime)">AV</span><span class="avatar sm" style="background:var(--lilac)">PS</span><span class="avatar sm" style="background:var(--yellow)">RM</span><span class="avatar sm" style="background:#000;color:#fff">+9</span></div></div>
+    </section>
+    <section class="comp" id="c-accordion"><header><span class="n">36</span><h3>Accordion</h3><span class="badge-src">data</span></header>
+      <div class="demo"><div class="accordion" data-accordion>
+        <div class="acc-item" data-open="true"><button class="acc-head">How is the Fit score computed?<span class="pm">＋</span></button><div class="acc-body"><div><p>A conservative estimate — rating minus twice the rating deviation — so uncertain newcomers don't top the board on a lucky duel.</p></div></div></div>
+        <div class="acc-item"><button class="acc-head">Does it re-rank automatically?<span class="pm">＋</span></button><div class="acc-body"><div><p>Yes. Every new applicant is scored against the same rubric and the board re-sorts on the conservative estimate.</p></div></div></div>
+        <div class="acc-item"><button class="acc-head">What happens on rejection?<span class="pm">＋</span></button><div class="acc-body"><div><p>The candidate can be reopened. If they already recorded a video interview they return to video-completed, not applied.</p></div></div></div>
+      </div></div>
+    </section>
+    <section class="comp" id="c-collapsible"><header><span class="n">37</span><h3>Collapsible</h3><span class="badge-src">data</span></header>
+      <div class="demo col"><div data-collapse><button class="btn btn-outline btn-sm" data-collapse-trigger>Toggle details ▾</button><div class="collapse-body"><div><p class="mut" style="font-size:12.5px;padding-top:12px;max-width:52ch;line-height:1.55">Collapsible shares the accordion's grid-rows technique — height animates from 0fr to 1fr with no fixed pixel height to measure.</p></div></div></div></div>
+    </section>
+    <section class="comp" id="c-carousel"><header><span class="n">38</span><h3>Carousel</h3><span class="badge-src">data</span></header>
+      <div class="demo"><div class="carousel" data-carousel><div class="stage"><div class="belt"><div class="slide" style="background:var(--lime);color:#000">01</div><div class="slide" style="background:var(--lilac);color:#000">02</div><div class="slide" style="background:var(--yellow);color:#000">03</div><div class="slide" style="background:var(--blue);color:#fff">04</div></div></div><div class="ctrls"><button class="btn btn-outline btn-icon btn-sm" data-prev aria-label="Previous">‹</button><div class="dots"></div><button class="btn btn-outline btn-icon btn-sm" data-next aria-label="Next">›</button></div></div></div>
+    </section>
+    <section class="comp" id="c-calendar"><header><span class="n">39</span><h3>Calendar</h3><span class="badge-src">data</span></header>
+      <div class="demo"><div class="calendar" data-cal></div></div>
+    </section>
+    <section class="comp" id="c-aspect"><header><span class="n">40</span><h3>Aspect ratio</h3><span class="badge-src">data</span></header>
+      <div class="demo"><div class="aspect">16 / 9</div></div>
+    </section>
+    <section class="comp" id="c-scrollarea"><header><span class="n">41</span><h3>Scroll area</h3><span class="badge-src">data</span></header>
+      <div class="demo"><div class="scrollarea"><p>The deck system is built from horizontal bands, always top to bottom: footer, chip row, headline, sub-line, content, footnote.</p><p>Bleeding archetypes need a contained one on either side to let the eye rest.</p><p>Never place two slides with the same background adjacently.</p><p>Blue is reserved for exactly one slide — the climax.</p></div></div>
+    </section>
+    <section class="comp" id="c-separator"><header><span class="n">42</span><h3>Separator</h3><span class="badge-src">data</span></header>
+      <div class="demo col" style="width:100%"><span class="mut" style="font-size:12.5px">Section one</span><div class="separator"></div><div class="row" style="height:40px;gap:16px"><span class="mut" style="font-size:12.5px">Left</span><div class="separator v"></div><span class="mut" style="font-size:12.5px">Right</span></div></div>
+    </section>
+    <section class="comp" id="c-progress"><header><span class="n">43</span><h3>Progress</h3><span class="badge-src">data</span></header>
+      <div class="demo col" data-progress><div class="progress"><i data-w="67"></i></div><div class="progress accent"><i data-w="88"></i></div></div>
+    </section>
+    <section class="comp" id="c-skeleton"><header><span class="n">44</span><h3>Skeleton</h3><span class="badge-src">data</span></header>
+      <div class="demo"><div class="skel"><div class="row"><div class="circle"></div><div style="flex:1;display:flex;flex-direction:column;gap:8px"><div class="line" style="width:60%"></div><div class="line" style="width:40%"></div></div></div><div class="line"></div><div class="line" style="width:80%"></div></div></div>
+    </section>
+    <section class="comp" id="c-resizable"><header><span class="n">45</span><h3>Resizable</h3><span class="badge-src">data</span></header>
+      <div class="demo"><div class="resizable" data-resizable><div class="pane">Panel A</div><div class="handle" role="separator" aria-orientation="vertical"></div><div class="pane">Panel B</div></div></div>
+    </section>
+
+    <!-- ===== FEEDBACK ===== -->
+    <section class="comp" id="c-alert"><header><span class="n">46</span><h3>Alert</h3><span class="badge-src">feedback</span></header>
+      <div class="demo col">
+        <div class="alert alert-primary"><span class="ai">i</span><div><div class="at">Heads up</div><div class="ad">Nine focus losses were recorded during this candidate's session.</div></div></div>
+        <div class="alert alert-dark"><span class="ai">✦</span><div><div class="at">Anti-cheat monitoring is active</div><div class="ad">The session is recorded per question and checked for integrity.</div></div></div>
+      </div>
+    </section>
+    <section class="comp" id="c-toast"><header><span class="n">47</span><h3>Toast</h3><span class="badge-src">feedback · sonner</span></header>
+      <div class="demo"><button class="btn btn-secondary" id="toastBtn">Send invite</button></div>
+    </section>
+  </main>
+</div>
+
+<!-- overlay scaffolds -->
+<div class="scrim" data-scrim="dlg"><div class="sheet-card"><h4>Add a candidate</h4><p>Enter an email and pick a role. The candidate skips payment and enters the pipeline as applied.</p><div class="field"><span class="label">Email</span><input class="input" style="width:100%" placeholder="name@company.com"></div><div class="foot"><button class="btn btn-ghost" data-close-scrim>Cancel</button><button class="btn btn-primary" data-close-scrim>Add candidate</button></div></div></div>
+<div class="scrim" data-scrim="alertdlg"><div class="sheet-card"><h4>Reject this candidate?</h4><p>They move to the rejected bucket. You can reopen them later — if they recorded a video interview they return to video-completed.</p><div class="foot"><button class="btn btn-ghost" data-close-scrim>Cancel</button><button class="btn btn-destructive" data-close-scrim>Reject</button></div></div></div>
+<div class="scrim" data-scrim="cmd" style="align-items:flex-start;padding-top:12vh"><div class="command" data-command><div class="cin"><span style="color:var(--muted-dark)">⌕</span><input placeholder="Type a command or search…" data-cmd-input><span class="kbd" style="font:500 10px var(--mono);color:var(--muted-dark)">ESC</span></div><div class="clist" data-cmd-list><div class="cmlabel">Candidates</div><div class="citem" data-active="true"><span>Search applicants</span><span class="kbd">⌘F</span></div><div class="citem"><span>Add candidate</span><span class="kbd">⌘N</span></div><div class="cmlabel">Navigate</div><div class="citem"><span>Go to roles</span></div><div class="citem"><span>Go to interviews</span></div><div class="citem"><span>Open settings</span><span class="kbd">⌘,</span></div><div class="empty" style="display:none">No results.</div></div></div></div>
+
+<div class="side-scrim" data-side="sheet"><div class="side-panel"><div class="row" style="justify-content:space-between"><h4 style="font-size:20px;font-weight:var(--fw-light);letter-spacing:-0.03em">Candidate</h4><button class="btn btn-ghost btn-icon btn-sm" data-close-side>✕</button></div><div class="row" style="gap:12px"><span class="avatar" style="background:var(--lime)">AV</span><div><div style="font-size:15px">Aadarsh Velu</div><div class="mut" style="font-size:12px">QA Engineer · applied 4d ago</div></div></div><div class="separator"></div><p class="mut" style="font-size:12.5px;line-height:1.55">Merit 87 · rank 1 of 12. A sheet slides from the edge; no shadow, just a hairline border and the scrim.</p><button class="btn btn-primary" style="margin-top:auto">Send invite</button></div></div>
+<div class="side-scrim" data-side="drawer"><div class="drawer-panel"><div class="drawer-grip"></div><h4 style="font-size:18px;font-weight:var(--fw-light);letter-spacing:-0.03em">Filters</h4><p class="mut" style="font-size:12.5px;margin-top:8px;line-height:1.5;max-width:52ch">The drawer rises from the bottom edge — the mobile-friendly variant of the sheet.</p><div class="foot" style="justify-content:flex-end;margin-top:16px"><button class="btn btn-ghost" data-close-side>Reset</button><button class="btn btn-primary" data-close-side>Apply</button></div></div></div>
+
+<div class="toaster" id="toaster"></div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+/* menus (select, dropdown, navmenu, menubar, datepicker) */
+function closeAllMenus(except){ $$('[data-menu]').forEach(m=>{ if(m!==except){ m.querySelector('.menu')?.classList.remove('open'); m.querySelector('[aria-expanded]')?.setAttribute('aria-expanded','false'); } }); }
+$$('[data-menu]').forEach(m=>{
+  const trg=m.querySelector('.trigger,[aria-haspopup],button'), menu=m.querySelector('.menu');
+  trg.addEventListener('click',e=>{ e.stopPropagation(); const open=menu.classList.contains('open'); closeAllMenus(m); menu.classList.toggle('open',!open); trg.setAttribute?.('aria-expanded',String(!open)); });
+  menu.querySelectorAll('[role=option]').forEach(o=>o.addEventListener('click',()=>{ menu.querySelectorAll('[role=option]').forEach(x=>x.setAttribute('aria-selected','false')); o.setAttribute('aria-selected','true'); const v=m.querySelector('[data-value]'); if(v){v.textContent=o.textContent;v.classList.remove('mut');} menu.classList.remove('open'); trg.setAttribute?.('aria-expanded','false'); }));
+});
+document.addEventListener('click',()=>closeAllMenus(null));
+
+/* combobox filter */
+const combo=$('[data-combo]');
+if(combo){ const search=$('[data-combo-search]',combo), list=$('[data-combo-list]',combo), val=$('[data-value]',combo);
+  search.addEventListener('click',e=>e.stopPropagation());
+  search.addEventListener('input',()=>{ const q=search.value.toLowerCase(); $$('button',list).forEach(b=>b.style.display=b.textContent.toLowerCase().includes(q)?'':'none'); });
+  $$('button',list).forEach(b=>b.addEventListener('click',()=>{ val.textContent=b.textContent; val.classList.remove('mut'); combo.querySelector('.menu').classList.remove('open'); }));
+}
+
+/* tabs */
+$$('[data-tabs]').forEach(t=>{ const tabs=$$('.tab',t), panels=$$('.panel',t);
+  tabs.forEach((tab,i)=>tab.addEventListener('click',()=>{ tabs.forEach(x=>x.setAttribute('aria-selected','false')); tab.setAttribute('aria-selected','true'); panels.forEach(p=>p.classList.remove('on')); panels[i].classList.add('on'); })); });
+
+/* accordion (single-open) */
+$$('[data-accordion]').forEach(a=>$$('.acc-item',a).forEach(item=>{ item.querySelector('.acc-head').addEventListener('click',()=>{ const open=item.getAttribute('data-open')==='true'; $$('.acc-item',a).forEach(i=>i.setAttribute('data-open','false')); item.setAttribute('data-open', String(!open)); }); }));
+
+/* collapsible */
+$$('[data-collapse]').forEach(c=>{ const btn=$('[data-collapse-trigger]',c); btn.addEventListener('click',()=>{ const open=c.getAttribute('data-collapse-open')==='true'; c.setAttribute('data-collapse-open',String(!open)); }); });
+
+/* toggles */
+$$('.toggle[aria-pressed]').forEach(t=>{ if(t.closest('[data-single]'))return; t.addEventListener('click',()=>t.setAttribute('aria-pressed', t.getAttribute('aria-pressed')==='true'?'false':'true')); });
+$$('[data-single]').forEach(g=>$$('.toggle',g).forEach(t=>t.addEventListener('click',()=>{ $$('.toggle',g).forEach(x=>x.setAttribute('aria-pressed','false')); t.setAttribute('aria-pressed','true'); })));
+
+/* switch */
+$$('.switch').forEach(s=>s.addEventListener('click',()=>s.setAttribute('aria-checked', s.getAttribute('aria-checked')==='true'?'false':'true')));
+
+/* slider */
+$$('[data-slider]').forEach(sl=>{ const fill=$('.fill',sl), thumb=$('.thumb',sl), out=sl.parentElement.querySelector('[data-slider-out]');
+  const set=v=>{ v=Math.max(0,Math.min(100,v)); fill.style.width=v+'%'; thumb.style.left=v+'%'; sl.setAttribute('aria-valuenow',Math.round(v)); if(out)out.textContent=Math.round(v); };
+  set(60);
+  const fromX=e=>{ const r=sl.getBoundingClientRect(); const x=(e.touches?e.touches[0].clientX:e.clientX)-r.left; set(x/r.width*100); };
+  let drag=false; sl.addEventListener('pointerdown',e=>{drag=true;sl.setPointerCapture(e.pointerId);fromX(e);}); sl.addEventListener('pointermove',e=>drag&&fromX(e)); sl.addEventListener('pointerup',()=>drag=false);
+  sl.addEventListener('keydown',e=>{ const v=+sl.getAttribute('aria-valuenow'); if(e.key==='ArrowRight')set(v+2); if(e.key==='ArrowLeft')set(v-2); }); });
+
+/* OTP */
+$$('[data-otp]').forEach(o=>{ const ins=$$('input',o); ins.forEach((inp,i)=>{ inp.addEventListener('input',()=>{ inp.value=inp.value.replace(/\D/g,'').slice(0,1); if(inp.value&&ins[i+1])ins[i+1].focus(); }); inp.addEventListener('keydown',e=>{ if(e.key==='Backspace'&&!inp.value&&ins[i-1])ins[i-1].focus(); }); }); });
+
+/* pagination */
+$$('[data-pager]').forEach(p=>$$('.pager button',p).forEach(b=>{ if(/[0-9]/.test(b.textContent))b.addEventListener('click',()=>{ $$('.pager button',p).forEach(x=>x.setAttribute('aria-current','false')); b.setAttribute('aria-current','true'); }); }));
+
+/* popover */
+$$('[data-pop]').forEach(p=>{ const t=$('[data-pop-trigger]',p), pop=$('.pop',p); t.addEventListener('click',e=>{ e.stopPropagation(); pop.classList.toggle('open'); }); document.addEventListener('click',()=>pop.classList.remove('open')); });
+
+/* context menu */
+$$('[data-ctx]').forEach(c=>{ const menu=$('.menu',c); c.addEventListener('contextmenu',e=>{ e.preventDefault(); closeAllMenus(null); const r=c.getBoundingClientRect(); menu.style.left=(e.clientX-r.left)+'px'; menu.style.top=(e.clientY-r.top)+'px'; menu.classList.add('open'); }); document.addEventListener('click',()=>menu.classList.remove('open')); });
+
+/* scrim overlays (dialog, alert, command) */
+function openScrim(id){ const s=$(`[data-scrim="${id}"]`); s?.classList.add('on'); if(id==='cmd')setTimeout(()=>$('[data-cmd-input]')?.focus(),30); }
+function closeScrims(){ $$('.scrim.on').forEach(s=>s.classList.remove('on')); }
+$$('[data-open-scrim]').forEach(b=>b.addEventListener('click',()=>openScrim(b.dataset.openScrim)));
+$$('[data-close-scrim]').forEach(b=>b.addEventListener('click',closeScrims));
+$$('.scrim').forEach(s=>s.addEventListener('click',e=>{ if(e.target===s)closeScrims(); }));
+
+/* side overlays (sheet, drawer) */
+$$('[data-open-side]').forEach(b=>b.addEventListener('click',()=>$(`[data-side="${b.dataset.openSide}"]`).classList.add('on')));
+function closeSides(){ $$('.side-scrim.on').forEach(s=>s.classList.remove('on')); }
+$$('[data-close-side]').forEach(b=>b.addEventListener('click',closeSides));
+$$('.side-scrim').forEach(s=>s.addEventListener('click',e=>{ if(e.target===s)closeSides(); }));
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeScrims(); closeSides(); } if((e.metaKey||e.ctrlKey)&&e.key==='k'){ e.preventDefault(); openScrim('cmd'); } });
+
+/* command filter */
+const cmd=$('[data-command]');
+if(cmd){ const inp=$('[data-cmd-input]',cmd), items=$$('.citem',cmd), empty=$('.empty',cmd), labels=$$('.cmlabel',cmd);
+  inp.addEventListener('input',()=>{ const q=inp.value.toLowerCase(); let any=false; items.forEach(it=>{ const m=it.textContent.toLowerCase().includes(q); it.style.display=m?'':'none'; if(m)any=true; }); labels.forEach(l=>l.style.display=q?'none':''); empty.style.display=any?'none':'block'; });
+}
+
+/* carousel */
+$$('[data-carousel]').forEach(c=>{ const belt=$('.belt',c), slides=$$('.slide',c), dots=$('.dots',c); let i=0;
+  slides.forEach((_,k)=>{ const d=document.createElement('i'); if(k===0)d.className='on'; dots.appendChild(d); });
+  const go=n=>{ i=(n+slides.length)%slides.length; belt.style.transform=`translateX(-${i*100}%)`; $$('i',dots).forEach((d,k)=>d.classList.toggle('on',k===i)); };
+  $('[data-prev]',c).addEventListener('click',()=>go(i-1)); $('[data-next]',c).addEventListener('click',()=>go(i+1)); });
+
+/* calendars */
+function buildCal(el, sel){ const M=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const y=2026,m=7,selDay=sel||20, first=new Date(y,m,1).getDay(), dim=new Date(y,m+1,0).getDate();
+  el.innerHTML=`<div class="chead"><button class="nav" aria-label="Prev">‹</button><b>${M[m]} ${y}</b><button class="nav" aria-label="Next">›</button></div><div class="dow"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div><div class="days"></div>`;
+  const days=$('.days',el); for(let i=0;i<first;i++){ const b=document.createElement('button'); b.className='mute'; b.textContent=new Date(y,m,0-(first-1-i)).getDate(); days.appendChild(b); }
+  for(let d=1;d<=dim;d++){ const b=document.createElement('button'); b.textContent=d; if(d===20)b.classList.add('today'); if(d===selDay)b.setAttribute('aria-selected','true'); b.addEventListener('click',()=>{ $$('button[aria-selected]',days).forEach(x=>x.removeAttribute('aria-selected')); b.setAttribute('aria-selected','true'); }); days.appendChild(b); }
+}
+$$('[data-cal]').forEach(el=>buildCal(el)); $$('[data-cal-mini]').forEach(el=>buildCal(el,20));
+
+/* resizable */
+$$('[data-resizable]').forEach(r=>{ const handle=$('.handle',r); let drag=false;
+  handle.addEventListener('pointerdown',e=>{drag=true;handle.setPointerCapture(e.pointerId);}); handle.addEventListener('pointerup',()=>drag=false);
+  handle.addEventListener('pointermove',e=>{ if(!drag)return; const rc=r.getBoundingClientRect(); let p=(e.clientX-rc.left)/rc.width*100; p=Math.max(20,Math.min(80,p)); r.style.setProperty('--split',p+'%'); }); });
+
+/* progress + loading button + toast */
+const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ $$('i[data-w]',en.target).forEach(i=>i.style.width=i.dataset.w+'%'); io.unobserve(en.target); } }),{threshold:.4});
+$$('[data-progress]').forEach(p=>io.observe(p));
+const lb=$('#btnLoad'); if(lb){ let on=true; setInterval(()=>{ on=!on; lb.innerHTML=on?'<span class="spin"></span>Loading':'Retry'; lb.disabled=on; },2600); }
+let tn=0; $('#toastBtn')?.addEventListener('click',()=>{ const t=document.createElement('div'); t.className='toast'; t.innerHTML='<span>Interview invite sent</span><span class="ok">✓</span>'; $('#toaster').appendChild(t); if(++tn>3)$('#toaster').firstChild.remove(); setTimeout(()=>t.remove(),3200); });
+</script>

@@ -1,0 +1,319 @@
+import React from 'react';
+import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {lerp, ramp} from '../anim';
+import {Chips, Hairline, Reveal} from '../components/Type';
+import {Avatar, Badge, BarWipe, Chrome, Meter, Switch} from '../components/ui';
+import {ROW, SKELETON} from '../three/textures';
+import {C, EASE, FONT, FW} from '../theme';
+import {EV, SCENES} from '../timeline';
+import {WINDOW} from './ActOne';
+
+// S4 (ranked on merit, white) + S5 (interviewed for real, lime).
+// The black product window is the continuity anchor: it is born from the 3D void
+// at the end of S3, holds its position through S4 and S5, and the grounds change around it.
+
+type Cand = {name: string; ini: string; fit: number; score: number; accent: string};
+// Application order (script §2). Scores are illustrative UI state.
+export const CANDS: Cand[] = [
+  {name: 'Prabhjot Singh', ini: 'PS', fit: 54, score: 74, accent: C.lilac},
+  {name: 'Mariam Al Hashimi', ini: 'MA', fit: 71, score: 82, accent: C.yellow},
+  {name: 'Rohan Mehta', ini: 'RM', fit: 48, score: 61, accent: C.greyBlock},
+  {name: 'Aadarsh Velu', ini: 'AV', fit: 90, score: 93, accent: C.lime},
+  {name: 'Fatima Qureshi', ini: 'FQ', fit: 66, score: 79, accent: C.lilac},
+  {name: 'Rahul Murali', ini: 'RM', fit: 84, score: 91, accent: C.yellow},
+  {name: 'Omar Haddad', ini: 'OH', fit: 58, score: 68, accent: C.greyBlock},
+  {name: 'Sneha Iyer', ini: 'SI', fit: 77, score: 86, accent: C.lime},
+];
+const RANK = CANDS.map((c) => CANDS.filter((o) => o.score > c.score).length); // 0 = best
+
+const rowY = (k: number) => ROW.top + k * ROW.pitch;
+
+const Row: React.FC<{c: Cand; i: number}> = ({c, i}) => {
+  const f = useCurrentFrame();
+  // skeleton → content (content wipes in left→right while the skeleton bars retract)
+  const fill = ramp(f, 724 + i * 4, 22, EASE.out);
+  // count-up
+  const cnt = ramp(f, EV.s4Count + i * 3, 56, EASE.kit);
+  // FLIP re-sort
+  const r = RANK[i];
+  const sp = ramp(f, EV.s4Sort + r * 3, 44, EASE.inOut);
+  const y = lerp(rowY(i), rowY(r), sp);
+  const moving = Math.sin(sp * Math.PI);
+  const up = r < i;
+  const invited = r < 3 && f >= EV.s4Invite + r * 6;
+  const S = SKELETON;
+  const skel = (b: {x: number; y: number; w: number; h: number}, key: string) => (
+    <span
+      key={key}
+      style={{
+        position: 'absolute',
+        left: b.x,
+        top: b.y,
+        width: b.w * (1 - fill),
+        height: b.h,
+        borderRadius: b.h / 2,
+        background: C.greyBg,
+      }}
+    />
+  );
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: ROW.x - WINDOW.x,
+        top: y - WINDOW.y,
+        width: ROW.w,
+        height: ROW.h,
+        borderRadius: ROW.r,
+        background: C.white,
+        zIndex: up ? 2 : 1,
+        transform: `translateX(${up ? -18 * moving : 10 * moving}px) scale(${1 + (up ? 0.025 : 0) * moving})`,
+      }}
+    >
+      {/* skeleton (matches the 3D row texture exactly at fill = 0) */}
+      <span
+        style={{
+          position: 'absolute',
+          left: S.avatar.cx - S.avatar.r,
+          top: S.avatar.cy - S.avatar.r,
+          width: S.avatar.r * 2,
+          height: S.avatar.r * 2,
+          borderRadius: 999,
+          background: C.greyBg,
+          opacity: fill < 0.5 ? 1 : 0,
+        }}
+      />
+      {skel(S.name, 'n')}
+      {skel(S.sub, 's')}
+      {skel(S.fit, 'f')}
+      {skel(S.score, 'sc')}
+      <span
+        style={{
+          position: 'absolute',
+          left: S.badge.x,
+          top: S.badge.y,
+          width: S.badge.w * (1 - fill),
+          height: S.badge.h,
+          borderRadius: 15,
+          background: C.greyBg,
+        }}
+      />
+      {/* content */}
+      <div style={{position: 'absolute', inset: 0, clipPath: `inset(0 ${(1 - fill) * 100}% 0 0)`}}>
+        <span style={{position: 'absolute', left: 22, top: 18}}>
+          <Avatar initials={c.ini} bg={c.accent} />
+        </span>
+        <span style={{position: 'absolute', left: 88, top: 14, fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 27, letterSpacing: '-0.02em', color: C.black, whiteSpace: 'nowrap'}}>
+          {c.name}
+        </span>
+        <span style={{position: 'absolute', left: 88, top: 49, fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 18, color: C.label}}>QA Engineer</span>
+        <span style={{position: 'absolute', left: S.badge.x, top: 23}}>
+          <Badge kind={invited ? 'primary' : 'secondary'}>{invited ? 'Invited' : 'Applied'}</Badge>
+        </span>
+        <span style={{position: 'absolute', left: S.fit.x, top: 26, fontFamily: FONT.mono, fontSize: 24, color: C.black, fontVariantNumeric: 'tabular-nums'}}>
+          {Math.round(c.fit * cnt)}%
+        </span>
+        <span
+          style={{
+            position: 'absolute',
+            right: ROW.w - 712,
+            top: 16,
+            fontFamily: FONT.sans,
+            fontWeight: FW.bold,
+            fontSize: 42,
+            letterSpacing: '-0.04em',
+            color: C.black,
+            fontVariantNumeric: 'tabular-nums',
+          }}
+        >
+          {cnt > 0 ? Math.round(c.score * cnt) : '—'}
+        </span>
+      </div>
+    </div>
+  );
+};
+
+const TableUI: React.FC = () => {
+  const f = useCurrentFrame();
+  const head = ramp(f, 722, 26, EASE.out);
+  const out = ramp(f, 956, 26, EASE.in); // table leaves upward as S5 takes the window
+  return (
+    <div style={{position: 'absolute', inset: 0, transform: `translateY(${-out * 1000}px)`}}>
+      <div style={{position: 'absolute', left: 32, top: 26, right: 32, transform: `translateY(${(1 - head) * -60}px)`, clipPath: `inset(${(1 - head) * 100}% 0 0 0)`}}>
+        <Chrome title="Applicants · QA Engineer" right={<Badge kind="accent">312</Badge>} />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: ROW.x - WINDOW.x,
+          top: 108,
+          width: ROW.w,
+          fontFamily: FONT.mono,
+          fontSize: 18,
+          letterSpacing: '0.06em',
+          color: C.mutedDark,
+          clipPath: `inset(0 ${(1 - head) * 100}% 0 0)`,
+        }}
+      >
+        <span style={{position: 'absolute', left: 88}}>CANDIDATE</span>
+        <span style={{position: 'absolute', left: SKELETON.badge.x}}>STAGE</span>
+        <span style={{position: 'absolute', left: SKELETON.fit.x}}>FIT</span>
+        <span style={{position: 'absolute', right: ROW.w - 712}}>SCORE</span>
+      </div>
+      <div style={{position: 'absolute', left: ROW.x - WINDOW.x, top: 148, width: ROW.w * head, height: 2, background: C.borderOnDark}} />
+      {CANDS.map((c, i) => (
+        <Row key={c.name} c={c} i={i} />
+      ))}
+    </div>
+  );
+};
+
+const Waveform: React.FC<{active: number}> = ({active}) => {
+  const f = useCurrentFrame();
+  return (
+    <div style={{position: 'absolute', left: 36, right: 36, bottom: 20, height: 50, display: 'flex', alignItems: 'center', gap: 8}}>
+      {Array.from({length: 48}, (_, i) => {
+        const a = Math.abs(Math.sin(i * 1.7 + f * 0.21) * Math.sin(i * 0.43 + f * 0.09));
+        const h = 6 + a * 44 * active;
+        return <span key={i} style={{flex: 1, height: h, borderRadius: 999, background: C.black}} />;
+      })}
+    </div>
+  );
+};
+
+const InterviewUI: React.FC = () => {
+  const f = useCurrentFrame();
+  if (f < 950) return null;
+  const inP = ramp(f, 962, 30, EASE.out);
+  const out = ramp(f, 1190, 10, EASE.in);
+  const secs = 38 + Math.floor(Math.max(0, f - EV.s5Rec) / 60);
+  const recOn = f >= EV.s5Rec;
+  const talk = ramp(f, EV.s5Rec, 20) * (1 - ramp(f, 1150, 20));
+  const block = (delay: number): React.CSSProperties => {
+    const p = ramp(f, 966 + delay, 28, EASE.out);
+    return {transform: `translateY(${(1 - p) * 80}px)`, clipPath: `inset(0 0 ${(1 - p) * 100}% 0)`};
+  };
+  return (
+    <div style={{position: 'absolute', inset: 0, transform: `translateY(${(1 - inP) * 900 - out * 40}px)`}}>
+      <div style={{position: 'absolute', left: 32, top: 26, right: 32}}>
+        <Chrome
+          title="Video interview · QA Engineer"
+          right={
+            <span style={{display: 'inline-flex', alignItems: 'center', gap: 12, fontFamily: FONT.mono, fontSize: 22, color: C.white, opacity: recOn ? 1 : 0}}>
+              <span style={{width: 16, height: 16, borderRadius: 999, background: C.blue, opacity: Math.floor(f / 30) % 2 === 0 ? 1 : 0.999}} />
+              REC 00:{String(secs).padStart(2, '0')}
+            </span>
+          }
+        />
+      </div>
+      <div style={{position: 'absolute', left: 32, top: 92, ...block(0)}}>
+        <div style={{fontFamily: FONT.mono, fontSize: 18, letterSpacing: '0.09em', color: C.mutedDark}}>CANDIDATE</div>
+        <div style={{fontFamily: FONT.sans, fontWeight: FW.light, fontSize: 44, letterSpacing: '-0.03em', color: C.white, marginTop: 6}}>Aadarsh Velu</div>
+        <div style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 22, color: C.mutedDark, marginTop: 4}}>QA Engineer · rank 1 of 312</div>
+      </div>
+      <div style={{position: 'absolute', left: 32, top: 244, width: 728, height: 212, borderRadius: 22, background: C.lilac, overflow: 'hidden', ...block(5)}}>
+        <div style={{position: 'absolute', left: 36, top: 18, fontFamily: FONT.sans, fontWeight: FW.bold, fontSize: 92, letterSpacing: '-0.05em', color: C.black}}>AV</div>
+        <Waveform active={talk} />
+      </div>
+      <div style={{position: 'absolute', left: 32, top: 482, width: 728, ...block(10)}}>
+        <span style={{fontFamily: FONT.mono, fontSize: 20, color: C.mutedDark}}>Q2</span>
+        <div style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 30, letterSpacing: '-0.02em', color: C.white, marginTop: 6, lineHeight: 1.3}}>
+          Walk us through a bug you found that others missed.
+        </div>
+      </div>
+      <div style={{position: 'absolute', left: 32, top: 624, display: 'flex', alignItems: 'center', gap: 20, ...block(16)}}>
+        <Switch onAt={EV.s5Switch} />
+        <span style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 26, color: C.white, letterSpacing: '-0.01em'}}>Anti-cheat monitoring</span>
+      </div>
+      <div style={{position: 'absolute', left: 32, top: 712, display: 'flex', flexDirection: 'column', gap: 24, ...block(20)}}>
+        <Meter label="Problem solving" value={92} start={EV.s5Meters} width={736} />
+        <Meter label="Communication" value={84} start={EV.s5Meters + 8} width={736} />
+        <Meter label="Role fit" value={90} start={EV.s5Meters + 16} width={736} />
+      </div>
+    </div>
+  );
+};
+
+const MeritStat: React.FC = () => {
+  const f = useCurrentFrame();
+  const p = ramp(f, 884, 40, EASE.kit);
+  const out = ramp(f, 944, 1);
+  if (f < 872 || out >= 1) return null;
+  const lab = ramp(f, 900, 24, EASE.out);
+  return (
+    <>
+      <Hairline x={168} y={760} w={640} start={872} color={C.borderStrong} />
+      <Reveal text={String(Math.round(93 * p))} start={880} size={200} weight={FW.bold} color={C.black} tracking={-0.06} numeric style={{position: 'absolute', left: 160, top: 786}} />
+      <div style={{position: 'absolute', left: 168, top: 1000, fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 26, color: C.label, clipPath: `inset(0 ${(1 - lab) * 100}% 0 0)`}}>
+        Merit score · rank 1 of 312
+      </div>
+    </>
+  );
+};
+
+const AlertDark: React.FC = () => {
+  const f = useCurrentFrame();
+  const p = ramp(f, 1060, 30, EASE.out);
+  if (f < 1060) return null;
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: 168,
+        top: 790,
+        width: 700,
+        display: 'flex',
+        gap: 24,
+        padding: '30px 34px',
+        borderRadius: 30,
+        background: C.black,
+        color: C.white,
+        clipPath: `inset(0 ${(1 - p) * 100}% 0 0 round 30px)`,
+      }}
+    >
+      <span style={{color: C.lime, fontWeight: FW.bold, fontSize: 30, lineHeight: 1.1}}>✦</span>
+      <div>
+        <div style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 28, letterSpacing: '-0.01em'}}>Anti-cheat monitoring is active</div>
+        <div style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 22, color: C.mutedDark, marginTop: 8, lineHeight: 1.45}}>
+          The session is recorded per question and checked for integrity.
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const ActTwo: React.FC = () => {
+  const f = useCurrentFrame();
+  if (f < SCENES.s4.from || f >= SCENES.s5.to) return null;
+  return (
+    <AbsoluteFill style={{background: C.white}}>
+      {/* S4 left column */}
+      <Chips labels={['Ranking', 'Skills and fit']} start={726} exit={946} />
+      <Reveal text={'Ranked on merit,\nnot keywords.'} start={733} exit={944} size={112} color={C.black} stagger={5} style={{position: 'absolute', left: 168, top: 218}} />
+      <MeritStat />
+
+      {/* → S5 ground */}
+      <BarWipe start={EV.s5Wipe} color={C.lime} />
+      <Chips labels={['Interview', 'Integrity checks']} start={974} />
+      <Reveal text={'Interviewed\nfor real.'} start={976} size={130} color={C.black} stagger={5} style={{position: 'absolute', left: 168, top: 218}} />
+      <AlertDark />
+
+      {/* the product window */}
+      <div
+        style={{
+          position: 'absolute',
+          left: WINDOW.x,
+          top: WINDOW.y,
+          width: 1752 - WINDOW.x,
+          height: 1080 - WINDOW.y + 60,
+          borderRadius: WINDOW.r,
+          background: C.black,
+          overflow: 'hidden',
+        }}
+      >
+        <TableUI />
+        <InterviewUI />
+      </div>
+    </AbsoluteFill>
+  );
+};
