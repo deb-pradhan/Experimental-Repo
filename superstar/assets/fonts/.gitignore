@@ -1,0 +1,4 @@
+# Season Sans / Season Serif are commercial fonts (Displaay Type Foundry).
+# Their embedded license forbids storing them on publicly accessible servers or redistributing them.
+# Keep them local; do not commit to a public repo.
+Season*.woff2
