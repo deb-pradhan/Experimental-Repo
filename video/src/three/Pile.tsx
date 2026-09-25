@@ -5,7 +5,7 @@ import {useCurrentFrame} from 'remotion';
 import * as THREE from 'three';
 import {LOGO} from '../brand/logo-data';
 import {C, H, W} from '../theme';
-import {applyCam, CARDS, cardAt, N, SCAN_Z, scanY, tieShapes, tieState, TIE} from './pileModel';
+import {applyCam, CARDS, cardAt, houseShape, markState, N, SCAN_Z, scanY} from './pileModel';
 import {ATLAS, cvAtlas, rowTexture} from './textures';
 
 const VERT = /* glsl */ `
@@ -117,27 +117,17 @@ const Cards: React.FC = () => {
   return <instancedMesh ref={mesh} args={[geometry, material, N]} frustumCulled={false} />;
 };
 
-const Tie: React.FC = () => {
+// The official house mark, extruded: blue faces, logo-ink sides, tie knocked out as a real hole.
+const Mark: React.FC = () => {
   const f = useCurrentFrame();
-  const geo = useMemo(() => {
-    const g = new THREE.ExtrudeGeometry(tieShapes(LOGO.tieMark.knot, LOGO.tieMark.blade), {
-      depth: 5,
-      bevelEnabled: false,
-    });
-    g.translate(0, 0, -2.5);
-    return g;
+  const {geo, mats} = useMemo(() => {
+    const g = new THREE.ExtrudeGeometry(houseShape(LOGO.mark.d), {depth: 10, bevelEnabled: false, curveSegments: 16});
+    g.translate(0, 0, -5);
+    return {geo: g, mats: [new THREE.MeshBasicMaterial({color: C.blue}), new THREE.MeshBasicMaterial({color: C.ink})]};
   }, []);
-  const st = tieState(f);
+  const st = markState(f);
   return (
-    <mesh
-      geometry={geo}
-      position={[st.x, st.y, st.z]}
-      rotation={[st.rx, 0, st.rz]}
-      scale={[TIE.scale, TIE.scale, TIE.scale]}
-      visible={st.visible}
-    >
-      <meshBasicMaterial color={C.blue} />
-    </mesh>
+    <mesh geometry={geo} material={mats} position={[st.x, st.y, st.z]} rotation={[st.rx, st.ry, st.rz]} scale={[st.s, st.s, st.s]} visible={st.visible} />
   );
 };
 
@@ -167,6 +157,6 @@ export const PileCanvas: React.FC = () => (
     <CameraRig />
     <Cards />
     <ScanLine />
-    <Tie />
+    <Mark />
   </ThreeCanvas>
 );

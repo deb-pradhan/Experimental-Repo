@@ -3,7 +3,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {lerp, ramp} from '../anim';
 import {Chips, Reveal} from '../components/Type';
 import {PileCanvas} from '../three/Pile';
-import {landedCount, project, SCAN_Z, scanY, tieTipScreen} from '../three/pileModel';
+import {landedCount, markCenterScreen, project, SCAN_Z, scanY} from '../three/pileModel';
 import {C, EASE, FONT, FW} from '../theme';
 import {EV} from '../timeline';
 
@@ -115,7 +115,7 @@ const ScanTags: React.FC = () => {
 const Pulse: React.FC = () => {
   const f = useCurrentFrame();
   if (f < EV.s3TieLand || f > EV.s3TieLand + 60) return null;
-  const tip = tieTipScreen();
+  const tip = markCenterScreen();
   const rings = [0, 8, 16];
   return (
     <svg style={{position: 'absolute', inset: 0}} width={1920} height={1080}>

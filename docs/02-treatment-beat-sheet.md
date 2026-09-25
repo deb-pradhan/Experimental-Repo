@@ -27,14 +27,17 @@ ten are gone. The survivors hang in the dark.
 ## ACT II — THE SYSTEM (3D → 2D)
 
 ### S3 · The Read — 0:08.0–0:12.0 · f 480–720 · bars 5–6 · black → white · 3D → 2D
-Silence for one beat. The **blue tie** drops into frame from above, swings once like a plumb line
-and settles. Where it points, the grey cards lift back up and turn white: every one of them is read.
-Then the hero move: the pile **reorganises into a single ranked column**, the camera rotates to dead
-perpendicular, depth flattens, and a hard bar wipe turns the ground white. The cards are now rows.
+Silence for one beat. The **house mark** (official primary symbol, extruded: blue faces, ink sides,
+the tie knocked out as a real hole) drops in from the camera and **lands flat on the pile**; the cards
+under it yield on impact. Rings pulse out from it and every filtered card comes back up, white: every
+one of them is read. Then the hero move: the pile **reorganises into a single column**, each card
+flipping edge-on into a list row; the mark lifts off, turns once and **docks as the app icon** in the
+product window's title bar; the camera settles pixel-matched, and the black void contracts into that
+window while the ground turns white. The cards are now rows.
 - Super: **"Every application, read."**
-- SFX: fabric swish on the tie, one deep "tock" as it settles, a rising shimmer as cards lift,
-  a stacked-card snap cascade as they sort, whoosh into the wipe.
-- Music: the beat drops in on bar 6.
+- SFX: air rush as the mark falls, a deep "tock" + sub as it lands, a rising shimmer as cards return,
+  a card-snap cascade as they sort, a soft whoosh as the mark docks, whoosh into the contraction.
+- Music: pre-drop breath under the landing; percussion enters as the list forms.
 
 ### S4 · Ranked on merit — 0:12.0–0:16.0 · f 720–960 · bars 7–8 · white · 2D UI
 Product mock (black UI frame, the kit's Table). `Applicants · QA Engineer`: Candidate / Stage / Fit /
@@ -64,12 +67,12 @@ The one blue ground in the film. Enormous white type, word by word from line mas
 **"Hiring, decided on merit."** Bleeding white bars slice through between words.
 - SFX: riser resolves into the biggest hit of the film on the downbeat.
 
-### S8 · End card — 0:27.0–0:30.0 · f 1620–1800 · bars 14(½)–15 · white · logo
-White ground. The official wordmark in ink `#1F2430` builds glyph by glyph, then the tie drops into
-the open slot with a single swing and a click. Accent rule draws under it, tagline sets beneath.
-Hold for 1.2 s. Cut to black on the last frame.
-- VO: **"HireHouse."** lands with the tie.
-- SFX: tie swish → click → logo sting with a clean tail.
+### S8 · End card — 0:27.0–0:30.0 · f 1620–1800 · white · logo
+White ground. The official **centred lockup** (hirehouse-tie-logo.html, "Social banner"): the
+wordmark in ink `#1F2430` builds glyph by glyph, the house mark rises into place above it from its
+own baseline as the VO says "HireHouse.", then the tagline sets beneath in the lockup's own ink.
+Footer: hirehouse.xyz · UAE · India. Hold.
+- SFX: panel whoosh → logo sting with a clean tail. The music's final hit lands on the reveal (27.0 s).
 
 ---
 
@@ -77,4 +80,5 @@ Hold for 1.2 s. Cut to black on the last frame.
 1. **S1 → S2**: 3D pile + keyword scan. Scale and volume.
 2. **S3**: 3D pile → flat ranked list → table (the chaos-to-order morph).
 3. **S4**: live FLIP re-sort of the ranked table.
-4. **S8**: glyph build + tie drop into the wordmark.
+4. **S3 → S4**: the house mark lands on the pile, then docks as the app icon.
+5. **S8**: glyph build + the house mark rising into the official lockup.

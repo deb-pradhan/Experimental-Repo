@@ -32,11 +32,12 @@ The film's hero move is the moment the 3D pile **collapses into a flat ranked li
 settles perpendicular, depth dies, and the cards *become* the rows of the product table. Chaos
 literally flattens into order. That transition is the whole pitch in one shot.
 
-### The through-line: the tie
-The logo replaces the **i** with a necktie (knot over blade, tittle over stem). The **i** is the
-individual. The tie is our protagonist: it drops into the pile, it marks the person who earned it,
-and in the last second it drops into its slot in the wordmark. Brand mark, narrative device and
-end-card payoff are the same object.
+### The through-line: the house mark
+The primary symbol is the **house mark**: a house with the tie knocked out of it where a window
+would go (the tie on its own is *not* the logo). It is our protagonist: it drops onto the pile and
+lands on it, the impact sends the read pulse through every application, then it lifts off and docks
+as the app icon in the product window's title bar, where it stays through the ranked table and the
+interview. On the end card it rises into the official centred lockup above the wordmark.
 
 ## 3. Design law (non-negotiable — from `assets/brand/shadcn-editorial.html`)
 

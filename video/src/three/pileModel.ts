@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {EASE} from '../theme';
 import {EV} from '../timeline';
-import {clamp01, lerp, ramp, swing} from '../anim';
+import {clamp01, lerp, ramp} from '../anim';
 import {ROW, rng} from './textures';
 
 // ============================================================
@@ -153,31 +153,58 @@ const tFlag = (c: CardSeed) => {
 };
 export const FLAG = CARDS.map(tFlag);
 
-// ---------- tie ----------
-export const TIE = {
+// ---------- the house mark (official primary symbol) ----------
+// It drops onto the pile, lies flat on it (resting on the cards beneath, which
+// yield on impact), then lifts off and flies into the product window's title bar.
+export const MARK = {
   start: EV.s3TieStart,
   land: EV.s3TieLand,
-  exit: EV.s3ListStart - 6,
-  scale: 3.4, // tie-only mark: 80 units tall → 272 world units
-  rest: [250, 150, 600] as [number, number, number],
+  lift: EV.s3ListStart - 4,
+  dock: 700,
+  scale: 2.6, // 100-unit viewBox → 260 world units (house ≈ 224)
+  x: 330,
+  y: -235,
+  // docked as the app icon in the window chrome: 40 px at the pixel-matched plane
+  dockAt: [52, 344, 0] as [number, number, number],
+  dockScale: 0.4,
+};
+// Rest on top of whatever the pile holds under the mark's footprint.
+export const MARK_Z = (() => {
+  const r = 0.43 * 100 * MARK.scale; // house half-width in world units
+  let top = 0;
+  CARDS.forEach((c) => {
+    if (Math.abs(c.xr - MARK.x) < r + CARD.w / 2 && Math.abs(c.yr - MARK.y) < r + CARD.h / 2) top = Math.max(top, c.zr);
+  });
+  return top + 14;
+})();
+
+export const markState = (f: number) => {
+  const p = ramp(f, MARK.start, MARK.land - MARK.start, EASE.in);
+  const bounce = f >= MARK.land ? Math.sin(ramp(f, MARK.land, 16, EASE.out) * Math.PI) * -10 : 0;
+  let x = lerp(MARK.x - 260, MARK.x, EASE.out(p));
+  let y = lerp(MARK.y + 420, MARK.y, EASE.out(p));
+  let z = lerp(1750, MARK_Z, p) + bounce;
+  let rx = lerp(0.95, 0, EASE.out(p));
+  let ry = 0;
+  let rz = lerp(-0.55, -0.07, EASE.out(p));
+  let s = MARK.scale;
+  // lift off, then fly (with one full turn) into the title bar
+  const up = ramp(f, MARK.lift, 26, EASE.out);
+  z += up * 260;
+  const fly = ramp(f, MARK.lift + 22, MARK.dock - MARK.lift - 22, EASE.inOut);
+  if (fly > 0) {
+    x = lerp(x, MARK.dockAt[0], fly);
+    y = lerp(y, MARK.dockAt[1], fly);
+    z = lerp(z, MARK.dockAt[2], fly);
+    rz = lerp(rz, 0, fly);
+    ry = fly * Math.PI * 2;
+    s = lerp(MARK.scale, MARK.dockScale, EASE.inOut(fly));
+  }
+  return {x, y, z, rx, ry, rz, s, visible: f >= MARK.start - 1};
 };
 
-export const tieState = (f: number) => {
-  const p = ramp(f, TIE.start, TIE.land - TIE.start, EASE.in);
-  const e = ramp(f, TIE.exit, 30, EASE.in);
-  const x = lerp(-120, TIE.rest[0], EASE.out(p)) + e * 120;
-  const y = lerp(420, TIE.rest[1], EASE.out(p)) + e * 1300;
-  const z = lerp(2150, TIE.rest[2], p) + e * 400;
-  const rz = f < TIE.land ? lerp(-0.9, 0.32, p) : swing(f, TIE.land, 0.32, 38, 26);
-  const rx = lerp(1.1, 0, p);
-  return {x, y, z, rx, rz, visible: f >= TIE.start - 1 && f < TIE.exit + 32};
-};
-
-/** Screen position of the tie tip (for the read pulse ring). */
-export const tieTipScreen = () => {
-  const {rest, scale} = TIE;
-  return project(TIE.land, rest[0], rest[1] - 80 * scale, rest[2]);
-};
+/** Screen position of the mark's centre at landing (origin of the read pulse). */
+export const markCenterScreen = () => project(MARK.land + 2, MARK.x, MARK.y, MARK_Z);
 
 // ---------- per-card state ----------
 export const GREY = 207 / 255;
@@ -221,8 +248,8 @@ export const cardAt = (c: CardSeed, i: number, f: number): CardFrame => {
       const tf = flag + 8 + c.fallDelay;
       const q = ramp(f, tf, 64, (t) => t * t * t);
       // ---- S3: every application comes back, read
-      const dx = c.xr - TIE.rest[0];
-      const dy = c.yr - TIE.rest[1];
+      const dx = c.xr - MARK.x;
+      const dy = c.yr - MARK.y;
       const tRet = EV.s3ReadWave + Math.sqrt(dx * dx + dy * dy) / 42;
       const back = ramp(f, tRet, 40, EASE.out);
       const down = q * (1 - back);
@@ -234,6 +261,18 @@ export const cardAt = (c: CardSeed, i: number, f: number): CardFrame => {
       rz += c.spin[2] * down;
       if (back > 0.02) shade = 1;
     }
+  }
+
+  // ---- S3: the mark lands on the pile — cards under and around it yield
+  if (f >= MARK.land && f < MARK.land + 30) {
+    const dx = c.xr - MARK.x;
+    const dy = c.yr - MARK.y;
+    const d = Math.hypot(dx, dy);
+    const fall = Math.max(0, 1 - d / 420);
+    const k = Math.sin(ramp(f, MARK.land, 26, EASE.out) * Math.PI) * fall;
+    x += (dx / (d || 1)) * 26 * k;
+    y += (dy / (d || 1)) * 26 * k;
+    z -= 18 * k;
   }
 
   // ---- S3: pile becomes a list (flip-board morph at the edge-on moment)
@@ -259,16 +298,24 @@ export const cardAt = (c: CardSeed, i: number, f: number): CardFrame => {
   return {x, y, z, rx, ry, rz, sx, sy, shade, morph: morph >= 0.5 ? 1 : 0, visible: z > -4600};
 };
 
-// ---------- tie geometry (official "tie-only" mark, knot + blade) ----------
-const parsePoly = (d: string) =>
-  d
-    .replace(/[MLZ]/g, ' ')
-    .trim()
-    .split(/\s+/)
-    .map((p) => p.split(',').map(Number) as [number, number]);
-
-export const tieShapes = (knot: string, blade: string) =>
-  [knot, blade].map((d) => {
-    const pts = parsePoly(d).map(([px, py]) => new THREE.Vector2(px - 50, -(py - 10)));
-    return new THREE.Shape(pts);
-  });
+// ---------- house mark geometry (official path: outer house + knot/blade holes) ----------
+/** Parses the mark's SVG path (M/L/Q/Z) into a Shape with the tie as holes, centred on (50,50), y up. */
+export const houseShape = (d: string) => {
+  const subs = d.trim().split(/(?=M)/);
+  const toPath = (sub: string, path: THREE.Path) => {
+    const tok = sub.match(/[MLQZ]|-?\d+(?:\.\d+)?/g)!;
+    const P = (i: number) => [Number(tok[i]) - 50, 50 - Number(tok[i + 1])] as const;
+    for (let i = 0; i < tok.length; ) {
+      const c = tok[i];
+      if (c === 'M') { path.moveTo(...P(i + 1)); i += 3; }
+      else if (c === 'L') { path.lineTo(...P(i + 1)); i += 3; }
+      else if (c === 'Q') { const [cx, cy] = P(i + 1); const [x, y] = P(i + 3); path.quadraticCurveTo(cx, cy, x, y); i += 5; }
+      else if (c === 'Z') { path.closePath(); i += 1; }
+      else i += 1;
+    }
+    return path;
+  };
+  const shape = toPath(subs[0], new THREE.Shape()) as THREE.Shape;
+  subs.slice(1).forEach((sub) => shape.holes.push(toPath(sub, new THREE.Path())));
+  return shape;
+};

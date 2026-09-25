@@ -33,13 +33,13 @@ Rejected: `music_bed_take1–3`, `music_v2_a` — each has 10–15 s of dead sil
 | `sfx_ui_ticks` | applicant counter, score count-ups, meters |
 | `sfx_scan_sweep` | the keyword-filter scan line (S2) |
 | `sfx_cards_fall` | filtered cards dropping away |
-| `sfx_tie_swish` + `sfx_tock_b` + `sfx_impact_sub_a` | the tie landing (S3) |
+| `sfx_whoosh_fast_a` + `sfx_tock_b` + `sfx_impact_sub_a` | the house mark landing on the pile (S3) |
 | `sfx_shimmer_rise` | every application coming back, read |
 | `sfx_card_snap_cascade` | the pile snapping into a list |
 | `sfx_whoosh_fast_a/b`, `sfx_whoosh_panel` | wipes, the FLIP re-sort, shortlist cards rising |
 | `sfx_click_a/b`, `sfx_rec_beep`, `sfx_toast_pop` | UI: invites, anti-cheat switch, record, "Interview invite sent" |
 | `sfx_riser` + `sfx_impact_sub_b` | into the blue climax |
-| `sfx_logo_sting_35_a` | the tie dropping into the wordmark |
+| `sfx_whoosh_panel` + `sfx_logo_sting_35_a` | the house mark rising into the end-card lockup |
 
 Every cue's frame is listed in `tools/mix_audio.py` and matches `video/src/timeline.ts`.
 

@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {lerp, ramp} from '../anim';
 import {Chips, Hairline, Reveal} from '../components/Type';
-import {Avatar, Badge, BarWipe, Chrome, Meter, Switch} from '../components/ui';
+import {Avatar, Badge, BarWipe, Chrome, HouseMark, Meter, Switch} from '../components/ui';
 import {ROW, SKELETON} from '../three/textures';
 import {C, EASE, FONT, FW} from '../theme';
 import {EV, SCENES} from '../timeline';
@@ -139,7 +139,7 @@ const TableUI: React.FC = () => {
   const out = ramp(f, 956, 26, EASE.in); // table leaves upward as S5 takes the window
   return (
     <div style={{position: 'absolute', inset: 0, transform: `translateY(${-out * 1000}px)`}}>
-      <div style={{position: 'absolute', left: 32, top: 26, right: 32, transform: `translateY(${(1 - head) * -60}px)`, clipPath: `inset(${(1 - head) * 100}% 0 0 0)`}}>
+      <div style={{position: 'absolute', left: 94, top: 26, right: 32, transform: `translateY(${(1 - head) * -60}px)`, clipPath: `inset(${(1 - head) * 100}% 0 0 0)`}}>
         <Chrome title="Applicants · QA Engineer" right={<Badge kind="accent">312</Badge>} />
       </div>
       <div
@@ -195,7 +195,7 @@ const InterviewUI: React.FC = () => {
   };
   return (
     <div style={{position: 'absolute', inset: 0, transform: `translateY(${(1 - inP) * 900 - out * 40}px)`}}>
-      <div style={{position: 'absolute', left: 32, top: 26, right: 32}}>
+      <div style={{position: 'absolute', left: 94, top: 26, right: 32}}>
         <Chrome
           title="Video interview · QA Engineer"
           right={
@@ -311,6 +311,7 @@ export const ActTwo: React.FC = () => {
           overflow: 'hidden',
         }}
       >
+        <HouseMark size={40} style={{position: 'absolute', left: 32, top: 26, zIndex: 3}} />
         <TableUI />
         <InterviewUI />
       </div>

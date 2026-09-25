@@ -1,6 +1,7 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
 import {ramp, settle} from '../anim';
+import {LOGO} from '../brand/logo-data';
 import {C, EASE, FONT, FW} from '../theme';
 
 // Kit components (assets/brand/shadcn-editorial.html) at film scale (~2.1× web).
@@ -56,17 +57,20 @@ export const Avatar: React.FC<{initials: string; bg: string; size?: number}> = (
   </span>
 );
 
-/** Window chrome: three muted dots + title. Solid palette colours only. */
+/** Window chrome: title + right-hand slot. The app icon (house mark) is drawn by the
+ *  window itself so it holds still while the chrome content changes around it. */
 export const Chrome: React.FC<{title: string; right?: React.ReactNode}> = ({title, right}) => (
   <div style={{display: 'flex', alignItems: 'center', gap: 22, height: 40}}>
-    <div style={{display: 'flex', gap: 10}}>
-      {[0, 1, 2].map((i) => (
-        <span key={i} style={{width: 14, height: 14, borderRadius: 999, background: C.mutedLight}} />
-      ))}
-    </div>
     <span style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 28, letterSpacing: '-0.02em', color: C.white}}>{title}</span>
     <span style={{marginLeft: 'auto'}}>{right}</span>
   </div>
+);
+
+/** The official house mark (primary symbol), single path with the tie knocked out. */
+export const HouseMark: React.FC<{size: number; color?: string; style?: React.CSSProperties}> = ({size, color = C.blue, style}) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" style={style}>
+    <path fillRule="evenodd" d={LOGO.mark.d} fill={color} />
+  </svg>
 );
 
 /** Kit switch: grey-block track → blue when on, white knob. */
