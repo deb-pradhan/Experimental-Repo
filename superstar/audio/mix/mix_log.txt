@@ -269,23 +269,22 @@
  47.933  S07  slide          view scrolls down to the core
  48.367  S07  ping           burst arrives, core breathes
  48.367  S07  draw           dur=18 · core emits the output line
- 48.600  S07  swipe          placeholder "awaiting 18 inputs" masks out
+ 48.600  S07  swipe          waiting dots collapse
  48.667  S07  impact_soft    output reaches the "picture" panel (border flashes)
  48.700  S07  draw           dur=16 · quadrant axes draw
  48.833  S07  pop            −2h point
  48.950  S07  pop            −1h point
  49.067  S07  blip           turquoise `now` point lands in price ↓ · OI ↓
  49.100  S07  lock           active quadrant latches
- 49.100  S07  type           dur=21 · composite state readout
- 49.300  S07  shimmer        "Long unwind" resolves
+ 49.267  S07  shimmer        "Long unwind" rises in
  49.767  S07  swipe          step header masks out
  49.900  S07  whoosh         card slides up and out
  49.967  S07  card_out       
  50.233  S08  tick_train     dur=48 · 48 hourly candles print left→right
  50.300  S08  card_in        chart card rises into place
- 50.650  S08  card_in        BULL card drops in ("bull")
+ 50.517  S08  card_in        BULL card drops in, word lands on "bull"
  50.717  S08  swipe          tug bar leans bull
- 51.583  S08  card_in        BEAR card rises in ("bear")
+ 51.450  S08  card_in        BEAR card rises in, word lands on "bear"
  51.650  S08  swipe          tug bar leans bear
  52.900  S08  tick_train     dur=60 · both invalidation prices scramble
  53.433  S08  draw           dur=10 · bull invalidation line
@@ -323,6 +322,7 @@
  68.800  S10  swipe          headline exits up
  68.933  S10  draw           dur=18 · loss-limit line draws across
  69.233  S10  card_in        rule rows 01/02/03 slide in
+ 69.267  S10  whoosh         soft · chart pulls back (time + price zoom out) as the limit
  69.300  S10  lock           loss limit locks in (before entry)
  69.333  S10  swipe          rule 01 fills Blue Glow
  70.317  S10  pop            price reaches entry · entry dot
@@ -354,12 +354,12 @@
  75.567  S10  ratchet        stop steps up to 116.5
  75.700  S10  click          pullback · stop holds (marker ring)
  75.833  S10  ratchet        stop steps up to 120.8
- 76.100  S11  ratchet        last stop step (S10 chart, carried over)
- 76.200  S11  lock           "protect" · LOCKED IN latch
+ 76.167  S11  ratchet        last stop step (S10 chart, carried over) · "protect"
+ 76.267  S11  lock           LOCKED IN latch closes
  76.300  S11  card_out       rule rows lift away
  76.567  S11  type           dur=16 · header → superstar · backtest
  76.667  S11  whoosh         card lifts + resizes into the backtest card
- 77.000  S11  draw           dur=230 · BTC + equity lines draw month by month
+ 77.000  S11  draw           dur=224 · BTC + equity lines draw month by month
  77.067  S11  shimmer        grid draws
  77.317  S11  blip           monthly bar 1 +6k
  77.550  S11  blip           monthly bar 2 +12k
@@ -369,16 +369,16 @@
  78.267  S11  blip           monthly bar 5 +39.2k
  78.500  S11  blip           monthly bar 6 +16.8k
  78.500  S11  pop            $124k callout (peak)
- 78.800  S11  blip           monthly bar 7 -18k
+ 78.783  S11  blip           monthly bar 7 -18k
  78.867  S11  tick           halfway marker drops
- 79.083  S11  blip           monthly bar 8 -7.8k
- 79.383  S11  blip           monthly bar 9 +27.8k
- 79.667  S11  blip           monthly bar 10 +18k
- 79.950  S11  blip           monthly bar 11 +25k
- 80.250  S11  blip           monthly bar 12 -5k
- 80.550  S11  blip           monthly bar 13 +28k
- 80.900  S11  blip           monthly bar 14 +13.465k
- 80.900  S11  pop            $63k callout
+ 79.067  S11  blip           monthly bar 8 -7.8k
+ 79.333  S11  blip           monthly bar 9 +27.8k
+ 79.617  S11  blip           monthly bar 10 +18k
+ 79.883  S11  blip           monthly bar 11 +25k
+ 80.167  S11  blip           monthly bar 12 -5k
+ 80.450  S11  blip           monthly bar 13 +28k
+ 80.800  S11  blip           monthly bar 14 +13.465k
+ 80.800  S11  pop            $63k callout
  80.900  S11  tick_train     dur=62 · $100,000 → $271,465 count-up
  81.933  S11  impact_soft    $271,465 lands ("finished")
  82.133  S11  pop            +171.46% chip (turquoise) · "positive"
@@ -409,7 +409,7 @@
  88.567  S12  shimmer        coin flip settles
  89.533  S12  swipe          "USDC out." rises
  89.733  S12  whoosh         coin lifts out and away
- 89.800  S12  card_out       wallet card drops
+ 89.867  S12  card_out       wallet card whooshes off left
  89.967  S12  swipe          last type clears → blue for the cut
  90.000  S13  whoosh_reverse mark flies in from depth, spinning
  91.000  S13  impact_big     FINAL HIT — the mark lands face-on
