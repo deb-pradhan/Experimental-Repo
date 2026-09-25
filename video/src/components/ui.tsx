@@ -123,11 +123,19 @@ export const Meter: React.FC<{label: string; value: number; start: number; width
   );
 };
 
-/** Kit toast (sonner): black pill, lime check. Springs up from below. */
-export const Toast: React.FC<{text: string; at: number; style?: React.CSSProperties}> = ({text, at, style}) => {
+/** Kit toast (sonner): black pill, lime check. On black grounds it takes the kit's
+ *  overlay hairline ring. Springs in from the right, masks out to the right. */
+export const Toast: React.FC<{text: string; at: number; outAt?: number; ring?: boolean; style?: React.CSSProperties}> = ({
+  text,
+  at,
+  outAt,
+  ring,
+  style,
+}) => {
   const f = useCurrentFrame();
   if (f < at) return null;
-  const s = settle(f, at, 26, 0.14);
+  const s = settle(f, at, 28, 0.1);
+  const o = outAt === undefined ? 0 : ramp(f, outAt, 16, EASE.in);
   return (
     <div
       style={{
@@ -139,13 +147,15 @@ export const Toast: React.FC<{text: string; at: number; style?: React.CSSPropert
         padding: '0 16px 0 36px',
         borderRadius: 999,
         background: C.black,
+        boxShadow: ring ? `inset 0 0 0 2px ${C.borderOnDark}` : undefined,
         color: C.white,
         fontFamily: FONT.sans,
         fontWeight: FW.mid,
         fontSize: 30,
         letterSpacing: '-0.01em',
         whiteSpace: 'nowrap',
-        transform: `translateY(${(1 - s) * 140}px)`,
+        transform: `translateX(${(1 - s) * 560 + o * 560}px)`,
+        clipPath: `inset(0 ${o * 100}% 0 0 round 999px)`,
         zIndex: 20,
         ...style,
       }}

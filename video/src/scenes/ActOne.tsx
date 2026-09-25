@@ -15,7 +15,7 @@ export const WINDOW = {x: 960, y: 150, r: 30} as const; // right edge = 1752, bl
 const Counter: React.FC = () => {
   const f = useCurrentFrame();
   const n = landedCount(f);
-  const pIn = ramp(f, EV.s1Counter, 28);
+  const pIn = ramp(f, 128, 28);
   const pOut = ramp(f, 244, 18, EASE.in);
   const y = (1 - pIn) * 135 - pOut * 135;
   return (
@@ -35,7 +35,8 @@ const Counter: React.FC = () => {
       }}
     >
       <div style={{transform: `translateY(${y}%)`, whiteSpace: 'nowrap'}}>
-        <span style={{fontVariantNumeric: 'tabular-nums', display: 'inline-block', minWidth: '1.72em'}}>{n}</span>{' '}
+        {/* revealed only once the count has three digits; tabular so the line never jitters */}
+        <span style={{fontVariantNumeric: 'tabular-nums'}}>{n}</span>{' '}
         applications.
       </div>
     </div>
@@ -51,11 +52,10 @@ const Meta: React.FC = () => {
     <div
       style={{
         position: 'absolute',
-        right: 168,
-        top: 128,
-        textAlign: 'right',
+        left: 168,
+        top: 944,
         fontFamily: FONT.mono,
-        fontSize: 22,
+        fontSize: 24,
         lineHeight: 1.5,
         letterSpacing: '0.04em',
         color: C.mutedDark,
@@ -71,37 +71,42 @@ const Meta: React.FC = () => {
   );
 };
 
-// Keyword tags ride the 3D scan line (projected every frame).
+// Keyword filter label + tags ride the 3D scan line (projected every frame).
 const ScanTags: React.FC = () => {
   const f = useCurrentFrame();
-  if (f < 266 || f > 400) return null;
+  if (f < 272 || f > 378) return null;
   const y = scanY(f);
-  const tags = ['"Selenium"', '"5+ years"', '"ISTQB"'];
-  const pIn = ramp(f, 270, 18);
+  const items = ['KEYWORD FILTER', '"Selenium"', '"5+ years"', '"ISTQB"'];
+  const anchor = project(f, -40, y, SCAN_Z);
+  let x = Math.max(anchor.x, 980);
   return (
     <>
-      {tags.map((t, i) => {
-        const pt = project(f, 60 + i * 235, y, SCAN_Z);
+      {items.map((t, i) => {
+        const label = i === 0;
+        const w = label ? 250 : t.length * 13 + 36;
+        const left = x;
+        x += w + 12;
+        const pt = project(f, left - 960, y, SCAN_Z);
         return (
           <div
             key={t}
             style={{
               position: 'absolute',
-              left: pt.x,
-              top: pt.y - 50,
-              height: 40,
+              left,
+              top: pt.y - 54,
+              height: 42,
               padding: '0 16px',
               display: 'flex',
               alignItems: 'center',
               borderRadius: 999,
-              background: C.black,
-              boxShadow: `inset 0 0 0 2px ${C.white}`,
-              color: C.white,
+              background: label ? C.white : C.black,
+              boxShadow: label ? undefined : `inset 0 0 0 2px ${C.white}`,
+              color: label ? C.black : C.white,
               fontFamily: FONT.mono,
-              fontSize: 20,
+              fontSize: label ? 18 : 20,
+              letterSpacing: label ? '0.08em' : 0,
               whiteSpace: 'nowrap',
-              clipPath: `inset(0 ${(1 - ramp(f, 270 + i * 5, 16)) * 100}% 0 0 round 999px)`,
-              opacity: pIn > 0 ? 1 : 0,
+              clipPath: `inset(0 ${(1 - ramp(f, 274 + i * 4, 14)) * 100}% 0 0 round 999px)`,
             }}
           >
             {t}
@@ -159,7 +164,7 @@ export const ActOne: React.FC<{hide?: string[]}> = ({hide = []}) => {
       <Pulse />
       <Chips labels={['HireHouse', 'Every application']} start={EV.s3ReadWave} exit={650} dark />
       <Reveal
-        text={'Every\napplication,\nread.'}
+        text={'Every application,\nread.'}
         start={EV.s3ReadWave + 6}
         exit={652}
         size={124}

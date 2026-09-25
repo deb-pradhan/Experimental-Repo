@@ -37,7 +37,7 @@ The primary symbol is the **house mark**: a house with the tie knocked out of it
 would go (the tie on its own is *not* the logo). It is our protagonist: it drops onto the pile and
 lands on it, the impact sends the read pulse through every application, then it lifts off and docks
 as the app icon in the product window's title bar, where it stays through the ranked table and the
-interview. On the end card it rises into the official centred lockup above the wordmark.
+interview. The end card uses one logo format only: the official tagline lockup (wordmark, rule, tagline).
 
 ## 3. Design law (non-negotiable — from `assets/brand/shadcn-editorial.html`)
 

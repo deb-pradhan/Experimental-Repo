@@ -25,8 +25,8 @@ export const EV = {
   landFirst: 20,
   landLast: 225,
   s2ChipIn: 262,
-  scanStart: 272,
-  scanEnd: 392,
+  scanStart: 276,
+  scanEnd: 372,
   s2Super: 300, // "Most are never read."
   s3TieStart: 500,
   s3TieLand: 530, // tock
@@ -45,7 +45,7 @@ export const EV = {
   s6Call: 1322, // "You make the call."
   s6Toast: 1350,
   s7Grow: 1400, // blue card grows into the ground
-  s7Words: [1456, 1502, 1528],
+  s7Words: [1446, 1498, 1524],
   s8Reveal: 1612, // blue curtain lifts
   s8Glyphs: 1622,
   s8TieDrop: 1640,

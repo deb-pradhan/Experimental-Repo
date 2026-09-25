@@ -39,7 +39,7 @@ Rejected: `music_bed_take1–3`, `music_v2_a` — each has 10–15 s of dead sil
 | `sfx_whoosh_fast_a/b`, `sfx_whoosh_panel` | wipes, the FLIP re-sort, shortlist cards rising |
 | `sfx_click_a/b`, `sfx_rec_beep`, `sfx_toast_pop` | UI: invites, anti-cheat switch, record, "Interview invite sent" |
 | `sfx_riser` + `sfx_impact_sub_b` | into the blue climax |
-| `sfx_whoosh_panel` + `sfx_logo_sting_35_a` | the house mark rising into the end-card lockup |
+| `sfx_logo_sting_35_a` | the wordmark lockup completing on the end card |
 
 Every cue's frame is listed in `tools/mix_audio.py` and matches `video/src/timeline.ts`.
 

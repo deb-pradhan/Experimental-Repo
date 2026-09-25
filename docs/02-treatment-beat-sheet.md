@@ -56,23 +56,26 @@ on a true 0–100 scale, dark alert: `✦ Session recorded per question and chec
 ## ACT III — THE DECISION
 
 ### S6 · The Shortlist — 0:20.0–0:24.0 · f 1200–1440 · bars 11–12 · black · 2D bleed
-The kit's hero layout: four staggered cards bleeding off the bottom — **lime, lilac, yellow, blue**
-— each a shortlisted candidate (monogram avatar, name, role, score). The black toast slides in:
-`Interview invite sent ✓` (lime check).
-- Super: **"A shortlist, not a spreadsheet."** then **"You make the call."**
-- SFX: four rising card hits on the beat, toast pop.
+The kit's hero layout: four staggered cards bleeding off the bottom, blue-first sequence —
+**blue, lime, lilac, yellow** — each a shortlisted, interview-verified candidate (index, name, role,
+score). "Send invite" is pressed on the blue card; the kit toast `Interview invite sent ✓` (lime check,
+hairline ring on black) springs in top-right.
+- Super: **"A shortlist, not a pile."** then **"You make the call."**
+- SFX: four card whooshes on the beat, click, toast pop.
 
 ### S7 · Climax — 0:24.0–0:27.0 · f 1440–1620 · bars 13–14(½) · BLUE · 2D kinetic
-The one blue ground in the film. Enormous white type, word by word from line masks:
-**"Hiring, decided on merit."** Bleeding white bars slice through between words.
-- SFX: riser resolves into the biggest hit of the film on the downbeat.
+The blue card grows into the ground: the one blue ground in the film. Enormous white type, word by
+word from line masks: **"Hiring, decided on merit."** On each word hit a white bar bleeds in from the
+right edge and stops just after the word (the deck's bleeding bar, mirrored so it never touches the
+type); a hairline draws under the last line.
+- SFX: riser resolves into the biggest hit of the film on the first word; air on each bar.
 
 ### S8 · End card — 0:27.0–0:30.0 · f 1620–1800 · white · logo
-White ground. The official **centred lockup** (hirehouse-tie-logo.html, "Social banner"): the
-wordmark in ink `#1F2430` builds glyph by glyph, the house mark rises into place above it from its
-own baseline as the VO says "HireHouse.", then the tagline sets beneath in the lockup's own ink.
-Footer: hirehouse.xyz · UAE · India. Hold.
-- SFX: panel whoosh → logo sting with a clean tail. The music's final hit lands on the reveal (27.0 s).
+The blue curtain lifts on the music's final hit. White ground, **one logo format only**: the official
+tagline lockup (wordmark in ink `#1F2430`, blue accent rule, "Hiring, decided on merit."). The wordmark
+builds glyph by glyph as the VO says "HireHouse.", the rule draws, the tagline sets. Footer:
+hirehouse.xyz · UAE · India. Hold.
+- SFX: logo sting with a clean tail.
 
 ---
 
@@ -81,4 +84,4 @@ Footer: hirehouse.xyz · UAE · India. Hold.
 2. **S3**: 3D pile → flat ranked list → table (the chaos-to-order morph).
 3. **S4**: live FLIP re-sort of the ranked table.
 4. **S3 → S4**: the house mark lands on the pile, then docks as the app icon.
-5. **S8**: glyph build + the house mark rising into the official lockup.
+5. **S8**: glyph build of the official tagline lockup.

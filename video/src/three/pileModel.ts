@@ -45,15 +45,15 @@ export const CARDS: CardSeed[] = (() => {
   const out: CardSeed[] = [];
   for (let i = 0; i < N; i++) {
     const u = i / (N - 1);
-    const sx = Math.min(2100, Math.max(880, 1340 + gauss() * 380));
+    const sx = Math.min(2100, Math.max(1000, 1400 + gauss() * 360));
     const sy = Math.min(1230, Math.max(690, 925 + gauss() * 115));
     const [xr, yr] = toWorld(sx, sy);
     const yaw = (r() - 0.5) * 1.2;
     out.push({
       tLand: EV.landFirst + (EV.landLast - EV.landFirst) * Math.pow(u, 0.55),
-      x0: xr + r() * 520,
-      y0: yr + 140 + r() * 460,
-      z0: 320 + r() * 620,
+      x0: xr + 120 + r() * 520,
+      y0: yr + 120 + r() * 360,
+      z0: 260 + r() * 520,
       xr,
       yr,
       zr: 2 + i * 1.1,
@@ -138,10 +138,10 @@ export const project = (f: number, x: number, y: number, z: number) => {
 
 // ---------- keyword filter scan ----------
 export const SCAN_Z = 240;
-export const scanY = (f: number) => lerp(760, -980, ramp(f, EV.scanStart, EV.scanEnd - EV.scanStart, EASE.inOut));
+export const scanY = (f: number) => lerp(180, -860, ramp(f, EV.scanStart, EV.scanEnd - EV.scanStart, (t) => t));
 const tFlag = (c: CardSeed) => {
-  // frame at which the scan line passes this card's top edge
-  const top = c.yr + CARD.h / 2;
+  // frame at which the scan line passes this card's centre (it greys exactly as the line crosses)
+  const top = c.yr;
   let lo: number = EV.scanStart;
   let hi: number = EV.scanEnd;
   for (let k = 0; k < 18; k++) {
@@ -162,8 +162,8 @@ export const MARK = {
   lift: EV.s3ListStart - 4,
   dock: 700,
   scale: 2.6, // 100-unit viewBox → 260 world units (house ≈ 224)
-  x: 330,
-  y: -235,
+  x: 360,
+  y: -130,
   // docked as the app icon in the window chrome: 40 px at the pixel-matched plane
   dockAt: [52, 344, 0] as [number, number, number],
   dockScale: 0.4,
@@ -242,7 +242,8 @@ export const cardAt = (c: CardSeed, i: number, f: number): CardFrame => {
   const flag = FLAG[i];
   if (f >= flag) {
     if (c.survivor) {
-      z += 70 * ramp(f, flag, 24, EASE.out);
+      z += 70 * ramp(f, flag, 24, EASE.out) + Math.max(0, Math.min(f, EV.s3TieLand) - flag) * 0.45;
+      rz += Math.max(0, Math.min(f, EV.s3TieLand) - flag) * 0.0012 * (c.yaw > 0 ? 1 : -1);
     } else {
       shade = GREY;
       const tf = flag + 8 + c.fallDelay;

@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {ActOne} from './scenes/ActOne';
 import {ActThree} from './scenes/ActThree';
-import {ActTwo} from './scenes/ActTwo';
+import {ACT2_IN, ActTwo} from './scenes/ActTwo';
 import {EndCard} from './scenes/EndCard';
 import {C} from './theme';
 import {SCENES} from './timeline';
@@ -19,7 +19,7 @@ export const Film: React.FC<{withAudio?: boolean}> = ({withAudio = true}) => {
         <ActOne />
       </Sequence>
       {/* Act II — the product: ranked, interviewed */}
-      {f >= SCENES.s4.from && f < SCENES.s5.to + 40 && <ActTwo />}
+      {f >= ACT2_IN && f < SCENES.s5.to + 40 && <ActTwo />}
       {/* End card sits under the blue curtain so the lift reveals it */}
       {f >= SCENES.s8.from - 30 && <EndCard />}
       {/* Act III — shortlist, climax */}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
 import {ramp} from '../anim';
-import {EASE, FONT, FW} from '../theme';
+import {C, EASE, FONT, FW} from '../theme';
 
 // Masks, not fades: every word rises from behind its own line mask
 // and leaves the same way. Lines are split on "\n".
@@ -88,9 +88,10 @@ export const Chips: React.FC<{
   start: number;
   exit?: number;
   dark?: boolean;
+  second?: 'lime' | 'white'; // second pill; white on lime grounds so it never disappears
   x?: number;
   y?: number;
-}> = ({labels, start, exit, dark, x = 152, y = 120}) => {
+}> = ({labels, start, exit, dark, second = 'lime', x = 152, y = 120}) => {
   const f = useCurrentFrame();
   const h = 64;
   return (
@@ -100,8 +101,8 @@ export const Chips: React.FC<{
         const q = exit === undefined ? 0 : ramp(f, exit + i * 3, 16, EASE.in);
         const first = i === 0;
         const single = labels.length === 1;
-        const bg = first ? (dark ? '#FFFFFF' : '#000000') : '#E9FEA3';
-        const fg = first ? (dark ? '#000000' : '#FFFFFF') : '#000000';
+        const bg = first ? (dark ? C.white : C.black) : second === 'white' ? C.white : C.lime;
+        const fg = first ? (dark ? C.black : C.white) : C.black;
         const radius = single ? '999px' : first ? '999px 0 0 999px' : '0 999px 999px 0';
         return (
           <div

@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {lerp, ramp} from '../anim';
-import {Chips, Hairline, Reveal} from '../components/Type';
+import {Chips, Reveal} from '../components/Type';
 import {Avatar, Badge, BarWipe, Chrome, HouseMark, Meter, Switch} from '../components/ui';
 import {ROW, SKELETON} from '../three/textures';
 import {C, EASE, FONT, FW} from '../theme';
@@ -27,6 +27,11 @@ export const CANDS: Cand[] = [
 const RANK = CANDS.map((c) => CANDS.filter((o) => o.score > c.score).length); // 0 = best
 
 const rowY = (k: number) => ROW.top + k * ROW.pitch;
+
+// ActTwo mounts a little before S4 (transparent) so its left column arrives as the void recedes.
+export const ACT2_IN = SCENES.s4.from - 22;
+// S4 → S5: one push moves the table out and the interview in together (no crossing text).
+const PUSH = {at: 948, dur: 36, h: 990};
 
 const Row: React.FC<{c: Cand; i: number}> = ({c, i}) => {
   const f = useCurrentFrame();
@@ -67,7 +72,7 @@ const Row: React.FC<{c: Cand; i: number}> = ({c, i}) => {
         borderRadius: ROW.r,
         background: C.white,
         zIndex: up ? 2 : 1,
-        transform: `translateX(${up ? -18 * moving : 10 * moving}px) scale(${1 + (up ? 0.025 : 0) * moving})`,
+        transform: `scale(${1 + (up ? 0.015 : 0) * moving})`,
       }}
     >
       {/* skeleton (matches the 3D row texture exactly at fill = 0) */}
@@ -126,7 +131,7 @@ const Row: React.FC<{c: Cand; i: number}> = ({c, i}) => {
             fontVariantNumeric: 'tabular-nums',
           }}
         >
-          {cnt > 0 ? Math.round(c.score * cnt) : '—'}
+          {Math.round(c.score * cnt)}
         </span>
       </div>
     </div>
@@ -135,10 +140,10 @@ const Row: React.FC<{c: Cand; i: number}> = ({c, i}) => {
 
 const TableUI: React.FC = () => {
   const f = useCurrentFrame();
-  const head = ramp(f, 722, 26, EASE.out);
-  const out = ramp(f, 956, 26, EASE.in); // table leaves upward as S5 takes the window
+  const head = ramp(f, 698, 26, EASE.out);
+  const push = ramp(f, PUSH.at, PUSH.dur, EASE.inOut); // one push: table up, interview up behind it
   return (
-    <div style={{position: 'absolute', inset: 0, transform: `translateY(${-out * 1000}px)`}}>
+    <div style={{position: 'absolute', inset: 0, transform: `translateY(${-push * PUSH.h}px)`}}>
       <div style={{position: 'absolute', left: 94, top: 26, right: 32, transform: `translateY(${(1 - head) * -60}px)`, clipPath: `inset(${(1 - head) * 100}% 0 0 0)`}}>
         <Chrome title="Applicants · QA Engineer" right={<Badge kind="accent">312</Badge>} />
       </div>
@@ -148,6 +153,7 @@ const TableUI: React.FC = () => {
           left: ROW.x - WINDOW.x,
           top: 108,
           width: ROW.w,
+          height: 30,
           fontFamily: FONT.mono,
           fontSize: 18,
           letterSpacing: '0.06em',
@@ -161,9 +167,7 @@ const TableUI: React.FC = () => {
         <span style={{position: 'absolute', right: ROW.w - 712}}>SCORE</span>
       </div>
       <div style={{position: 'absolute', left: ROW.x - WINDOW.x, top: 148, width: ROW.w * head, height: 2, background: C.borderOnDark}} />
-      {CANDS.map((c, i) => (
-        <Row key={c.name} c={c} i={i} />
-      ))}
+      {f >= SCENES.s4.from && CANDS.map((c, i) => <Row key={c.name} c={c} i={i} />)}
     </div>
   );
 };
@@ -183,18 +187,18 @@ const Waveform: React.FC<{active: number}> = ({active}) => {
 
 const InterviewUI: React.FC = () => {
   const f = useCurrentFrame();
-  if (f < 950) return null;
-  const inP = ramp(f, 962, 30, EASE.out);
+  if (f < PUSH.at) return null;
+  const push = ramp(f, PUSH.at, PUSH.dur, EASE.inOut);
   const out = ramp(f, 1190, 10, EASE.in);
   const secs = 38 + Math.floor(Math.max(0, f - EV.s5Rec) / 60);
   const recOn = f >= EV.s5Rec;
   const talk = ramp(f, EV.s5Rec, 20) * (1 - ramp(f, 1150, 20));
   const block = (delay: number): React.CSSProperties => {
-    const p = ramp(f, 966 + delay, 28, EASE.out);
+    const p = ramp(f, 972 + delay, 28, EASE.out);
     return {transform: `translateY(${(1 - p) * 80}px)`, clipPath: `inset(0 0 ${(1 - p) * 100}% 0)`};
   };
   return (
-    <div style={{position: 'absolute', inset: 0, transform: `translateY(${(1 - inP) * 900 - out * 40}px)`}}>
+    <div style={{position: 'absolute', inset: 0, transform: `translateY(${(1 - push) * PUSH.h - out * 40}px)`}}>
       <div style={{position: 'absolute', left: 94, top: 26, right: 32}}>
         <Chrome
           title="Video interview · QA Engineer"
@@ -234,23 +238,6 @@ const InterviewUI: React.FC = () => {
   );
 };
 
-const MeritStat: React.FC = () => {
-  const f = useCurrentFrame();
-  const p = ramp(f, 884, 40, EASE.kit);
-  const out = ramp(f, 944, 1);
-  if (f < 872 || out >= 1) return null;
-  const lab = ramp(f, 900, 24, EASE.out);
-  return (
-    <>
-      <Hairline x={168} y={760} w={640} start={872} color={C.borderStrong} />
-      <Reveal text={String(Math.round(93 * p))} start={880} size={200} weight={FW.bold} color={C.black} tracking={-0.06} numeric style={{position: 'absolute', left: 160, top: 786}} />
-      <div style={{position: 'absolute', left: 168, top: 1000, fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 26, color: C.label, clipPath: `inset(0 ${(1 - lab) * 100}% 0 0)`}}>
-        Merit score · rank 1 of 312
-      </div>
-    </>
-  );
-};
-
 const AlertDark: React.FC = () => {
   const f = useCurrentFrame();
   const p = ramp(f, 1060, 30, EASE.out);
@@ -272,11 +259,10 @@ const AlertDark: React.FC = () => {
       }}
     >
       <span style={{color: C.lime, fontWeight: FW.bold, fontSize: 30, lineHeight: 1.1}}>✦</span>
-      <div>
-        <div style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 28, letterSpacing: '-0.01em'}}>Anti-cheat monitoring is active</div>
-        <div style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 22, color: C.mutedDark, marginTop: 8, lineHeight: 1.45}}>
-          The session is recorded per question and checked for integrity.
-        </div>
+      <div style={{fontFamily: FONT.sans, fontWeight: FW.mid, fontSize: 30, letterSpacing: '-0.015em', lineHeight: 1.35, color: C.white}}>
+        Session is recorded per question
+        <br />
+        and checked for integrity.
       </div>
     </div>
   );
@@ -284,17 +270,17 @@ const AlertDark: React.FC = () => {
 
 export const ActTwo: React.FC = () => {
   const f = useCurrentFrame();
-  if (f < SCENES.s4.from || f >= SCENES.s5.to) return null;
+  if (f < ACT2_IN || f >= SCENES.s5.to) return null;
+  const pre = f < SCENES.s4.from; // the 3D act still owns the ground and the rows
   return (
-    <AbsoluteFill style={{background: C.white}}>
+    <AbsoluteFill style={{background: pre ? 'transparent' : C.white}}>
       {/* S4 left column */}
-      <Chips labels={['Ranking', 'Skills and fit']} start={726} exit={946} />
-      <Reveal text={'Ranked on merit,\nnot keywords.'} start={733} exit={944} size={112} color={C.black} stagger={5} style={{position: 'absolute', left: 168, top: 218}} />
-      <MeritStat />
+      <Chips labels={['Ranking', 'Skills and fit']} start={700} exit={946} />
+      <Reveal text={'Ranked on merit,\nnot keywords.'} start={708} exit={944} size={100} color={C.black} stagger={5} style={{position: 'absolute', left: 168, top: 218}} />
 
       {/* → S5 ground */}
       <BarWipe start={EV.s5Wipe} color={C.lime} />
-      <Chips labels={['Interview', 'Integrity checks']} start={974} />
+      <Chips labels={['Interview', 'Integrity checks']} start={974} second="white" />
       <Reveal text={'Interviewed\nfor real.'} start={976} size={130} color={C.black} stagger={5} style={{position: 'absolute', left: 168, top: 218}} />
       <AlertDark />
 
@@ -307,11 +293,11 @@ export const ActTwo: React.FC = () => {
           width: 1752 - WINDOW.x,
           height: 1080 - WINDOW.y + 60,
           borderRadius: WINDOW.r,
-          background: C.black,
+          background: pre ? 'transparent' : C.black,
           overflow: 'hidden',
         }}
       >
-        <HouseMark size={40} style={{position: 'absolute', left: 32, top: 26, zIndex: 3}} />
+        {!pre && <HouseMark size={40} style={{position: 'absolute', left: 32, top: 26, zIndex: 3}} />}
         <TableUI />
         <InterviewUI />
       </div>

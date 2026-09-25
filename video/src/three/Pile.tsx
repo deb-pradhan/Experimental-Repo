@@ -50,7 +50,18 @@ void main() {
   vec4 b = textureLod(uRow, vUv, vLod);
   vec4 c = mix(a, b, step(0.5, vMorph));
   if (c.a < 0.5) discard;
-  gl_FragColor = vec4(c.rgb * vShade, 1.0);
+  vec3 col = c.rgb;
+  if (vShade < 0.99) {
+    // Flagged card: remap to exact palette greys (no tints of the accents).
+    float l = dot(col, vec3(0.299, 0.587, 0.114));
+    float sat = max(col.r, max(col.g, col.b)) - min(col.r, min(col.g, col.b));
+    if (sat > 0.08) col = vec3(0.6039);            // accent swatch → #9A9A9A
+    else if (l > 0.96) col = vec3(0.8118);         // paper → #CFCFCF (grey block)
+    else if (l > 0.70) col = vec3(0.6039);         // light lines → #9A9A9A
+    else if (l > 0.25) col = vec3(0.3333);         // mid lines → #555555
+    else col = vec3(0.0);
+  }
+  gl_FragColor = vec4(col, 1.0);
 }`;
 
 const Cards: React.FC = () => {
@@ -117,13 +128,14 @@ const Cards: React.FC = () => {
   return <instancedMesh ref={mesh} args={[geometry, material, N]} frustumCulled={false} />;
 };
 
-// The official house mark, extruded: blue faces, logo-ink sides, tie knocked out as a real hole.
+// The official house mark, extruded in one flat blue (no rim that could read as an outline),
+// the tie knocked out as a real hole.
 const Mark: React.FC = () => {
   const f = useCurrentFrame();
   const {geo, mats} = useMemo(() => {
     const g = new THREE.ExtrudeGeometry(houseShape(LOGO.mark.d), {depth: 10, bevelEnabled: false, curveSegments: 16});
     g.translate(0, 0, -5);
-    return {geo: g, mats: [new THREE.MeshBasicMaterial({color: C.blue}), new THREE.MeshBasicMaterial({color: C.ink})]};
+    return {geo: g, mats: [new THREE.MeshBasicMaterial({color: C.blue}), new THREE.MeshBasicMaterial({color: C.blue})]};
   }, []);
   const st = markState(f);
   return (
@@ -134,7 +146,7 @@ const Mark: React.FC = () => {
 const ScanLine: React.FC = () => {
   const f = useCurrentFrame();
   const y = scanY(f);
-  const visible = f > 268 && f < 400;
+  const visible = f > 270 && f < 380;
   return (
     <mesh position={[400, y, SCAN_Z]} visible={visible}>
       <planeGeometry args={[6000, 3]} />

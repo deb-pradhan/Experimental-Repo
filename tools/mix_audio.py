@@ -52,10 +52,10 @@ SFX = [
     ('sfx_paper_flurry_4s_b.mp3', 150, -11, [0.0, 4.0], 0.8),
     ('sfx_ui_ticks.mp3', 104, -24, [0.0, 2.0], 0.3),
     # S2 keyword filter
-    ('sfx_scan_sweep.mp3', 270, -17, [0.0, 2.2], 0.5),
-    ('sfx_cards_fall.mp3', 300, -11, [0.3, 0.7], 0.2),
-    ('sfx_cards_fall.mp3', 336, -12, [0.3, 0.7], 0.2),
-    ('sfx_cards_fall.mp3', 372, -13, [0.3, 0.7], 0.2),
+    ('sfx_scan_sweep.mp3', 274, -17, [0.0, 1.9], 0.4),
+    ('sfx_cards_fall.mp3', 318, -11, [0.3, 0.7], 0.2),
+    ('sfx_cards_fall.mp3', 346, -12, [0.3, 0.7], 0.2),
+    ('sfx_cards_fall.mp3', 374, -13, [0.3, 0.7], 0.2),
     # S3 the house mark lands on the pile, the read, the list
     ('sfx_whoosh_fast_a.mp3', 506, -9, [0.2, 1.1], 0.3),  # the mark rushes in
     ('sfx_impact_sub_a.mp3', 530, -7, [0.0, 1.0], 0.3),
@@ -82,14 +82,15 @@ SFX = [
     ('sfx_whoosh_panel.mp3', 1272, -16, [0.0, 0.9], 0.2),
     ('sfx_whoosh_panel.mp3', 1302, -14, [0.0, 0.9], 0.2),
     ('sfx_click_a.mp3', 1346, -16, [0.0, 0.48], 0.05),
-    ('sfx_toast_pop.mp3', 1352, -8, [0.0, 1.0], 0.2),
+    ('sfx_toast_pop.mp3', 1354, -8, [0.0, 1.0], 0.2),
     # S7 climax
-    ('sfx_riser.mp3', 1456, -14, [0.0, 2.1], 0.05),  # riser ends on the first word (transient = end, see below)
-    ('sfx_impact_sub_b.mp3', 1456, -6, [0.0, 1.0], 0.3),
+    ('sfx_riser.mp3', 1446, -14, [0.0, 2.1], 0.05),  # riser ends on the first word (transient = end, see below)
+    ('sfx_impact_sub_b.mp3', 1446, -6, [0.0, 1.0], 0.3),
+    ('sfx_whoosh_fast_b.mp3', 1496, -18, [0.0, 0.8], 0.2),  # slash on "decided"
+    ('sfx_whoosh_fast_b.mp3', 1522, -17, [0.0, 0.8], 0.2),  # slash on "on merit."
     # S8 end card
     ('sfx_whoosh_fast_a.mp3', 1616, -13, [0.2, 1.2], 0.3),
-    ('sfx_whoosh_panel.mp3', 1642, -14, [0.0, 1.0], 0.3),  # house mark rises into the lockup
-    ('sfx_logo_sting_35_a.mp3', 1660, -5, [0.0, 3.48], 1.0),
+    ('sfx_logo_sting_35_a.mp3', 1658, -5, [0.0, 3.48], 1.0),  # the wordmark completes as the VO says "HireHouse."
 ]
 # SFX whose placement is anchored at their END rather than their start
 END_ANCHORED = {'sfx_riser.mp3'}

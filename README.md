@@ -19,7 +19,7 @@ The hero move is the pile **flattening into a ranked list**: the camera settles 
 frontal view, every card flips edge-on into a list row, and the black void contracts into the product
 window, where the DOM table takes over on the exact pixels the 3D rows left. The **house mark** (the
 primary symbol, a house with the tie knocked out) is the through-line: it lands on the pile and reads
-every application, docks as the app icon in the product window, and rises into the official lockup at the end.
+every application and docks as the app icon in the product window; the end card is the official tagline lockup.
 
 | # | Scene | Time | Ground | Stack |
 |---|---|---|---|---|
@@ -30,7 +30,7 @@ every application, docks as the app icon in the product window, and rises into t
 | S5 | "Interviewed for real." (video interview, anti-cheat, meters) | 16–20 s | lime | 2D UI |
 | S6 | "A shortlist, not a pile." / "You make the call." | 20–24 s | black | 2D bleed |
 | S7 | "Hiring, decided on merit." | 24–27 s | **blue** (once) | 2D kinetic |
-| S8 | Official centred lockup: house mark rises above the wordmark | 27–30 s | white | logo |
+| S8 | Official tagline lockup, built glyph by glyph | 27–30 s | white | logo |
 
 ## Repository
 
