@@ -17,6 +17,9 @@ This folder documents the full process behind **Deploy Finance: Superstar launch
 
 ## Read in this order
 
+> **Short on time?** Start with [00-quick-guide.md](00-quick-guide.md): summary, step-by-step process, master prompt and sub-agent prompts in one file.
+
+
 | # | File | What's in it |
 |---|---|---|
 | 1 | [01-pipeline-overview.md](01-pipeline-overview.md) | The whole pipeline in diagrams: phases, dependencies, timeline, artefacts |
